@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="history-gedit2_replace_with_entry" mtime="1407708212" type="list" ltype="string">
+                <li type="string">
+                        <stringvalue>Takanori</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>citep{</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>\undefined</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>\let</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>\undefined			</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>\let\</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>\citep{</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>\citep</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>citep</stringvalue>
+                </li>
+        </entry>
+        <entry name="history-gedit2_search_for_entry" mtime="1407708212" type="list" ltype="string">
+                <li type="string">
+                        <stringvalue>takanori</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>home</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>copy</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>for e</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>support v</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>ref{</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>chen</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>obozin</stringvalue>
+                </li>
+                <li type="string">
+                        <stringvalue>mycellcol</stringvalue>
+                </li>
+        </entry>
+</gconf>

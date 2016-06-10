@@ -1,0 +1,21 @@
+<snippet>
+    <content><![CDATA[
+.. image:: ${1:image-link}
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>image</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!-- 
+
+<script type="text/x-mathjax-config">  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']], displayMath:[["$$","$$"]]  }});</script>
+<script type="text/x-mathjax-config">  MathJax.Hub.Config({  TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script type="text/javascript"  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ -->

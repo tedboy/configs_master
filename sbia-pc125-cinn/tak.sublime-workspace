@@ -1,0 +1,2231 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/takanori/Downloads/demo.m",
+			"settings":
+			{
+				"buffer_size": 5383,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/algorithms-ml/readme.rst",
+			"settings":
+			{
+				"buffer_size": 214,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/tmp/multiReg/june20_spectrum_diffmats.m",
+			"settings":
+			{
+				"buffer_size": 1058,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/takanori/tmp/multiReg/june22_check_kronSpectralNorm.m",
+			"settings":
+			{
+				"buffer_size": 158,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/takanori/tmp/multiReg/may30_spectr_rad_flasso2.m",
+			"settings":
+			{
+				"buffer_size": 1814,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/takanori/tmp/multiReg/simulation/june29_4d_weight_STL_and_MTL_ARfeature.m",
+			"settings":
+			{
+				"buffer_size": 13309,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/algorithms-ml/multiout-regression/tak_EN_regr_FISTA.m",
+			"settings":
+			{
+				"buffer_size": 5508,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/snippet_book/bash/helper-bash.rst",
+			"settings":
+			{
+				"buffer_size": 18879,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/obsolete/save_IBIS_cleaned_data.m",
+			"settings":
+			{
+				"buffer_size": 12198,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "drop_17 = {'187985_V12_adj_All.txt'; ...\n           '214001_V12_adj_All.txt'; ...\n           '262343_V12_adj_All.txt'; ...\n           '303247_V12_adj_All.txt'; ...\n           '336398_V12_adj_All.txt'; ...\n           '465514_V12_adj_All.txt'; ...\n           '488284_V12_adj_All.txt'; ...\n           '568175_V12_adj_All.txt'; ...\n           '570888_V12_adj_All.txt'; ...\n           '581931_V12_adj_All.txt'; ...\n           '749359_V12_adj_All.txt'; ...\n           '767411_V12_adj_All.txt'; ...\n           '778775_V12_adj_All.txt'; ...\n           '866415_V12_adj_All.txt'; ...\n           '883733_V12_adj_All.txt'; ...\n           '947923_V12_adj_All.txt'; ...\n           '988799_V12_adj_All.txt'}",
+			"settings":
+			{
+				"buffer_size": 692,
+				"line_ending": "Unix",
+				"name": "drop_17 = {'187985_V12_adj_All.txt'; ..."
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/configs_master/cygwin/.bash_aliases",
+			"settings":
+			{
+				"buffer_size": 14658,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Package Control Messages\n========================\n\nAnaconda:\n--------\n\n  Changes in 1.4.11\n  =================\n  \n  ## Fixes:\n      - Fixed call to deprecate Jedi goto method in the Script object\n        this partially solves #337\n      - Corrected path names to work correctly on Windows systems\n      - Fixed test_path to use cross-platform path separator\n  \n  ## Updates:\n      - Updated Jedi to 7c4ef73669ce3a85ec61a5846e5979d27b9e28d0\n  \n  For more detailed information about those changes run git v1.4.10..v1.4.11 on git repository\n\n\nGitGutter:\n---------\n\n  😍 Love Git Gutter? Want to support development?\n  \n  I've teamed up with Wes Bos to offer a discount on Sublime Text Power User.\n  \n  Become amazing with Sublime Text with this book + video series. 📖📹\n  \n  Join 3,000 other developers who have increased productivity and become better developers.\n  \n  \n  👉 SublimeTextBook.com/friend/GITGUTTER\n  💰 Use the coupon code GITGUTTER for $10 off 💵\n  \n  This is a fantastic resource - 100% money back guarantee! 🌟\n  \n\n  * Fixes a bug dealing with UTF-8 with BOM\n  \n  * Fixes ST3 not working with Cygwin git\n  \n  * Make non_blocking mode work in ST2\n  \n\n\nTerminal:\n--------\n\n  Sublime Terminal 1.7.0 Changelog:\n  - Introduced OS specific settings via @ErichDonGubler in #79\n      - https://github.com/wbond/sublime_terminal/pull/79\n      - These can be accessed via \"Preferences -> Package Settings -> Terminal -> Settings - More -> OS Specific - User\"\n  \n\n\nLaTeXing:\n--------\n\n  LaTeXing 1.2.15\n  ===============\n  \n  Improved\n  --------\n  \n  - Further performance enhancements\n  \n  \n  Fixed\n  -----\n  \n  - Generation of chapter/section label\n  \n  - Performance issue while keyboard listener\n \n\nTerminal:\n--------\n\n  Sublime Terminal 1.8.0 Changelog:\n  - Added support for opening a new tab in iTerm via @vitorhsb in #72\n      - https://github.com/wbond/sublime_terminal/pull/72\n      - If you are using the `iTerm.sh` as your terminal, this can be configured via:\n          {\n            \"terminal\": \"iTerm.sh\",\n            \"parameters\": [\"--open-in-tab\"]\n          }\n  \n\n\nBracketHighlighter:\n------------------\n\n  # BracketHighlighter 2.8.0\n  \n  ## New\n  - ure.py has been removed in favor of backrefs which adds support for numerous backrefs in regex expressions.\n  - Regex back references for upper case and lower case classes in search via `\\c` and `\\l` and the inverse can be done with `\\L` and `\\C`.\n  - Quoting/escaping can be done with `\\Q...\\E`.\n  - Unicode properties can now use verbose names such as `\\p{Uppercase_Letter}`.\n  - Inverse Unicode property support via `\\P{Lu}` or `\\P{Uppercase_Letter}`.\n  - Unicode properties are now more compact and included directly in backrefs.  The unicode cache in the User folder is no longer needed and can be removed.\n  - Better ruby do block support.\n  - Bh_plugin settings for tag highlighting have been moved to `bh_tag.sublime-settings`.\n  - Tag settings have been exposed for defining single tags and self closing tags via `self_closing_tags` and `single_tags`.\n  - Better bracket support for AAAPackageDev's `yaml-tmlanguage` syntax format.\n  \n  ## Notes\n  You can safely delete `bh_unicode_properties.cache` from your `Packages/User` folder.\n  \n  Check out documentation for more information on the new extended back reference support.\n  \n",
+			"settings":
+			{
+				"buffer_size": 3305,
+				"line_ending": "Unix",
+				"name": "Package Control Messages",
+				"scratch": true
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/EVE-301/301_labels.txt",
+			"settings":
+			{
+				"buffer_size": 1466,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/2015-work/IBIS-data/Probabilistic_Connectivity/Lists/has_both",
+			"settings":
+			{
+				"buffer_size": 7337,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/86_labels.txt",
+			"settings":
+			{
+				"buffer_size": 393,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/301_labels.txt",
+			"settings":
+			{
+				"buffer_size": 1466,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "add",
+		"selected_items":
+		[
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"add ",
+				"Project: Add Folder"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"add f",
+				"Project: Add Folder"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"add fo",
+				"Project: Add Folder"
+			],
+			[
+				"renae",
+				"File: Rename"
+			],
+			[
+				"omni",
+				"OmniMarkupPreviewer: Export Current Markup as HTML"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove p",
+				"Package Control: Remove Package"
+			],
+			[
+				"restru",
+				"Set Syntax: reStructuredText"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"lisp",
+				"Set Syntax: Lisp"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"matlab",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"a",
+				"Project: Add Folder"
+			],
+			[
+				"ad",
+				"Project: Add Folder"
+			],
+			[
+				"diff",
+				"FileDiffs: Menu"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"file di",
+				"FileDiffs: Menu"
+			],
+			[
+				"prv",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"package re",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"sftp ",
+				"SFTP: Sync Local -> Remote…"
+			],
+			[
+				"sftp",
+				"SFTP: Sync Local -> Remote…"
+			],
+			[
+				"trai",
+				"Trailing Spaces: Toggle Trailing Spaces Highlighting"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 732.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis"
+	],
+	"file_history":
+	[
+		"/home/takanori/Dropbox/2015-work/matlab/others/brain-analysis-for-gender-classification/participation_coeff/partcf_normalized_errorbars.m",
+		"/home/takanori/Downloads/edge_betweenness_bin (1).m",
+		"/home/takanori/tmp/multiReg/util/slab_functions/permutation_test.m",
+		"/home/takanori/tmp/multiReg/tnormest.m",
+		"/home/takanori/tmp/multiReg/tak_sample_signed_unif.m",
+		"/home/takanori/tmp/multiReg/tak_ridge_regression.m",
+		"/home/takanori/tmp/multiReg/june18_lapinv_check.m",
+		"/home/takanori/Downloads/eigenvector_centrality_und.m",
+		"/home/takanori/Downloads/pagerank_centrality.m",
+		"/home/takanori/Downloads/efficiency_bin.m",
+		"/home/takanori/Downloads/betweenness_bin.m",
+		"/home/takanori/Downloads/distance_bin.m",
+		"/home/takanori/Downloads/charpath.m",
+		"/home/takanori/.cache/.fr-9WBHCh/mpe.m",
+		"/home/takanori/Downloads/findpaths (1).m",
+		"/home/takanori/Downloads/kcore_bu.m",
+		"/home/takanori/Downloads/rich_club_bu (1).m",
+		"/home/takanori/Dropbox/2015-work/matlab/others/brain-analysis-for-gender-classification/classify/brain_classify_set1.py",
+		"/home/takanori/Downloads/kcoreness_centrality_bu.m",
+		"/home/takanori/Dropbox/2015-work/matlab/others/brain-analysis-for-gender-classification/edge_betweenness/edge_betweenness_normalized_errorbars_final.m",
+		"/home/takanori/Dropbox/2015-work/matlab/others/brain-analysis-for-gender-classification/efficiency/efficiency_normalized_errorbars.m",
+		"/home/takanori/Dropbox/2015-work/matlab/others/brain-analysis-for-gender-classification/normalization_scripts/csv_to_mat.m",
+		"/home/takanori/Dropbox/git/configs_master/autohotkey/myHotStrings.ahk",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/86/labels.txt",
+		"/home/takanori/.cache/.fr-8JCQXM/covCor.m",
+		"/home/takanori/Dropbox/2015-work/matlab-autosave/t_0721_FA176_diffFeature_classify_risk.m~",
+		"/home/takanori/tmp/multiReg/simulation/tak_sim_plot_alg_result.m",
+		"/home/takanori/tmp/multiReg/tak_eig.m",
+		"/home/takanori/Dropbox/git/mywebpage/php-parts/header.php",
+		"/home/takanori/tmp/multiReg/Untitled.m",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/.gitconfig",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/readme-data-local.rst",
+		"/home/takanori/.cache/.fr-zuZDPn/spcl.m",
+		"/home/takanori/tmp/multiReg/june20_spectrum_diffmats.m",
+		"/home/takanori/.cache/.fr-9lD81S/lassplore/lassplore/lassplore_nemi.m",
+		"/home/takanori/.cache/.fr-GFKIQa/lassplore/lassplore/lassplore.m",
+		"/home/takanori/.cache/.fr-EQDZ1u/nearestneighbour.m",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/.gitignore",
+		"/home/takanori/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/tak_get_session_info.m",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/util-matlab-new/cv-tools/readme.rst",
+		"/home/takanori/Downloads/plot_covariance_estimation.py",
+		"/home/takanori/.cache/.fr-dNh23l/covMarket.m",
+		"/home/takanori/.cache/.fr-r8rnL6/cov1para.m",
+		"/home/takanori/.cache/.fr-750UoI/nearestneighbour.m",
+		"/home/takanori/Downloads/vcard.aspx",
+		"/home/takanori/Dropbox/git/mywebpage/php-parts/navbar-black.php",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/website/index.php",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/website/.htaccess",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/projects/ACE-IBIS/Nifti/DeformedDTIImages_Scalars/ibis_subjects_scalars.csv",
+		"/run/user/1000/gvfs/sftp:host=newberry.eecs.umich.edu,user=takanori/w/takanori/public/html_new/php-parts/header.php",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/EVE-176-diffusion-measure/centroid_ver2.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/tmp_test/eve-176-centroids.txt",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/JHU_1mm_template/JhuMniSSLabelLookupTable_1.txt",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/JHU_1mm_template/JhuMniSSLabelLookupTable_2.txt",
+		"/home/takanori/Dropbox/git/snippet_book/bash/helper-bash-scripting.rst",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/Template/readme.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/tmp_test/make_centroid_eve176.sh",
+		"/home/takanori/.config/sublime-text-3/Packages/User/rst-ref.sublime-snippet",
+		"/home/takanori/.config/sublime-text-3/Packages/User/rst-linkp.sublime-snippet",
+		"/home/takanori/Dropbox/git/snippet_book/bash/scripts/tldp_practice/_7.sh",
+		"/home/takanori/Dropbox/git/snippet_book/bash/scripts/bracket_test.sh",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/EVE-176/readme.txt",
+		"/home/takanori/.config/sublime-text-3/Packages/User/bash-shebang.sublime-snippet",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/projects/ACE-IBIS/Segmentation_to_Atlas_Space/slicer_applydisplacementfield.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/projects/ACE-IBIS/Segmentation_to_Atlas_Space/ibis_submit_segmentation_to_atlas_registration.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/projects/ACE-IBIS/Segmentation_to_Atlas_Space/ibis_submit_t1_to_atlas_registration.sh",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/rst-notes/autism_score.rst",
+		"/home/takanori/.cache/.fr-BpoQz4/erdosRenyi.m",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/EVE-176-diffusion-measure/centroid_try1.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/tmp_test/EVE_1mm_to_DTIAtlas_v06v12v24_ROIs.nii.gz",
+		"/home/takanori/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/takanori/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/takanori/.config/sublime-text-3/Packages/User/rst-sectnum.sublime-snippet",
+		"/home/takanori/.config/sublime-text-3/Packages/User/rsk-sh.sublime-snippet",
+		"/home/takanori/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/takanori/.config/sublime-text-3/Packages/sublime-rst-completion/Default (Linux).sublime-keymap",
+		"/home/takanori/.config/sublime-text-3/Packages/User/sublime-rst-completion.sublime-keymap",
+		"/home/takanori/.gitconfig",
+		"/home/takanori/Dropbox/git/snippet_book/latest_file.sh",
+		"/home/takanori/Dropbox/git/snippet_book/bash/scripts/tldp_practice/_try.sh",
+		"/home/takanori/Dropbox/git/snippet_book/bash/by-commands/bash-find.rst",
+		"/home/takanori/Dropbox/research_dropbox/coding-reference/bash/readme.txt",
+		"/home/takanori/Dropbox/git/configs_master/sublime-text/html_code_dasher.sublime-snippet",
+		"/home/takanori/Dropbox/2015-work/matlab/others/brain-analysis-for-gender-classification/classify/plot_decision_tree.py",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/tmp/SpectralClustering/files/SimilarityGraph/SimGraph_Epsilon.m",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/tmp/SpectralClustering/files/SimilarityGraph/SimGraph_NearestNeighbors.m",
+		"/home/takanori/Downloads/sclaplacian.m",
+		"/home/takanori/Downloads/module_degree_zscore.m",
+		"/home/takanori/Downloads/edge_betweenness_bin.m",
+		"/home/takanori/Downloads/rich_club_bu.m",
+		"/home/takanori/Downloads/get_components.m",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/86_AAL_heuristic_node_colored_labeled2.node",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/BrainNet_Output_txt.m",
+		"/home/takanori/Downloads/rentian_scaling.m",
+		"/home/takanori/Dropbox/2015-work/afni_matlab/matlab/AFNI_CoordChange.m",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/Data/ExampleFiles/LPBA40/Reference.txt",
+		"/home/takanori/.cache/.fr-wFuXWN/performPermutation.m",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/86/Untitled.txt",
+		"/home/takanori/Dropbox/2015-work/matlab/bnv_repos/node_edge_files_WashU/ALL_EDGES.csv",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/Data/ExampleFiles/HOA112/Node_HOA112.node",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/Data/ExampleFiles/Dos160/Node_Dos160.csv",
+		"/home/takanori/.config/sublime-text-3/Packages/User/rst-link.sublime-snippet",
+		"/home/takanori/Dropbox/git/snippet_book/bash/helper-bash",
+		"/home/takanori/Dropbox/git/snippet_book/.git/config",
+		"/home/takanori/Downloads/awk_example1.csh",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/tmp/matlab_bgl/edge_weight_index.m",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/tmp/SpectralClustering/files/other/distEuclidean.m",
+		"/home/takanori/Dropbox/2015-work/matlab/others/brain-analysis-for-gender-classification/classify/brain_permutation_test.py",
+		"/home/takanori/Dropbox/2015-work/matlab/others/brain-analysis-for-gender-classification/classify/classify_utils.py",
+		"/home/takanori/Dropbox/git/configs_master/fff.node",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/output.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sc.sh",
+		"/home/takanori/Dropbox/2015-work/matlab/bnv_repos/Tak_ADMM_BNV_Prep.m",
+		"/home/takanori/.cache/.fr-VXR0hn/OASIS-TRT-20_volumes_in_MNI152/README.txt",
+		"/home/takanori/.cache/.fr-CUucPv/OASIS-TRT-20_volumes/README.txt",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/Data/ExampleFiles/AAL90/Node_AAL90.node",
+		"/home/takanori/Dropbox/2015-work/matlab/structSVM/tak_admm_fusedlasso.m",
+		"/home/takanori/.bashrc",
+		"/home/takanori/Dropbox/2015-work/tak-ace-ibis/util-matlab-new/afni_matlab/matlab/BrikLoad.m",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/301_AAL_heuristic_R.node",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/301_AAL_heuristic_L.node",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/301_AAL_heuristic.node",
+		"/home/takanori/Dropbox/2015-work/itk-snap-play/Buckner_JNeurophysiol11_MNI152/Buckner_JNeurophysiol11_MNI152_README",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/Data/ExampleFiles/Power264/Node_Power264.csv",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/.bash_aliases",
+		"/home/takanori/Dropbox/2015-work/matlab/BrainNetViewer_20150414/Data/ExampleFiles/LPBA40/Node_LPBA40.csv",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/.bashrc"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+			"/home/takanori/Dropbox/git/mywebpage/",
+			"/home/takanori/Dropbox/2015-work/matlab/structSVM",
+			"/media/takanori/MatlabR2013_lnx"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"blockm",
+			" ",
+			"Parameter",
+			"performClassification",
+			"[]",
+			"'",
+			"[]",
+			"	",
+			"\n",
+			"	",
+			"bsxfun",
+			"arrayfun",
+			"	",
+			",",
+			"\n",
+			"installation key",
+			"key",
+			"toggl",
+			"windo",
+			"less",
+			"indent",
+			"content_margin",
+			"indent",
+			"sidebar_tree",
+			"folder-",
+			"group-closed",
+			"arrow",
+			"theme",
+			"folder",
+			"icon",
+			"folder",
+			"color"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"|",
+			" -  ",
+			"",
+			"-",
+			", ",
+			"\n",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 9,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/takanori/Downloads/demo.m",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5383,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5383,
+								5383
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bs_sintax": "matlab",
+							"buffer_scroll_name": "8acd364d",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1437754057.59,
+							"tabs_extra_last_activated_sheet_index": 0,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/algorithms-ml/readme.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 214,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								214,
+								214
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "3452c1c2",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1437753695.24,
+							"tabs_extra_last_activated_sheet_index": 1,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/takanori/tmp/multiReg/june20_spectrum_diffmats.m",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1058,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1058,
+								1058
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bs_sintax": "matlab",
+							"buffer_scroll_name": "161f6919",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
+							"tabs_extra_last_activated": 1437754060.65,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/takanori/tmp/multiReg/june22_check_kronSpectralNorm.m",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bs_sintax": "matlab",
+							"buffer_scroll_name": "3291ea60",
+							"remote_loading": false,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/takanori/tmp/multiReg/may30_spectr_rad_flasso2.m",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1814,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bs_sintax": "matlab",
+							"buffer_scroll_name": "02f0969d",
+							"remote_loading": false,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/takanori/tmp/multiReg/simulation/june29_4d_weight_STL_and_MTL_ARfeature.m",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6934,
+								6934
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bs_sintax": "matlab",
+							"buffer_scroll_name": "dd90de2c",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
+							"tabs_extra_last_activated": 1437765039.31,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1611.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/algorithms-ml/multiout-regression/tak_EN_regr_FISTA.m",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								958,
+								958
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bs_sintax": "matlab",
+							"buffer_scroll_name": "d4bcdb7e",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1437765042.58,
+							"tabs_extra_last_activated_sheet_index": 6,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/takanori/Dropbox/git/snippet_book/bash/helper-bash.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18879,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7884,
+								7884
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "d6d8f766",
+							"incomplete_sync": null,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1437881322.38,
+							"tabs_extra_last_activated_sheet_index": 7
+						},
+						"translation.x": 0.0,
+						"translation.y": 1831.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/obsolete/save_IBIS_cleaned_data.m",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12198,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5008,
+								5008
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "matlab",
+							"buffer_scroll_name": "4877e65e",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1437882607.65,
+							"tabs_extra_last_activated_sheet_index": 8,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1023.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 692,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_name": "drop_17 = {'187985_V12_adj_All.txt'; ...",
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bs_sintax": "plain text",
+							"default_dir": "/home/takanori/Dropbox/git/snippet_book",
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1437882693.04,
+							"tabs_extra_last_activated_sheet_index": 9
+						},
+						"translation.x": -0.0,
+						"translation.y": 165.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 10,
+					"file": "/home/takanori/Dropbox/git/configs_master/cygwin/.bash_aliases",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14658,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1462,
+								1462
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "adeea3f2",
+							"history_list_is_closing": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_is_closed": true,
+							"tabs_extra_last_activated": 1436677058.22,
+							"tabs_extra_last_activated_sheet_index": 0,
+							"tabs_extra_spawned": true,
+							"tabs_extra_view_info":
+							[
+								0,
+								-1
+							],
+							"tabs_extra_window_info": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 184.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3305,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3305,
+								3305
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_indent": false,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bs_sintax": "plain text",
+							"default_dir": "/home/takanori/Dropbox/git/configs_master",
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1437753667.76,
+							"tabs_extra_last_activated_sheet_index": 1,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 456.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/EVE-301/301_labels.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1466,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "c5cb1a7c",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1437753667.87,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2403.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/home/takanori/Dropbox/2015-work/IBIS-data/Probabilistic_Connectivity/Lists/has_both",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7337,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "4c378cd2",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1436373744.57,
+							"tabs_extra_last_activated_sheet_index": 6,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/86_labels.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								240,
+								240
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "21d47272",
+							"history_list_is_closing": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_is_closed": true,
+							"tabs_extra_last_activated": 1436292915.71,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true,
+							"tabs_extra_view_info":
+							[
+								0,
+								-1
+							],
+							"tabs_extra_window_info": 2
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local/301_labels.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1466,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								544,
+								544
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "336cece6",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1436367017.39,
+							"tabs_extra_last_activated_sheet_index": 8,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 594.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.91568296796,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 78.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 78.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "tak.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"bashhelper",
+				"snippet_book/bash/helper-bash.rst"
+			],
+			[
+				"en_regr",
+				"tak-ace-ibis/algorithms-ml/multiout-regression/tak_EN_regr_FISTA.m"
+			],
+			[
+				"myho",
+				"configs_master/autohotkey/myHotStrings.ahk"
+			],
+			[
+				"hotst",
+				"configs_master/autohotkey/myHotStrings.ahk"
+			],
+			[
+				"gitconfig",
+				"configs_master/sbia-pc125-cinn/.gitconfig"
+			],
+			[
+				"rst-linkp",
+				"User/rst-linkp.sublime-snippet"
+			],
+			[
+				"rst-link",
+				"User/rst-link.sublime-snippet"
+			],
+			[
+				"rst-",
+				"User/rst-h1.sublime-snippet"
+			],
+			[
+				"rstskel",
+				"User/rst-skel.sublime-snippet"
+			],
+			[
+				"myhots",
+				"configs_master/autohotkey/myHotStrings.ahk"
+			],
+			[
+				"86_aal",
+				"~/Dropbox/2015-work/matlab/BrainNetViewer_20150414/86_AAL_heuristic_node_colored_labeledName_R.node"
+			],
+			[
+				"colored_l",
+				"~/Dropbox/2015-work/matlab/BrainNetViewer_20150414/86_AAL_heuristic_node_colored_labeledName_L.node"
+			],
+			[
+				"aal_heu",
+				"~/Dropbox/2015-work/matlab/BrainNetViewer_20150414/86_AAL_heuristic_node_colored.node"
+			],
+			[
+				"d",
+				"data_local/86/d.txt"
+			],
+			[
+				"readme",
+				"~/Dropbox/2015-work/tak-ace-ibis/data_local/readme-data-local.rst"
+			],
+			[
+				"bashrc",
+				"configs_master/sbia-pc125-cinn/.bashrc"
+			],
+			[
+				"bash_alias",
+				"configs_master/sbia-pc125-cinn/.bash_aliases"
+			],
+			[
+				"mypy",
+				"snippet_book/python/mypython-helper.rst"
+			],
+			[
+				".bashr",
+				"vbox_mint17/.bashrc"
+			],
+			[
+				"bash_a",
+				"cygwin/.bash_aliases"
+			],
+			[
+				".ba",
+				"cygwin/.bashrc"
+			],
+			[
+				"sublime-ke",
+				"sublime-text/Default (Windows).sublime-keymap"
+			],
+			[
+				"sublime-key",
+				"sublime-text/Default (Linux).sublime-keymap"
+			],
+			[
+				".bashrc",
+				"configs_master/cygwin/.bashrc"
+			],
+			[
+				"sftp",
+				"takanori/.config/sublime-text-3/Packages/SFTP/SFTP.default-config"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 161.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

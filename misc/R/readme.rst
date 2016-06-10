@@ -1,0 +1,1 @@
+``ln -s ~/Dropbox/git/configs_master/misc/R/r.snippets ~/.R/snippets/``

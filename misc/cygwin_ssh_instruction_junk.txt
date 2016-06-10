@@ -1,0 +1,42 @@
+﻿RUN COMMANDS ON "undoing_sshd_crap.txt"
+
+http://www.howtogeek.com/howto/41560/how-to-get-ssh-command-line-access-to-windows-7-using-cygwin/	
+2. Run cygwin as admin, and do 
+	$ ssh-host-config
+
+	You'll get the following query:
+		(a) "Should privelege separation be used?" -> yes 
+			(It’s on by default in standard installations of OpenSSH on other systems, so go ahead and say “yes” to the prompt)
+		(b) "new local accound sshd?" -> yes
+		(c) "Do you want to install sshd as a service?" -> yes
+			(This will allow you to get SSH access regardless of whether or not Cygwin is currently running, which is what we want.)
+		(d) "Enter the value of CYGWIN for the daemon" -> ntsec
+		(e) "This script plans to use 'cyg_server'.  'cyg_server' will only be used by registered services.  Do you want to use a different name?" -> no
+			(The default works well, so type “no” when it asks you if you want to use a different account name, although you can change this if you really like)
+		(f) "Create new privileged user account 'cyg_server'?" -> yes
+		(g) "Please enter the password" -> enter whatever password you like
+
+3. After step2 is complete, run the following in cygwin to start the sshd service...then exit:
+	$ net start sshd
+	$ exit
+
+4. Restart cygwin (normally, rather than as admin), and enter the following:
+	$ ssh-user-config
+
+	You'll get the following query:
+		(a) " Shall I create a SSH2 RSA identity file for you?" -> yes
+			(SSH2 is more secure, so that’s what I recommend to you)
+		(b) "Enter passphrase" -> enter whatever password you like
+		(c) "Do you want to use this identity to login to this machine?" -> yes
+		(d) "Shall I create a SSH2 DSA identity file for you?" -> no
+			(Next, you’ll be asked to create an SSH2 DSA ID file, if you want to use password-less access. I declined at this step)
+	Say no for the remainder (SSH2 ECDSA identity file, SSH1 RSA identity file)
+
+5. Enter the following in cygwin to test if the configuration worked out:
+	$ ssh -v localhost # -v for "verbose", giving you all of the details of the process.
+
+	Youl'll be asked if you want to continue connecting, so say "yes" and enter password at the prompt"
+
+
+
+

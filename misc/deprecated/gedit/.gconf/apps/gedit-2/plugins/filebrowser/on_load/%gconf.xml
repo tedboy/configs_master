@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="virtual_root" mtime="1407876301" type="string">
+                <stringvalue>file:///C:/Users/takanori/Dropbox/research_dropbox/latex/dissertation</stringvalue>
+        </entry>
+        <entry name="root" mtime="1407876301" type="string">
+                <stringvalue>file:///C:/</stringvalue>
+        </entry>
+        <entry name="tree_view" mtime="1407876301" type="bool" value="true">
+        </entry>
+</gconf>

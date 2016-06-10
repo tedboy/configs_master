@@ -1,0 +1,15 @@
+# below is what the .git/config looks like for tak-ace-ibis
+[core]
+    repositoryformatversion = 0
+    filemode = false
+    bare = false
+    logallrefupdates = true
+[remote "github"]
+    url = git@github.com:takwatanabe2004/tak-ace-ibis.git
+    fetch = +refs/heads/*:refs/remotes/github/*
+[branch "master"]
+    remote = github
+    merge = refs/heads/master
+[remote "bitbucket"]
+    url = git@bitbucket.org:takwatanabe2004/tak-ace-ibis.git
+    fetch = +refs/heads/*:refs/remotes/bitbucket/*

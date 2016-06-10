@@ -1,0 +1,8 @@
+
+1. Add Cygwin Path to Windows Environment Variable.
+	(Ref: http://www.howtogeek.com/howto/41382/how-to-use-linux-commands-in-windows-with-cygwin/)
+	-> Control Panel -> System and Security -> System
+	   => Go to the left-hand tabs, and click on "Advanced system settings"
+	-> Under "Advanced" tab, click "Environment variables"
+	-> Under "System variables", click on "Path", and click "Edit", and add the following at the end: ";C:\Cygwin\bin"
+	- Now you are all set to use bash command in DOS

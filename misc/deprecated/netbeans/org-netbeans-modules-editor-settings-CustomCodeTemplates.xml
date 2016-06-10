@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE codetemplates PUBLIC "-//NetBeans//DTD Editor Code Templates settings 1.0//EN" "http://www.netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
+<codetemplates>
+    <codetemplate abbreviation="tak-tag-wrap" xml:space="preserve">
+        <code><![CDATA[<${tag}>${cursor}</${tag}>]]></code>
+        <description><![CDATA[(10/13/2014)]]></description>
+    </codetemplate>
+    <codetemplate abbreviation="cfold" xml:space="preserve">
+        <code><![CDATA[<editor-fold defaultstate="collapsed" desc="getters and setters">
+
+    ${cursor}
+
+</editor-fold>]]></code>
+        <description><![CDATA[(10/16/2014)]]></description>
+    </codetemplate>
+</codetemplates>

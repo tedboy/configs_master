@@ -1,0 +1,181 @@
+[   
+    { "keys": ["f5"], "command": "toggle_minimap" },
+    { "keys": ["shift+f5"], "command": "revert" },
+    {
+        "keys": ["ctrl+alt+g"], "command": "omni_markup_export",
+        "context": [{"key": "omnimarkup_is_enabled", "operator": "equal", "operand": ""}]
+    },
+
+    { "keys": ["f1"], "command": "toggle_bookmark" },
+
+    // toggle minimaps  http://sublimetext.userecho.com/topic/29576-hotkey-to-hide-the-minimap/
+    // { "keys": ["f6"], "command": "toggle_minimap" },
+    // http://www.sublimetext.com/docs/key-bindings
+    // http://www.sublimetext.com/docs/commands <- suspicious now...had error with "toggle bookmark"...use this instread -> 
+    // http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/commands.html?highlight=toggle_bookmark
+    { "keys": ["alt+`"], "command": "insert", "args": {"characters": "`"} },
+    { "keys": ["ctrl+shift+b"], "command": "build", "args": {"variant": "Run"} },
+    
+    // (11/26/2014) For sidebar-toggle (like in foxit, adobe)
+    { "keys": ["f4"], "command": "toggle_side_bar" },
+
+    //========================================================================//
+    // (10/19/2014) jump out of close brackets/quotes/etc using "tab" 
+    // (forked from http://www.codejury.com/fixing-some-of-sublime-texts-annoyances/)
+    // -------------------------------------------------------------------------
+    // Auto-complete behaviour for ), ], '', ""
+    // Bind to <enter>, <tab> to step over the auto-completed character(s)
+    // -------------------------------------------------------------------------
+
+    // { "keys": ["enter"], "command": "move", "args": {"by": "characters", "forward": true},
+    //   "context":
+    //   [
+    //       { "key": "following_text", "operator": "regex_contains", "operand": "^[)\\]'\"}]", "match_all": true },
+    //       { "key": "preceding_text", "operator": "regex_contains", "operand": "[(['\"{]", "match_all": true },
+    //       { "key": "auto_complete_visible", "operator": "equal", "operand": false }
+    //   ]
+    // },
+    // { "keys": ["tab"], "command": "move", "args": {"by": "characters", "forward": true},
+    //   "context":
+    //   [
+    //       { "key": "following_text", "operator": "regex_contains", "operand": "^[)\\]'\"}]", "match_all": true },
+    //       { "key": "preceding_text", "operator": "regex_contains", "operand": "[(['\"{]", "match_all": true },
+    //       { "key": "auto_complete_visible", "operator": "equal", "operand": false }
+    //   ],
+    // },
+    //========================================================================//
+    // Some helpful docs
+    //------------------------------------------------------------------------//
+    // http://docs.sublimetext.info/en/latest/reference/commands.html
+    // http://docs.sublimetext.info/en/latest/reference/key_bindings.html
+    // http://docs.sublimetext.info/en/latest/reference/keyboard_shortcuts_win.html
+    //========================================================================//
+
+    //========================================================================//
+    // Stuffs from https://github.com/mgaitan/sublime-rst-completion/blob/master/Default%20(Windows).sublime-keymap
+    //========================================================================//
+    { "keys": ["shift+tab"], "command": "smart_folding","context":
+        [
+            { "key": "selector", "operator": "equal", "operand": "text.restructuredtext" }
+        ]
+    }, 
+
+    //========================================================================//
+    // can't "unbind" default keys easily, so resort to mapping unwanted keys to hotkey i'll never use
+    // http://sublimetext.userecho.com/topic/89378-support-unbinding-of-keys/
+    // http://stackoverflow.com/questions/19245837/how-to-unbind-a-key-binding-in-sublime-text-2
+    //========================================================================//
+    // Meh... no luck
+    // { "keys": ["ctrl++"]},
+    // { "keys": ["super+f1"], "command": "increase_font_size" },
+    // { "keys": ["super+f2"], "command": "increase_font_size" },
+    // { "keys": ["super+f3"], "command": "increase_font_size" },
+    // { "keys": ["super+f4"], "command": "decrease_font_size" },    
+    // { "keys": ["super+f5"], "command": "increase_font_size" },
+    // { "keys": ["super+f6"], "command": "decrease_font_size" },
+    // { "keys": ["super+f7"], "command": "increase_font_size" },
+    // { "keys": ["super+f8"], "command": "decrease_font_size" },
+    //========================================================================//
+
+    //========================================================================//
+    // "prettifies" html codes
+    //========================================================================//
+    { "keys": ["alt+shift+r"], "command": "reindent"},
+
+    { "keys": ["ctrl+q"], "command": "exit" },
+    // "cmd": ["C:\\Users\\takanori\\AppData\\Local\\Pandoc\\pandoc.exe", 
+    // "-f", "markdown", "-t", "html",
+    // "-s", "-S", "--toc", "--highlight-style", "kate",
+    // "$file_base_name.md",  "-o",  "$file_base_name.html"],
+    // "selector": "text.html.markdown",
+
+    // { "keys": ["ctrl+shift+b"], "command": "open_file", "args": {"file": "${file_base_name}.html"} },
+
+    // { "keys": ["ctrl+shift+b"], "command": "exec", "args": { "cmd": 
+    // ["${file_base_name}.html"]} },
+
+    // { "keys": ["ctrl+shift+b"], "command": "exec", "args": { "cmd": 
+    // ["C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe ${dir}.html"]} },
+
+    // "super" = windows key
+    { "keys": ["super+alt+space"], "command": "toggle_setting", "args": {"setting": "word_wrap"} },
+
+    { "keys": [ "alt+f1" ], "command": "view_in_browser" },
+
+    //=========================================================================//
+    // (09/10/2014) I freagin' hate the "smart_list" from "smartmarkdown", so diable
+    //=========================================================================//
+    { "keys": ["enter"], "command": "insert", "args": {"characters": "\n"}},
+
+
+    // Also not a fan of them over-riding "shift+tab" which I use for unindenting
+    { "keys": ["shift+tab"], "command": "unindent"},
+    { "keys": ["shift+tab"], "command": "prev_field", "context":
+        [
+            { "key": "has_prev_field", "operator": "equal", "operand": true }
+        ]
+    },    
+    
+    //=========================================================================//
+    // (08/24/2014) For down all comments (using "Fold comments" package) and top level folds
+    //=========================================================================//
+    { "keys": ["ctrl+k", "ctrl+space"], "command": "fold_by_level", "args": {"level": 1}  },
+    { "keys": ["alt+shift+r"],  "command": "toggle_fold_comments" }    ,
+
+    //=========================================================================//
+    // For markdown preivew https://sublime.wbond.net/packages/Markdown%20Preview (08/22/2014)
+    //=========================================================================//
+    { "keys": ["alt+f2"], "command": "markdown_preview", "args": {"target": "browser", "parser":"markdown"} },
+    // { "keys": ["alt+m"], "command": "markdown_preview_select", "args": {"target": "browser"} },
+
+    //=========================================================================//
+    // Diffy https://sublime.wbond.net/packages/Diffy
+    //=========================================================================//
+    { "keys": ["ctrl+k", "ctrl+d"], "command": "diffy" },
+    { "keys": ["ctrl+k", "ctrl+c"], "command": "diffy", "args": {"action": "clear"} },
+
+    //%=========================================================================%
+    // Ref: http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/key_bindings.html
+    //%=========================================================================%
+    // { "keys": ["ctrl+alt+m"], "command": "markdown_preview", "args": {"target": "browser", "parser":"github"} },
+
+    //%========================================================================%
+    // - below only needed if the "Terminal package" is turned on, as the package over-rides the keyboard shortcut below.
+    //  (i wanna use when reopening closed tabs (08/11/2014 10:22))
+    // - i only use the terminal package for linux, since windows dos sux...
+    //%========================================================================%
+    { "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
+
+    //%========================================================================%
+    // for "trainingSpace package
+    //%========================================================================%
+    // "t" toggle "t" trailing spaces
+    { "keys": ["ctrl+t","ctrl+t"], "command": "toggle_trailing_spaces" },
+
+    // "d" delete "t" trailing spaces
+    { "keys": ["ctrl+d","ctrl+t"], "command": "delete_trailing_spaces" },
+
+    //%========================================================================%
+    // for "Fold comments" package (08/12/2014 12:10)
+    //%========================================================================%
+    // { "keys": ["alt+shift+r"],  "command": "toggle_fold_comments" }    ,
+
+    //%========================================================================%
+    // don't know how subl handles multiple keybinds, but i can still
+    // use ctrl+/ to toggle comments, even with the command below
+    // - note: "ctrl+shift+c" is for "word counts" in default, but i rarely use it    
+    //%========================================================================%
+    { "keys": ["ctrl+shift+c"], "command": "toggle_comment", "args": { "block": false } },    
+
+    // "shift+enter" to go to new line without indent (gedit like feel)
+    // https://www.sublimetext.com/forum/viewtopic.php?f=3&t=2040
+    { "keys": ["shift+enter"], "command": "run_macro_file", "args": {"file": "Packages/User/my_shift_newLine.sublime-macro"} }
+
+
+    // { "keys": ["ctrl+backspace"], "command": "noop"}
+    // for disabling default hotkey do below   
+    // { "keys": ["ctrl+backspace"], "command": "noop"}
+]
+
+
+

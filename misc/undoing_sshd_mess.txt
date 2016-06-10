@@ -1,0 +1,10 @@
+(Ref: http://www.kgx.net.nz/2010/03/cygwin-sshd-and-windows-7/)
+Undo any previous attempts to install the sshd service:
+net stop sshd
+cygrunsrv -R sshd
+net user sshd /DELETE  # See note below
+rm -R /etc/ssh*
+mkpasswd -cl > /etc/passwd
+mkgroup --local > /etc/group
+
+# Run `net user` to find out if there’s any other such users that could have run sshd – example “sshd” or “cyg_server”. Delete these as well. Don’t delete any default Windows ones!

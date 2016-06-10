@@ -1,0 +1,43 @@
+{
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"python\" -u \"$file\""
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "/home/takanori/Dropbox/work/sbia_work/python"
+		},
+		{
+			"path": "/home/takanori/Dropbox/work/sbia_work/python/modules/tak"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/snippet_book"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"screenshots",
+				"offce-setup"
+			],
+			"path": "/home/takanori/Dropbox/git/configs_master"
+		},
+		{
+			"path": "/home/takanori/anaconda/lib/python2.7/site-packages/theano"
+		},
+		{
+			"path": "/home/takanori/.config/sublime-text-3/Packages/User"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn"
+		},
+		{
+			"path": "/home/takanori/work-local/external-python-modules/deepnet/deepnet"
+		}
+	]
+}

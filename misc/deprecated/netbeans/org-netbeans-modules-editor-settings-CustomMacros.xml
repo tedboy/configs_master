@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE editor-macros PUBLIC "-//NetBeans//DTD Editor Macros settings 1.1//EN" "http://www.netbeans.org/dtds/EditorMacros-1_1.dtd">
+<editor-macros>
+    <macro name="mynewline" xml:space="preserve">
+        <shortcut keystrokes="S-ENTER"/>
+        <code><![CDATA[insert-break caret-begin-line]]></code>
+    </macro>
+    <macro name="html-wrap-mark" xml:space="preserve">
+        <shortcut keystrokes="SD-SLASH"/>
+        <code><![CDATA[cut-to-clipboard "<mark>" paste-from-clipboard "</mark>"]]></code>
+    </macro>
+    <macro name="html-wrap-single-quote" xml:space="preserve">
+        <shortcut keystrokes="O-QUOTE"/>
+        <code><![CDATA[cut-to-clipboard "'" paste-from-clipboard "'"]]></code>
+    </macro>
+    <macro name="php-code-fold" xml:space="preserve">
+        <shortcut keystrokes="DO-C"/>
+        <code><![CDATA["<editor-fold defaultstate=\"collapsed\" desc=\"getters and setters\"></editor-fold>"]]></code>
+    </macro>
+    <macro name="html-wrap-bold" xml:space="preserve">
+        <shortcut keystrokes="O-B"/>
+        <code><![CDATA[cut-to-clipboard "<b>" paste-from-clipboard "</b>"]]></code>
+    </macro>
+    <macro name="html-wrap-double-quote" xml:space="preserve">
+        <shortcut keystrokes="SO-QUOTE"/>
+        <code><![CDATA[cut-to-clipboard "\"" paste-from-clipboard "\""]]></code>
+    </macro>
+</editor-macros>

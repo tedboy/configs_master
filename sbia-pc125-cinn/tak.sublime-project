@@ -1,0 +1,32 @@
+{
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				"ditched"
+			],
+			"path": "/home/takanori/Dropbox/git/snippet_book"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"(seperators)",
+				"misc/deprecated"
+			],
+			"path": "/home/takanori/Dropbox/git/configs_master"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local"
+		},
+		{
+			"path": "/home/takanori/.config/sublime-text-3/Packages/User"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/rst-notes"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/tak-ace-ibis"
+		}
+	]
+}

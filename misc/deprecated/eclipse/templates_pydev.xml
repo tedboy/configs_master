@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Empty" enabled="true" id="org.python.pydev.editor.templates.python.module.empty" name="&lt;Empty&gt;">'''
+Created on ${date}
+
+@author: ${user}
+'''
+${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="and keyword" enabled="true" id="org.python.pydev.editor.templates.python.and" name="and">and ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="assert keyword" enabled="true" id="org.python.pydev.editor.templates.python.assert" name="assert">assert ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="break keyword" enabled="true" id="org.python.pydev.editor.templates.python.break" name="break">break${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Class definition (simple)" enabled="true" id="org.python.pydev.editor.templates.python.class" name="class">class ${class}:${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Class definition (subclass)" enabled="true" id="org.python.pydev.editor.templates.python.classo" name="classs">class ${class}(${object}):${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="encoding comment" enabled="true" id="org.python.pydev.editor.templates.python.encoding.comment" name="cod"># encoding: ${word_selection}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="encoding comment: utf-8" enabled="true" id="org.python.pydev.editor.templates.python.encoding.comment.utf8" name="codu8"># encoding: utf-8</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="continue keyword" enabled="true" id="org.python.pydev.editor.templates.python.continue" name="continue">continue${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Method definition (global)" enabled="true" id="org.python.pydev.editor.templates.python.def" name="def">def ${method}():${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Method definition (class)" enabled="true" id="org.python.pydev.editor.templates.python.defc" name="defc">def ${method}(self):${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Method definition (class - with parameters)" enabled="true" id="org.python.pydev.editor.templates.python.defp" name="defp">def ${method}(self, ${params}):${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="del keyword" enabled="true" id="org.python.pydev.editor.templates.python.del" name="del">del ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="elif keyword" enabled="true" id="org.python.pydev.editor.templates.python.elif" name="elif">elif${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="else keyword" enabled="true" id="org.python.pydev.editor.templates.python.else" name="else">else${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="equals and not equals" enabled="true" id="org.python.pydev.editor.templates.python.eq" name="eq">def __eq__(self, o):
+    if isinstance(o, ${current_class}):
+        ${pass}${cursor}
+
+    return False
+
+def __ne__(self, o):
+	return not self == o</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="for keyword" enabled="true" id="org.python.pydev.editor.templates.python.for" name="for">for ${cursor}:</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="from keyword" enabled="true" id="org.python.pydev.editor.templates.python.from" name="from">from ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="global keyword" enabled="true" id="org.python.pydev.editor.templates.python.global" name="global">global ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import keyword" enabled="true" id="org.python.pydev.editor.templates.python.import" name="import">import ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def __init__(self):" enabled="true" id="org.python.pydev.editor.templates.python.ini" name="ini">def __init__(self):${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def __init__(self, ${params})" enabled="true" id="org.python.pydev.editor.templates.python.init" name="inip">def __init__(self, ${params}):${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="lambda keyword" enabled="true" id="org.python.pydev.editor.templates.python.lambda" name="lambda">lambda ${args}:${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Main function pattern." enabled="true" id="org.python.pydev.editor.templates.python.main" name="main">if __name__ == '__main__':
+    ${cursor}</template><template autoinsert="false" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Class" enabled="true" id="org.python.pydev.editor.templates.python.module.class" name="Module: Class">'''
+Created on ${date}
+
+@author: ${user}
+'''
+
+class ${MyClass}(${object}):
+    '''
+    ${classdocs}
+    '''
+
+
+    def __init__(self, ${params}):
+        '''
+        ${Constructor}
+        '''
+        ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Command line tool skeleton using argparse (suitable for Python 2.7+)" enabled="true" id="org.python.pydev.editor.templates.python.module.cli.argparse" name="Module: CLI (argparse)">#!/usr/local/bin/python2.7
+# encoding: utf-8
+'''
+${module} -- ${shortdesc}
+
+${module} is a ${description}
+
+It defines ${classes_and_methods}
+
+@author:     ${user_name}
+
+@copyright:  ${year} ${organization_name}. All rights reserved.
+
+@license:    ${license}
+
+@contact:    ${user_email}
+@deffield    updated: Updated
+'''
+
+import sys
+import os
+
+from argparse import ArgumentParser
+from argparse import RawDescriptionHelpFormatter
+
+__all__ = []
+__version__ = 0.1
+__date__ = '${isodate}'
+__updated__ = '${isodate}'
+
+DEBUG = 1
+TESTRUN = 0
+PROFILE = 0
+
+class CLIError(Exception):
+    '''Generic exception to raise and log different fatal errors.'''
+    def __init__(self, msg):
+        super(CLIError).__init__(type(self))
+        self.msg = "E: %s" % msg
+    def __str__(self):
+        return self.msg
+    def __unicode__(self):
+        return self.msg
+
+def main(argv=None): # IGNORE:C0111
+    '''Command line options.'''
+
+    if argv is None:
+        argv = sys.argv
+    else:
+        sys.argv.extend(argv)
+
+    program_name = os.path.basename(sys.argv[0])
+    program_version = "v%s" % __version__
+    program_build_date = str(__updated__)
+    program_version_message = '%%(prog)s %s (%s)' % (program_version, program_build_date)
+    program_shortdesc = __import__('__main__').__doc__.split("\n")[1]
+    program_license = '''%s
+
+  Created by ${user_name} on %s.
+  Copyright ${year} ${organization_name}. All rights reserved.
+
+  Licensed under the Apache License 2.0
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Distributed on an "AS IS" basis without warranties
+  or conditions of any kind, either express or implied.
+
+USAGE
+''' % (program_shortdesc, str(__date__))
+
+    try:
+        # Setup argument parser
+        parser = ArgumentParser(description=program_license, formatter_class=RawDescriptionHelpFormatter)
+        parser.add_argument("-r", "--recursive", dest="recurse", action="store_true", help="recurse into subfolders [default: %(default)s]")
+        parser.add_argument("-v", "--verbose", dest="verbose", action="count", help="set verbosity level [default: %(default)s]")
+        parser.add_argument("-i", "--include", dest="include", help="only include paths matching this regex pattern. Note: exclude is given preference over include. [default: %(default)s]", metavar="RE" )
+        parser.add_argument("-e", "--exclude", dest="exclude", help="exclude paths matching this regex pattern. [default: %(default)s]", metavar="RE" )
+        parser.add_argument('-V', '--version', action='version', version=program_version_message)
+        parser.add_argument(dest="paths", help="paths to folder(s) with source file(s) [default: %(default)s]", metavar="path", nargs='+')
+
+        # Process arguments
+        args = parser.parse_args()
+
+        paths = args.paths
+        verbose = args.verbose
+        recurse = args.recurse
+        inpat = args.include
+        expat = args.exclude
+
+        if verbose &gt; 0:
+            print("Verbose mode on")
+            if recurse:
+                print("Recursive mode on")
+            else:
+                print("Recursive mode off")
+
+        if inpat and expat and inpat == expat:
+            raise CLIError("include and exclude pattern are equal! Nothing will be processed.")
+
+        for inpath in paths:
+            ### do something with inpath ###
+            print(inpath)
+        return 0
+    except KeyboardInterrupt:
+        ### handle keyboard interrupt ###
+        return 0
+    except Exception, e:
+        if DEBUG or TESTRUN:
+            raise(e)
+        indent = len(program_name) * " "
+        sys.stderr.write(program_name + ": " + repr(e) + "\n")
+        sys.stderr.write(indent + "  for help use --help")
+        return 2
+
+if __name__ == "__main__":
+    if DEBUG:
+        sys.argv.append("-h")
+        sys.argv.append("-v")
+        sys.argv.append("-r")
+    if TESTRUN:
+        import doctest
+        doctest.testmod()
+    if PROFILE:
+        import cProfile
+        import pstats
+        profile_filename = '${module}_profile.txt'
+        cProfile.run('main()', profile_filename)
+        statsfile = open("profile_stats.txt", "wb")
+        p = pstats.Stats(profile_filename, stream=statsfile)
+        stats = p.strip_dirs().sort_stats('cumulative')
+        stats.print_stats()
+        statsfile.close()
+        sys.exit(0)
+    sys.exit(main())</template><template autoinsert="true" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Command line tool skeleton using optparse (suitable for Python &lt; 2.6)" enabled="true" id="org.python.pydev.editor.templates.python.module.cli.optparse" name="Module: CLI (optparse)">#!/usr/bin/env python
+# encoding: utf-8
+'''
+${module} -- ${shortdesc}
+
+${module} is a ${description}
+
+It defines ${classes_and_methods}
+
+@author:     ${user_name}
+
+@copyright:  ${year} ${organization_name}. All rights reserved.
+
+@license:    ${license}
+
+@contact:    ${user_email}
+@deffield    updated: Updated
+'''
+
+import sys
+import os
+
+from optparse import OptionParser
+
+__all__ = []
+__version__ = 0.1
+__date__ = '${isodate}'
+__updated__ = '${isodate}'
+
+DEBUG = 1
+TESTRUN = 0
+PROFILE = 0
+
+def main(argv=None):
+    '''Command line options.'''
+
+    program_name = os.path.basename(sys.argv[0])
+    program_version = "v0.1"
+    program_build_date = "%s" % __updated__
+
+    program_version_string = '%%prog %s (%s)' % (program_version, program_build_date)
+    #program_usage = '''usage: spam two eggs''' # optional - will be autogenerated by optparse
+    program_longdesc = '''''' # optional - give further explanation about what the program does
+    program_license = "Copyright ${year} ${user_name} (${organization_name})                                            \
+                Licensed under the Apache License 2.0\nhttp://www.apache.org/licenses/LICENSE-2.0"
+
+    if argv is None:
+        argv = sys.argv[1:]
+    try:
+        # setup option parser
+        parser = OptionParser(version=program_version_string, epilog=program_longdesc, description=program_license)
+        parser.add_option("-i", "--in", dest="infile", help="set input path [default: %default]", metavar="FILE")
+        parser.add_option("-o", "--out", dest="outfile", help="set output path [default: %default]", metavar="FILE")
+        parser.add_option("-v", "--verbose", dest="verbose", action="count", help="set verbosity level [default: %default]")
+
+        # set defaults
+        parser.set_defaults(outfile="./out.txt", infile="./in.txt")
+
+        # process options
+        (opts, args) = parser.parse_args(argv)
+
+        if opts.verbose &gt; 0:
+            print("verbosity level = %d" % opts.verbose)
+        if opts.infile:
+            print("infile = %s" % opts.infile)
+        if opts.outfile:
+            print("outfile = %s" % opts.outfile)
+
+        # MAIN BODY #
+
+    except Exception, e:
+        indent = len(program_name) * " "
+        sys.stderr.write(program_name + ": " + repr(e) + "\n")
+        sys.stderr.write(indent + "  for help use --help")
+        return 2
+
+
+if __name__ == "__main__":
+    if DEBUG:
+        sys.argv.append("-h")
+    if TESTRUN:
+        import doctest
+        doctest.testmod()
+    if PROFILE:
+        import cProfile
+        import pstats
+        profile_filename = '${module}_profile.txt'
+        cProfile.run('main()', profile_filename)
+        statsfile = open("profile_stats.txt", "wb")
+        p = pstats.Stats(profile_filename, stream=statsfile)
+        stats = p.strip_dirs().sort_stats('cumulative')
+        stats.print_stats()
+        statsfile.close()
+        sys.exit(0)
+    sys.exit(main())</template><template autoinsert="false" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Main" enabled="true" id="org.python.pydev.editor.templates.python.module.main" name="Module: Main">'''
+Created on ${date}
+
+@author: ${user}
+'''
+
+if __name__ == '__main__':
+    ${pass}${cursor}</template><template autoinsert="false" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Unittest" enabled="true" id="org.python.pydev.editor.templates.python.module.unittest" name="Module: Unittest">'''
+Created on ${date}
+
+@author: ${user}
+'''
+import unittest
+
+
+class Test(unittest.TestCase):
+
+
+    def test${Name}(self):
+        ${pass}${cursor}
+
+
+if __name__ == "__main__":
+    #import sys;sys.argv = ['', 'Test.test${Name}']
+    unittest.main()</template><template autoinsert="false" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Unittest with setUp and tearDown" enabled="true" id="org.python.pydev.editor.templates.python.module.setup_and_teardown" name="Module: Unittest with setUp and tearDown">'''
+Created on ${date}
+
+@author: ${user}
+'''
+import unittest
+
+
+class Test(unittest.TestCase):
+
+
+    def setUp(self):
+        pass
+
+
+    def tearDown(self):
+        pass
+
+
+    def test${Name}(self):
+        ${pass}${cursor}
+
+
+if __name__ == "__main__":
+    #import sys;sys.argv = ['', 'Test.test${Name}']
+    unittest.main()</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="not keyword" enabled="true" id="org.python.pydev.editor.templates.python.not" name="not">not ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="pass keyword" enabled="true" id="org.python.pydev.editor.templates.python.pass" name="pass">pass${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="pdb" enabled="true" id="org.python.pydev.editor.templates.python.pdb" name="pd">import pdb;pdb.set_trace()</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="print (considers python 2 or 3)" enabled="true" id="org.python.pydev.editor.templates.python.print" name="print">print${space_if_py2}${lparen_if_py3}${cursor}${rparen_if_py3}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="print '\n'.join(sorted(dir(value)))" enabled="true" id="org.python.pydev.editor.templates.python.printdir" name="printdir">print${space_if_py2}${lparen_if_py3}'\n'.join(sorted(dir(${cursor})))${rparen_if_py3}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="print current traceback" enabled="true" id="org.python.pydev.editor.templates.python.printexc" name="printexc">import traceback;traceback.print_exc()${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="property creation from inner methods" enabled="true" id="org.python.pydev.editor.templates.python.property_inner" name="property_inner">def ${prop}(): #@NoSelf
+    doc = """${Docstring}""" #@UnusedVariable
+
+    def fget(self):
+        return self._${prop}
+
+    def fset(self, value):
+        self._${prop} = value
+
+    def fdel(self):
+        del self._${prop}
+
+    return locals()
+
+${prop} = property(**${prop}())${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="pydevd.settrace()" enabled="true" id="org.python.pydev.editor.templates.python.pydevd" name="pydevd">import sys;sys.path.append(r'${pydevd_dir_location}')
+import pydevd;pydevd.settrace()</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="pydevd.patch_django_autoreload()" enabled="true" id="org.python.pydev.editor.templates.python.pydevd_patch_django_auto_reload" name="pydevd_patch_django_auto_reload">import sys;sys.path.append(r'${pydevd_dir_location}')
+import pydevd;pydevd.patch_django_autoreload(patch_remote_debugger=True, patch_show_console=True)</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise" enabled="true" id="org.python.pydev.editor.templates.python.raise" name="raise">raise ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise RuntimeError('desc')" enabled="true" id="org.python.pydev.editor.templates.python.raiseruntimeerror" name="raiseruntimeerror">raise RuntimeError('${desc}')${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="return keyword" enabled="true" id="org.python.pydev.editor.templates.python.return" name="return">return ${cursor}</template><template autoinsert="false" context="org.python.pydev.editor.templates.python" deleted="false" description="Call super(current_class, self).current_method()" enabled="true" id="org.python.pydev.editor.templates.python.super" name="super">super(${current_class}, self).${current_method}(${cursor})</template><template autoinsert="false" context="org.python.pydev.editor.templates.python" deleted="false" description="Call superclass.current_method(self)" enabled="true" id="org.python.pydev.editor.templates.python.super_raw" name="super_raw">${superclass}.${current_method}(self${cursor})</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Example from https://www.youtube.com/watch?v=JqMxaETAMaA" enabled="true" name="tak===">print "===== ${saySomething} ====="</template><template autoinsert="false" context="org.python.pydev.editor.templates.python" deleted="false" description="Complete test-case module with pyunit" enabled="true" id="org.python.pydev.editor.templates.python.testCase" name="testCase">import unittest
+
+class ${TestCase}(unittest.TestCase):
+
+    def setUp(self):
+        unittest.TestCase.setUp(self)
+
+    def tearDown(self):
+        unittest.TestCase.tearDown(self)
+
+    def test${Met1}(self):
+        ${pass}${cursor}
+
+if __name__ == '__main__':
+    unittest.main()</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="while keyword" enabled="true" id="org.python.pydev.editor.templates.python.while" name="while">while ${cursor}:</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="yield keyword" enabled="true" id="org.python.pydev.editor.templates.python.yield" name="yield">yield ${cursor}</template></templates>

@@ -1,0 +1,3202 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sge",
+				"sge	sh-sge"
+			],
+			[
+				"d",
+				"def	Function"
+			],
+			[
+				"abs",
+				"absolute_import	instance"
+			],
+			[
+				"path",
+				"pathsep	instance"
+			],
+			[
+				"pat",
+				"path	module"
+			],
+			[
+				"dash",
+				"dashed_message	function"
+			],
+			[
+				"in",
+				"insert	function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/takanori/data/kaggle-facial-keypoint-detection/url.txt",
+			"settings":
+			{
+				"buffer_size": 153,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/readme.rst",
+			"settings":
+			{
+				"buffer_size": 5355,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/.bashrc",
+			"settings":
+			{
+				"buffer_size": 14724,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/work/sbia_work/python/analysis/gen/dl_snippets.rst",
+			"settings":
+			{
+				"buffer_size": 13476,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/module-installs/install_modules.sh",
+			"settings":
+			{
+				"buffer_size": 1164,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/template.py",
+			"settings":
+			{
+				"buffer_size": 7065,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/.config/sublime-text-3/Packages/User/==================================",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/.config/sublime-text-3/Packages/User/=================================",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/.config/sublime-text-3/Packages/User/---------------------------------------------",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Package Control Messages\n========================\n\nBracketHighlighter\n------------------\n\n  # BracketHighlighter 2.12.0\n  \n  # Changes\n  \n  - Add C Improved to languages list\n  - Added LaTeX support\n  \n  # Fixes\n  \n  - Fix regex hang when applied to certain text\n\n\nLaTeXTools\n----------\n\n  LaTeXTools Plugin version 3.6.3 (2016-02-25) changelog:\n  \n  \n  New features:\n  \n  - Set spellchecking language via TEX directives (R. Stein)\n  - Input completion for \\includesvg\n  - Project-relative TEXroot setting\n  - Some internal improvements\n  \n  Bugfixes:\n  \n  - Internal bugfixes\n",
+			"settings":
+			{
+				"buffer_size": 577,
+				"line_ending": "Unix",
+				"name": "Package Control Messages",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "\"\"\"\nThis tutorial introduces logistic regression using Theano and stochastic\ngradient descent.\n\nLogistic regression is a probabilistic, linear classifier. It is parametrized\nby a weight matrix :math:`W` and a bias vector :math:`b`. Classification is\ndone by projecting data points onto a set of hyperplanes, the distance to\nwhich is used to determine a class membership probability.\n\nMathematically, this can be written as:\n\n.. math::\n  P(Y=i|x, W,b) &= softmax_i(W x + b) \\\\\n                &= \\frac {e^{W_i x + b_i}} {\\sum_j e^{W_j x + b_j}}\n\n\nThe output of the model or prediction is then done by taking the argmax of\nthe vector whose i'th element is P(Y=i|x).\n\n.. math::\n\n  y_{pred} = argmax_i P(Y=i|x,W,b)\n\n\nThis tutorial presents a stochastic gradient descent optimization method\nsuitable for large datasets, and a conjugate gradient optimization method\nthat is suitable for smaller datasets.\n\n\nReferences:\n\n    - textbooks: \"Pattern Recognition and Machine Learning\" -\n                 Christopher M. Bishop, section 4.3.2\n\n\"\"\"\n__docformat__ = 'restructedtext en'\n\nimport cPickle\nimport gzip\nimport os\nimport sys\nimport time\n\nimport numpy\n\nimport theano\nimport theano.tensor as T\n\n\nclass LogisticRegression(object):\n    \"\"\"Multi-class Logistic Regression Class\n\n    The logistic regression is fully described by a weight matrix :math:`W`\n    and bias vector :math:`b`. Classification is done by projecting data\n    points onto a set of hyperplanes, the distance to which is used to\n    determine a class membership probability.\n    \"\"\"\n\n    def __init__(self, input, n_in, n_out):\n        \"\"\" Initialize the parameters of the logistic regression\n\n        :type input: theano.tensor.TensorType\n        :param input: symbolic variable that describes the input of the\n                      architecture (one minibatch)\n\n        :type n_in: int\n        :param n_in: number of input units, the dimension of the space in\n                     which the datapoints lie\n\n        :type n_out: int\n        :param n_out: number of output units, the dimension of the space in\n                      which the labels lie\n\n        \"\"\"\n\n        # initialize with 0 the weights W as a matrix of shape (n_in, n_out)\n        self.W = theano.shared(value=numpy.zeros((n_in, n_out),\n                                                 dtype=theano.config.floatX),\n                                name='W', borrow=True)\n        # initialize the baises b as a vector of n_out 0s\n        self.b = theano.shared(value=numpy.zeros((n_out,),\n                                                 dtype=theano.config.floatX),\n                               name='b', borrow=True)\n\n        # compute vector of class-membership probabilities in symbolic form\n        self.p_y_given_x = T.nnet.softmax(T.dot(input, self.W) + self.b)\n\n        # compute prediction as class whose probability is maximal in\n        # symbolic form\n        self.y_pred = T.argmax(self.p_y_given_x, axis=1)\n\n        # parameters of the model\n        self.params = [self.W, self.b]\n\n    def negative_log_likelihood(self, y):\n        \"\"\"Return the mean of the negative log-likelihood of the prediction\n        of this model under a given target distribution.\n\n        .. math::\n\n            \\frac{1}{|\\mathcal{D}|} \\mathcal{L} (\\theta=\\{W,b\\}, \\mathcal{D}) =\n            \\frac{1}{|\\mathcal{D}|} \\sum_{i=0}^{|\\mathcal{D}|} \\log(P(Y=y^{(i)}|x^{(i)}, W,b)) \\\\\n                \\ell (\\theta=\\{W,b\\}, \\mathcal{D})\n\n        :type y: theano.tensor.TensorType\n        :param y: corresponds to a vector that gives for each example the\n                  correct label\n\n        Note: we use the mean instead of the sum so that\n              the learning rate is less dependent on the batch size\n        \"\"\"\n        # y.shape[0] is (symbolically) the number of rows in y, i.e.,\n        # number of examples (call it n) in the minibatch\n        # T.arange(y.shape[0]) is a symbolic vector which will contain\n        # [0,1,2,... n-1] T.log(self.p_y_given_x) is a matrix of\n        # Log-Probabilities (call it LP) with one row per example and\n        # one column per class LP[T.arange(y.shape[0]),y] is a vector\n        # v containing [LP[0,y[0]], LP[1,y[1]], LP[2,y[2]], ...,\n        # LP[n-1,y[n-1]]] and T.mean(LP[T.arange(y.shape[0]),y]) is\n        # the mean (across minibatch examples) of the elements in v,\n        # i.e., the mean log-likelihood across the minibatch.\n        return -T.mean(T.log(self.p_y_given_x)[T.arange(y.shape[0]), y])\n\n    def errors(self, y):\n        \"\"\"Return a float representing the number of errors in the minibatch\n        over the total number of examples of the minibatch ; zero one\n        loss over the size of the minibatch\n\n        :type y: theano.tensor.TensorType\n        :param y: corresponds to a vector that gives for each example the\n                  correct label\n        \"\"\"\n\n        # check if y has same dimension of y_pred\n        if y.ndim != self.y_pred.ndim:\n            raise TypeError('y should have the same shape as self.y_pred',\n                ('y', target.type, 'y_pred', self.y_pred.type))\n        # check if y is of the correct datatype\n        if y.dtype.startswith('int'):\n            # the T.neq operator returns a vector of 0s and 1s, where 1\n            # represents a mistake in prediction\n            return T.mean(T.neq(self.y_pred, y))\n        else:\n            raise NotImplementedError()\n\n\n\n",
+			"file": "/home/takanori/.cache/.fr-AwUYfT/release/scripts/logistic_sgd.py",
+			"file_size": 5399,
+			"file_write_time": 130500322220000000,
+			"settings":
+			{
+				"buffer_size": 5399,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\"\"\"\n The code was adapted from the original denoising auto-encoders (dA) tutorial \n in Theano.\n\n Contact Minmin Chen at chenmm24@gmail.com  if you have any questions. \n\n Denoising autoencoders are the building blocks for SdA.\n They are based on auto-encoders as the ones used in Bengio et al. 2007.\n An autoencoder takes an input x and first maps it to a hidden representation\n y = f_{\\theta}(x) = s(Wx+b), parameterized by \\theta={W,b}. The resulting\n latent representation y is then mapped back to a \"reconstructed\" vector\n z \\in [0,1]^d in input space z = g_{\\theta'}(y) = s(W'y + b').  The weight\n matrix W' can optionally be constrained such that W' = W^T, in which case\n the autoencoder is said to have tied weights. The network is trained such\n that to minimize the reconstruction error (the error between x and z).\n\n For the denosing autoencoder, during training, first x is corrupted into\n \\tilde{x}, where \\tilde{x} is a partially destroyed version of x by means\n of a stochastic mapping. Afterwards y is computed as before (using\n \\tilde{x}), y = s(W\\tilde{x} + b) and z as s(W'y + b'). The reconstruction\n error is now measured between z and the uncorrupted input x, which is\n computed as the cross-entropy :\n      - \\sum_{k=1}^d[ x_k \\log z_k + (1-x_k) \\log( 1-z_k)]\n\n\n References :\n   - P. Vincent, H. Larochelle, Y. Bengio, P.A. Manzagol: Extracting and\n   Composing Robust Features with Denoising Autoencoders, ICML'08, 1096-1103,\n   2008\n   - Y. Bengio, P. Lamblin, D. Popovici, H. Larochelle: Greedy Layer-Wise\n   Training of Deep Networks, Advances in Neural Information Processing\n   Systems 19, 2007\n\n\"\"\"\n\nimport cPickle\nimport gzip\nimport os\nimport sys\nimport time\nimport scipy.io\n\nimport numpy\n\nimport theano\nimport theano.tensor as T\nfrom theano.tensor.shared_randomstreams import RandomStreams\n\nfrom utils import tile_raster_images, load_data\n\nfrom PIL import Image\n\n\ninput_ll=0\n\nroot_folder = '../'\n\nclass dA(object):\n    \"\"\"Denoising Auto-Encoder class (dA)\n\n    A denoising autoencoders tries to reconstruct the input from a corrupted\n    version of it by projecting it first in a latent space and reprojecting\n    it afterwards back in the input space. Please refer to Vincent et al.,2008\n    for more details. If x is the input then equation (1) computes a partially\n    destroyed version of x by means of a stochastic mapping q_D. Equation (2)\n    computes the projection of the input into the latent space. Equation (3)\n    computes the reconstruction of the input, while equation (4) computes the\n    reconstruction error.\n\n    .. math::\n\n        \\tilde{x} ~ q_D(\\tilde{x}|x)                                     (1)\n\n        y = s(W \\tilde{x} + b)                                           (2)\n\n        x = s(W' y  + b')                                                (3)\n\n        L(x,z) = -sum_{k=1}^d [x_k \\log z_k + (1-x_k) \\log( 1-z_k)]      (4)\n\n    \"\"\"\n\n    def __init__(self, numpy_rng, theano_rng=None, input=None,\n                 n_visible=784, n_hidden=1000,\n                 W=None, bhid=None, bvis=None):\n        \"\"\"\n        Initialize the dA class by specifying the number of visible units (the\n        dimension d of the input ), the number of hidden units ( the dimension\n        d' of the latent or hidden space ) and the corruption level. The\n        constructor also receives symbolic variables for the input, weights and\n        bias. Such a symbolic variables are useful when, for example the input\n        is the result of some computations, or when weights are shared between\n        the dA and an MLP layer. When dealing with SdAs this always happens,\n        the dA on layer 2 gets as input the output of the dA on layer 1,\n        and the weights of the dA are used in the second stage of training\n        to construct an MLP.\n\n        :type numpy_rng: numpy.random.RandomState\n        :param numpy_rng: number random generator used to generate weights\n\n        :type theano_rng: theano.tensor.shared_randomstreams.RandomStreams\n        :param theano_rng: Theano random generator; if None is given one is\n                     generated based on a seed drawn from `rng`\n\n        :type input: theano.tensor.TensorType\n        :param input: a symbolic description of the input or None for\n                      standalone dA\n\n        :type n_visible: int\n        :param n_visible: number of visible units\n\n        :type n_hidden: int\n        :param n_hidden:  number of hidden units\n\n        :type W: theano.tensor.TensorType\n        :param W: Theano variable pointing to a set of weights that should be\n                  shared belong the dA and another architecture; if dA should\n                  be standalone set this to None\n\n        :type bhid: theano.tensor.TensorType\n        :param bhid: Theano variable pointing to a set of biases values (for\n                     hidden units) that should be shared belong dA and another\n                     architecture; if dA should be standalone set this to None\n\n        :type bvis: theano.tensor.TensorType\n        :param bvis: Theano variable pointing to a set of biases values (for\n                     visible units) that should be shared belong dA and another\n                     architecture; if dA should be standalone set this to None\n\n\n        \"\"\"\n        self.n_visible = n_visible\n        self.n_hidden = n_hidden\n\n        # create a Theano random generator that gives symbolic random values\n        if not theano_rng:\n            theano_rng = RandomStreams(numpy_rng.randint(2 ** 30))\n\n        # note : W' was written as `W_prime` and b' as `b_prime`\n        if not W:\n            # W is initialized with `initial_W` which is uniformely sampled\n            # from -4*sqrt(6./(n_visible+n_hidden)) and\n            # 4*sqrt(6./(n_hidden+n_visible))the output of uniform if\n            # converted using asarray to dtype\n            # theano.config.floatX so that the code is runable on GPU\n            initial_W = numpy.asarray(numpy_rng.uniform(\n                      low=-4 * numpy.sqrt(6. / (n_hidden + n_visible)),\n                      high=4 * numpy.sqrt(6. / (n_hidden + n_visible)),\n                      size=(n_visible, n_hidden)), dtype=theano.config.floatX)\n            W = theano.shared(value=initial_W, name='W', borrow=True)\n\n        if not bvis:\n            bvis = theano.shared(value=numpy.zeros(n_visible,\n                                         dtype=theano.config.floatX),\n                                 borrow=True)\n\n        if not bhid:\n            bhid = theano.shared(value=numpy.zeros(n_hidden,\n                                                   dtype=theano.config.floatX),\n                                 name='b',\n                                 borrow=True)\n\n        self.W = W\n        # b corresponds to the bias of the hidden\n        self.b = bhid\n        # b_prime corresponds to the bias of the visible\n        self.b_prime = bvis\n        # tied weights, therefore W_prime is W transpose\n        self.W_prime = self.W.T\n        self.theano_rng = theano_rng\n        # if no input is given, generate a variable representing the input\n        if input == None:\n            # we use a matrix because we expect a minibatch of several\n            # examples, each example being a row\n            self.x = T.dmatrix(name='input')\n        else:\n            self.x = input\n\n        self.params = [self.W, self.b, self.b_prime]\n\n    def get_corrupted_input(self, input, noisemodel, noiserate):\n        \"\"\"This function keeps ``1-corruption_level`` entries of the inputs the\n        same and zero-out randomly selected subset of size ``coruption_level``\n        Note : first argument of theano.rng.binomial is the shape(size) of\n               random numbers that it should produce\n               second argument is the number of trials\n               third argument is the probability of success of any trial\n\n                this will produce an array of 0s and 1s where 1 has a\n                probability of 1 - ``corruption_level`` and 0 with\n                ``corruption_level``\n\n                The binomial function return int64 data type by\n                default.  int64 multiplicated by the input\n                type(floatX) always return float64.  To keep all data\n                in floatX when floatX is float32, we set the dtype of\n                the binomial to floatX. As in our case the value of\n                the binomial is always 0 or 1, this don't change the\n                result. This is needed to allow the gpu to work\n                correctly as it only support float32 for now.\n\n        \"\"\"\n	if noisemodel == 'dropout':\n		return  self.theano_rng.binomial(size=input.shape, n=1, p=1-noiserate, dtype=theano.config.floatX) * input\n	else:\n		return self.theano_rng.normal(size=input.shape, avg=0.0, std=noiserate, dtype=theano.config.floatX) + input\n\n    def get_hidden_values(self, input):\n        \"\"\" Computes the values of the hidden layer \"\"\"\n        return T.nnet.sigmoid(T.dot(input, self.W) + self.b)\n\n    def get_reconstructed_input(self, hidden):\n        \"\"\"Computes the reconstructed input given the values of the\n        hidden layer\n\n        \"\"\"\n        return  T.nnet.sigmoid(T.dot(hidden, self.W_prime) + self.b_prime)\n\n    def get_cost_updates(self, noisemodel, noiserate, learning_rate):\n        \"\"\" This function computes the cost and the updates for one trainng\n        step of the dA \"\"\"\n\n        tilde_x = self.get_corrupted_input(self.x, noisemodel, noiserate)\n        y = self.get_hidden_values(tilde_x)\n        z = self.get_reconstructed_input(y)\n        # note : we sum over the size of a datapoint; if we are using\n        #        minibatches, L will be a vector, with one entry per\n        #        example in minibatch\n        L = - T.sum(self.x * T.log(z) + (1 - self.x) * T.log(1 - z), axis=1)\n	# print theano.function([L], L) \n        # note : L is now a vector, where each element is the\n        #        cross-entropy cost of the reconstruction of the\n        #        corresponding example of the minibatch. We need to\n        #        compute the average of all these to get the cost of\n        #        the minibatch\n        cost = T.mean(L)\n\n        # compute the gradients of the cost of the `dA` with respect\n        # to its parameters\n        gparams = T.grad(cost, self.params)\n        # generate the list of updates\n        updates = []\n        for param, gparam in zip(self.params, gparams):\n            updates.append((param, param - learning_rate * gparam))\n\n        return (cost, updates)\n\n\ndef test_dA(data_name, learning_rate, noisemodel, noiserange, training_epochs=300, batch_size=20):\n\n    \"\"\"\n    This demo is tested on MNIST\n\n    :type learning_rate: float\n    :param learning_rate: learning rate used for training the DeNosing\n                          AutoEncoder\n\n    :type training_epochs: int\n    :param training_epochs: number of epochs used for training\n\n    :type dataset: string\n    :param dataset: path to the picked dataset\n\n    \"\"\"\n    tunning_epochs = range(1,20,2)+range(20, 301, 20);\n    dataset = os.path.join(root_folder+'/data/layer'+str(input_ll), data_name + '.pkl.gz')\n    output_folder = os.path.join(root_folder, 'params/da_'+noisemodel+'/layer'+str(input_ll+1), data_name)\n    if not os.path.isdir(output_folder):\n    	os.makedirs(output_folder)\n\n    filter_folder = os.path.join(root_folder, 'filters/da_'+noisemodel+'/layer'+str(input_ll+1), data_name)\n    if not os.path.isdir(filter_folder):\n        os.makedirs(filter_folder)\n\n	\n    datasets = load_data(dataset)\n    train_set_x, train_set_y = datasets[0]\n    \n    print train_set_x.get_value(borrow=True).shape[0], train_set_x.get_value(borrow=True).shape[1]\n\n    # compute number of minibatches for training, validation and testing\n    n_train_batches = train_set_x.get_value(borrow=True).shape[0] / batch_size\n\n    # allocate symbolic variables for the data\n    index = T.lscalar()    # index to a [mini]batch\n    x = T.matrix('x')  # the data is presented as rasterized images\n\n    if not os.path.isdir(filter_folder):\n        os.makedirs(filter_folder)\n\n    if not os.path.isdir(output_folder):\n        os.makedirs(output_folder)\n\n    for rate in noiserange:\n\n    	rng = numpy.random.RandomState(123)\n    	theano_rng = RandomStreams(rng.randint(2 ** 30))\n\n    	da = dA(numpy_rng=rng, theano_rng=theano_rng, input=x,\n        	    n_visible=28*28, n_hidden=1000)\n\n    	cost, updates = da.get_cost_updates(noisemodel=noisemodel, noiserate=rate,learning_rate=learning_rate)\n\n    	train_da = theano.function([index], cost, updates=updates,\n        	 givens={x: train_set_x[index * batch_size:(index + 1) * batch_size]})\n\n    	start_time = time.clock()\n\n    	############\n    	# TRAINING #\n    	############\n\n    	# go through training epochs\n    	for epoch in range(1, training_epochs+1):\n        	# go through trainng set\n        	c = []\n        	for batch_index in xrange(n_train_batches):\n			l = train_da(batch_index)\n            		c.append(l)\n\n        	print 'Training epoch %d, cost ' % epoch, numpy.mean(c)\n		\n		if epoch in tunning_epochs:\n    			end_time = time.clock()\n    			training_time = (end_time - start_time)\n			print 'running time = %.2fm' % ((training_time) / 60.)\n    			\n			output_filename = 'lrate='+str(learning_rate)+',noise='+str(rate)+',epoch='+str(epoch)+'.mat'		\n			scipy.io.savemat(os.path.join(output_folder, output_filename), {'W': da.W.get_value(borrow=True), 'b':da.b.get_value(borrow=True), 'b_prime':da.b_prime.get_value(borrow=True)})\n\n			filter_filename = 'lrate='+str(learning_rate)+',noise='+str(rate)+',epoch='+str(epoch)+'.png'  \n                        w_part = da.W.get_value(borrow=True).T\n                        w_part = w_part[0:900, :]\n                        image = Image.fromarray(\n                                        tile_raster_images(w_part,\n                                        img_shape=(28, 28), tile_shape=(30, 30),\n                                        tile_spacing=(1, 1)))\n                        image.save(os.path.join(filter_folder, filter_filename))\n\n	print 'The corruption code for file '+os.path.split(__file__)[1]+' with noise level %.2f' % (rate) + 'learning rate %.6f' %(learning_rate)  + ' finished in %.2fm' % ((training_time) / 60.)\n\n\nif __name__ == '__main__':\n\n    if len(sys.argv) != 4:\n	print 'Usage: python pretrain_da.py noisemodel dataset learningRate'\n	print 'Example: python pretrain_da.py gauss basic 0.1'\n	sys.exit()\n\n    mm = sys.argv[1]\n    dd = sys.argv[2] \n    lr = float(sys.argv[3])\n    log_folder = root_folder+'/logs/da_'+mm+'/layer'+str(input_ll+1)\n    if not os.path.isdir(log_folder):\n        os.makedirs(log_folder)	\n    logfile = open(os.path.join(log_folder, dd+',lr='+str(lr)+'.log'), 'w', 0)\n    sys.stdout = logfile\n    if mm == 'dropout':\n	noiserange = [0.1, 0.25, 0.40, 0.55, 0.7, 0.85]\n    else:\n        noiserange = [0.05, 0.1, 0.3, 0.5, 0.7, 0.9, 1.1, 1.3]\n    test_dA(data_name=dd, learning_rate=lr, noisemodel=mm, noiserange = noiserange)\n    sys.stdout = sys.__stdout__\n",
+			"file": "/home/takanori/.cache/.fr-qf7f9u/release/scripts/pretrain_da.py",
+			"file_size": 14993,
+			"file_write_time": 130500924000000000,
+			"settings":
+			{
+				"buffer_size": 14993,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\"\"\"\n\n The code was adapted from the original denoising auto-encoders (dA) tutorial \n in Theano.\n\n Contact Minmin Chen at chenmm24@gmail.com  if you have any questions. \n\n References :\n   - M. Chen, K. Weinberger, F. Sha, Y. Bengio: Marginalized Denoising Auto-encoders \n   for Nonlinear Representations, ICML 2014. \n\n\"\"\"\n\nimport cPickle\nimport gzip\nimport os\nimport sys\nimport time\nimport scipy.io\n\nimport numpy\n\nimport theano\nimport theano.tensor as T\nfrom theano.tensor.shared_randomstreams import RandomStreams\n\nfrom utils import tile_raster_images, load_data\n\nfrom PIL import Image\n\ninput_ll=0\n\nroot_folder = '../'\n\nclass mdA(object):\n    \"\"\"marginalized Denoising Auto-Encoder class (mdA)\n\n    A denoising autoencoders tries to reconstruct the input from a corrupted\n    version of it by projecting it first in a latent space and reprojecting\n    it afterwards back in the input space. Please refer to Vincent et al.,2008\n    for more details. If x is the input then equation (1) computes a partially\n    destroyed version of x by means of a stochastic mapping q_D. Equation (2)\n    computes the projection of the input into the latent space. Equation (3)\n    computes the reconstruction of the input, while equation (4) computes the\n    reconstruction error.\n\n    .. math::\n\n        \\tilde{x} ~ q_D(\\tilde{x}|x)                                     (1)\n\n        y = s(W \\tilde{x} + b)                                           (2)\n\n        x = s(W' y  + b')                                                (3)\n\n        L(x,z) = -sum_{k=1}^d [x_k \\log z_k + (1-x_k) \\log( 1-z_k)]      (4)\n\n    \"\"\"\n\n    def __init__(self, numpy_rng, theano_rng=None, input=None,\n                 n_visible=784, n_hidden=1000,\n                 W=None, bhid=None, bvis=None):\n        \"\"\"\n        :type numpy_rng: numpy.random.RandomState\n        :param numpy_rng: number random generator used to generate weights\n\n        :type theano_rng: theano.tensor.shared_randomstreams.RandomStreams\n        :param theano_rng: Theano random generator; if None is given one is\n                     generated based on a seed drawn from `rng`\n\n        :type input: theano.tensor.TensorType\n        :param input: a symbolic description of the input or None for\n                      standalone mdA\n\n        :type n_visible: int\n        :param n_visible: number of visible units\n\n        :type n_hidden: int\n        :param n_hidden:  number of hidden units\n\n        :type W: theano.tensor.TensorType\n        :param W: Theano variable pointing to a set of weights that should be\n                  shared belong the mdA and another architecture; if mdA should\n                  be standalone set this to None\n\n        :type bhid: theano.tensor.TensorType\n        :param bhid: Theano variable pointing to a set of biases values (for\n                     hidden units) that should be shared belong mdA and another\n                     architecture; if mdA should be standalone set this to None\n\n        :type bvis: theano.tensor.TensorType\n        :param bvis: Theano variable pointing to a set of biases values (for\n                     visible units) that should be shared belong dA and another\n                     architecture; if dA should be standalone set this to None\n\n\n        \"\"\"\n        self.n_visible = n_visible\n        self.n_hidden = n_hidden\n\n        # create a Theano random generator that gives symbolic random values\n        if not theano_rng:\n            theano_rng = RandomStreams(numpy_rng.randint(2 ** 30))\n\n        # note : W' was written as `W_prime` and b' as `b_prime`\n        if not W:\n            # W is initialized with `initial_W` which is uniformely sampled\n            # from -4*sqrt(6./(n_visible+n_hidden)) and\n            # 4*sqrt(6./(n_hidden+n_visible))the output of uniform if\n            # converted using asarray to dtype\n            # theano.config.floatX so that the code is runable on GPU\n            initial_W = numpy.asarray(numpy_rng.uniform(\n                      low=-4 * numpy.sqrt(6. / (n_hidden + n_visible)),\n                      high=4 * numpy.sqrt(6. / (n_hidden + n_visible)),\n                      size=(n_visible, n_hidden)), dtype=theano.config.floatX)\n            W = theano.shared(value=initial_W, name='W', borrow=True)\n\n        if not bvis:\n            bvis = theano.shared(value=numpy.zeros(n_visible,\n                                         dtype=theano.config.floatX),\n                                 borrow=True)\n\n        if not bhid:\n            bhid = theano.shared(value=numpy.zeros(n_hidden,\n                                                   dtype=theano.config.floatX),\n                                 name='b',\n                                 borrow=True)\n\n        self.W = W\n        # b corresponds to the bias of the hidden\n        self.b = bhid\n        # b_prime corresponds to the bias of the visible\n        self.b_prime = bvis\n        # tied weights, therefore W_prime is W transpose\n        self.W_prime = self.W.T\n        self.theano_rng = theano_rng\n        # if no input is given, generate a variable representing the input\n        if input == None:\n            # we use a matrix because we expect a minibatch of several\n            # examples, each example being a row\n            self.x = T.dmatrix(name='input')\n        else:\n            self.x = input\n\n        self.params = [self.W, self.b, self.b_prime]\n\n    def get_hidden_values(self, input):\n        \"\"\" Computes the values of the hidden layer \"\"\"\n        return T.nnet.sigmoid(T.dot(input, self.W) + self.b)\n\n    def get_reconstructed_input(self, hidden):\n        \"\"\"Computes the reconstructed input given the values of the\n        hidden layer\n\n        \"\"\"\n        return  T.nnet.sigmoid(T.dot(hidden, self.W_prime) + self.b_prime)\n\n    def get_cost_updates(self, noisemodel, noiserate, learning_rate):\n        \"\"\" This function computes the cost and the updates for one trainng\n        step of the mdA \"\"\"\n\n        y = self.get_hidden_values(self.x)\n	z = T.clip(self.get_reconstructed_input(y), 0.00247262315663, 0.997527376843)\n\n	L = - T.sum(self.x * T.log(z) + (1 - self.x) * T.log(1 - z), axis=1)\n	\n        dy = y * (1 - y)\n        dz = z * (1 - z)\n\n	df_x_2 = T.dot(T.dot(dz, self.W * self.W) * dy * dy,  self.W_prime * self.W_prime)\n\n	if noisemodel == 'dropout':\n		x_2 = self.x * self.x\n		L2 = noiserate / (1 - noiserate) * T.mean(T.sum(df_x_2 * x_2, axis=1))\n	else:\n		L2 = noiserate * noiserate * T.mean(T.sum(df_x_2, axis=1))\n	\n        cost = T.mean(L) + 0.5 * L2\n\n        gparams = T.grad(cost, self.params)\n        # generate the list of updates\n        updates = []\n        for param, gparam in zip(self.params, gparams):\n            updates.append((param, param - learning_rate * gparam))\n\n        return (cost, updates)\n\n\ndef test_mdA(data_name, learning_rate, noisemodel, noiserange, training_epochs=300, batch_size=20):\n\n    \"\"\"\n    This demo is tested on MNIST\n\n    :type learning_rate: float\n    :param learning_rate: learning rate used for training the DeNosing\n                          AutoEncoder\n\n    :type training_epochs: int\n    :param training_epochs: number of epochs used for training\n\n    :type dataset: string\n    :param dataset: path to the picked dataset\n\n    \"\"\"\n    tunning_epochs = range(1,20,2)+range(20, 301, 20);\n    dataset = os.path.join(root_folder+'/data/layer'+str(input_ll), data_name + '.pkl.gz')\n    print dataset\n    output_folder = os.path.join(root_folder, 'params/mda_'+noisemodel+'/layer'+str(input_ll+1), data_name)\n    if not os.path.isdir(output_folder):\n    	os.makedirs(output_folder)\n\n    filter_folder = os.path.join(root_folder, 'filters/mda_'+noisemodel+'/layer'+str(input_ll+1), data_name)\n    if not os.path.isdir(filter_folder):\n        os.makedirs(filter_folder)\n\n    datasets = load_data(dataset)\n    train_set_x, train_set_y = datasets[0]\n    \n    print train_set_x.get_value(borrow=True).shape[0], train_set_x.get_value(borrow=True).shape[1]\n\n    # compute number of minibatches for training, validation and testing\n    n_train_batches = train_set_x.get_value(borrow=True).shape[0] / batch_size\n\n    # allocate symbolic variables for the data\n    index = T.lscalar()    # index to a [mini]batch\n    x = T.matrix('x')  # the data is presented as rasterized images\n\n    if not os.path.isdir(filter_folder):\n        os.makedirs(filter_folder)\n\n    if not os.path.isdir(output_folder):\n        os.makedirs(output_folder)\n\n    for rate in noiserange:\n\n    	rng = numpy.random.RandomState(123)\n    	theano_rng = RandomStreams(rng.randint(2 ** 30))\n\n    	mda = mdA(numpy_rng=rng, theano_rng=theano_rng, input=x,\n        	    n_visible=28*28, n_hidden=1000)\n\n    	cost, updates = mda.get_cost_updates(noisemodel=noisemodel, noiserate=rate,learning_rate=learning_rate)\n\n    	train_mda = theano.function([index], cost, updates=updates,\n        	 givens={x: train_set_x[index * batch_size:\n                	                (index + 1) * batch_size]})\n\n    	start_time = time.clock()\n\n    	############\n    	# TRAINING #\n    	############\n\n    	# go through training epochs\n    	for epoch in range(1, training_epochs+1):\n        	# go through trainng set\n        	c = []\n        	for batch_index in xrange(n_train_batches):\n			l = train_mda(batch_index)\n            		c.append(l)\n\n        	print 'Training epoch %d, cost ' % epoch, numpy.mean(c)\n		\n		if epoch in tunning_epochs:\n    			end_time = time.clock()\n    			training_time = (end_time - start_time)\n			print 'running time = %.2fm' % ((training_time) / 60.)\n    			\n			output_filename = 'lrate='+str(learning_rate)+',noise='+str(rate)+',epoch='+str(epoch)+'.mat'		\n			scipy.io.savemat(os.path.join(output_folder, output_filename), {'W': mda.W.get_value(borrow=True), 'b':mda.b.get_value(borrow=True), 'b_prime':mda.b_prime.get_value(borrow=True)})\n\n			filter_filename = 'lrate='+str(learning_rate)+',noise='+str(rate)+',epoch='+str(epoch)+'.png'  \n                        w_part = mda.W.get_value(borrow=True).T\n                        w_part = w_part[0:900, :]\n                        image = Image.fromarray(\n                                        tile_raster_images(w_part,\n                                        img_shape=(28, 28), tile_shape=(30, 30),\n                                        tile_spacing=(1, 1)))\n                        image.save(os.path.join(filter_folder, filter_filename))\n\n	print 'The corruption code for file '+os.path.split(__file__)[1]+' with noise level %.2f' % (rate) + ' learning rate %.6f' %(learning_rate)  + ' finished in %.2fm' % ((training_time) / 60.)\n\n\n\nif __name__ == '__main__':\n\n    if len(sys.argv) != 4:\n        print 'Usage: python pretrain_mda.py noiseModel dataset learningRate'\n        print 'Example: python pretrain_mda.py gauss basic 0.1'\n        sys.exit()\n\n    mm = sys.argv[1]\n    dd = sys.argv[2] \n    lr = float(sys.argv[3])\n    log_folder = root_folder+'/logs/mda_'+mm+'/layer'+str(input_ll+1)\n    if not os.path.isdir(log_folder):\n        os.makedirs(log_folder)	\n    logfile = open(os.path.join(log_folder, dd+',lr='+str(lr)+'.log'), 'a', 0)\n    sys.stdout = logfile\n    if mm == 'dropout':\n        noiserange = [0.1, 0.25, 0.40, 0.55, 0.7, 0.85]\n    else:\n        noiserange = [0.05, 0.1, 0.3, 0.5, 0.7, 0.9, 1.1, 1.3]\n    test_mdA(data_name=dd, learning_rate=lr, noisemodel=mm, noiserange = noiserange)\n    sys.stdout = sys.__stdout__\n",
+			"file": "/home/takanori/.cache/.fr-X6KzL6/release/scripts/pretrain_mda.py",
+			"file_size": 11325,
+			"file_write_time": 130500924140000000,
+			"settings":
+			{
+				"buffer_size": 11325,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\"\"\" This file contains different utility functions that are not connected\nin anyway to the networks presented in the tutorials, but rather help in\nprocessing the outputs into a more understandable way.\n\nFor example ``tile_raster_images`` helps in generating a easy to grasp\nimage from a set of samples or weights.\n\"\"\"\n\nimport numpy\nimport cPickle\nimport gzip\nimport os\nimport sys\nimport time\nimport theano\nimport theano.tensor as T\n\n\n\n\ndef scale_to_unit_interval(ndar, eps=1e-8):\n    \"\"\" Scales all values in the ndarray ndar to be between 0 and 1 \"\"\"\n    ndar = ndar.copy()\n    ndar -= ndar.min()\n    ndar *= 1.0 / (ndar.max() + eps)\n    return ndar\n\n\ndef tile_raster_images(X, img_shape, tile_shape, tile_spacing=(0, 0),\n                       scale_rows_to_unit_interval=True,\n                       output_pixel_vals=True):\n    \"\"\"\n    Transform an array with one flattened image per row, into an array in\n    which images are reshaped and layed out like tiles on a floor.\n\n    This function is useful for visualizing datasets whose rows are images,\n    and also columns of matrices for transforming those rows\n    (such as the first layer of a neural net).\n\n    :type X: a 2-D ndarray or a tuple of 4 channels, elements of which can\n    be 2-D ndarrays or None;\n    :param X: a 2-D array in which every row is a flattened image.\n\n    :type img_shape: tuple; (height, width)\n    :param img_shape: the original shape of each image\n\n    :type tile_shape: tuple; (rows, cols)\n    :param tile_shape: the number of images to tile (rows, cols)\n\n    :param output_pixel_vals: if output should be pixel values (i.e. int8\n    values) or floats\n\n    :param scale_rows_to_unit_interval: if the values need to be scaled before\n    being plotted to [0,1] or not\n\n\n    :returns: array suitable for viewing as an image.\n    (See:`PIL.Image.fromarray`.)\n    :rtype: a 2-d array with same dtype as X.\n\n    \"\"\"\n\n    assert len(img_shape) == 2\n    assert len(tile_shape) == 2\n    assert len(tile_spacing) == 2\n\n    # The expression below can be re-written in a more C style as\n    # follows :\n    #\n    # out_shape    = [0,0]\n    # out_shape[0] = (img_shape[0]+tile_spacing[0])*tile_shape[0] -\n    #                tile_spacing[0]\n    # out_shape[1] = (img_shape[1]+tile_spacing[1])*tile_shape[1] -\n    #                tile_spacing[1]\n    out_shape = [(ishp + tsp) * tshp - tsp for ishp, tshp, tsp\n                        in zip(img_shape, tile_shape, tile_spacing)]\n\n    if isinstance(X, tuple):\n        assert len(X) == 4\n        # Create an output numpy ndarray to store the image\n        if output_pixel_vals:\n            out_array = numpy.zeros((out_shape[0], out_shape[1], 4),\n                                    dtype='uint8')\n        else:\n            out_array = numpy.zeros((out_shape[0], out_shape[1], 4),\n                                    dtype=X.dtype)\n\n        #colors default to 0, alpha defaults to 1 (opaque)\n        if output_pixel_vals:\n            channel_defaults = [0, 0, 0, 255]\n        else:\n            channel_defaults = [0., 0., 0., 1.]\n\n        for i in xrange(4):\n            if X[i] is None:\n                # if channel is None, fill it with zeros of the correct\n                # dtype\n                dt = out_array.dtype\n                if output_pixel_vals:\n                    dt = 'uint8'\n                out_array[:, :, i] = numpy.zeros(out_shape,\n                        dtype=dt) + channel_defaults[i]\n            else:\n                # use a recurrent call to compute the channel and store it\n                # in the output\n                out_array[:, :, i] = tile_raster_images(\n                    X[i], img_shape, tile_shape, tile_spacing,\n                    scale_rows_to_unit_interval, output_pixel_vals)\n        return out_array\n\n    else:\n        # if we are dealing with only one channel\n        H, W = img_shape\n        Hs, Ws = tile_spacing\n\n        # generate a matrix to store the output\n        dt = X.dtype\n        if output_pixel_vals:\n            dt = 'uint8'\n        out_array = numpy.zeros(out_shape, dtype=dt)\n\n        for tile_row in xrange(tile_shape[0]):\n            for tile_col in xrange(tile_shape[1]):\n                if tile_row * tile_shape[1] + tile_col < X.shape[0]:\n                    this_x = X[tile_row * tile_shape[1] + tile_col]\n                    if scale_rows_to_unit_interval:\n                        # if we should scale values to be between 0 and 1\n                        # do this by calling the `scale_to_unit_interval`\n                        # function\n                        this_img = scale_to_unit_interval(\n                            this_x.reshape(img_shape))\n                    else:\n                        this_img = this_x.reshape(img_shape)\n                    # add the slice to the corresponding position in the\n                    # output array\n                    c = 1\n                    if output_pixel_vals:\n                        c = 255\n                    out_array[\n                        tile_row * (H + Hs): tile_row * (H + Hs) + H,\n                        tile_col * (W + Ws): tile_col * (W + Ws) + W\n                        ] = this_img * c\n        return out_array\n\n\ndef load_data(dataset):\n    ''' Loads the dataset\n\n    :type dataset: string\n    :param dataset: the path to the dataset (here MNIST)\n    '''\n\n    #############\n    # LOAD DATA #\n    #############\n\n    # Download the MNIST dataset if it is not present\n    data_dir, data_file = os.path.split(dataset)\n    if data_dir == \"\" and not os.path.isfile(dataset):\n        # Check if dataset is in the data directory.\n        new_path = os.path.join(os.path.split(__file__)[0], \"..\", \"data\", dataset)\n        if os.path.isfile(new_path) or data_file == 'mnist.pkl.gz':\n            dataset = new_path\n\n    if (not os.path.isfile(dataset)) and data_file == 'mnist.pkl.gz':\n        import urllib\n        origin = 'http://www.iro.umontreal.ca/~lisa/deep/data/mnist/mnist.pkl.gz'\n        print 'Downloading data from %s' % origin\n        urllib.urlretrieve(origin, dataset)\n\n    print '... loading data'\n\n    # Load the dataset\n    f = gzip.open(dataset, 'rb')\n    train_set, valid_set, test_set = cPickle.load(f)\n    f.close()\n    #train_set, valid_set, test_set format: tuple(input, target)\n    #input is an numpy.ndarray of 2 dimensions (a matrix)\n    #witch row's correspond to an example. target is a\n    #numpy.ndarray of 1 dimensions (vector)) that have the same length as\n    #the number of rows in the input. It should give the target\n    #target to the example with the same index in the input.\n    def shared_dataset(data_xy, borrow=True):\n        \"\"\" Function that loads the dataset into shared variables\n\n        The reason we store our dataset in shared variables is to allow\n        Theano to copy it into the GPU memory (when code is run on GPU).\n        Since copying data into the GPU is slow, copying a minibatch everytime\n        is needed (the default behaviour if the data is not in a shared\n        variable) would lead to a large decrease in performance.\n        \"\"\"\n        data_x, data_y = data_xy\n        shared_x = theano.shared(numpy.asarray(data_x,\n                                               dtype=theano.config.floatX),\n                                 borrow=borrow)\n        shared_y = theano.shared(numpy.asarray(data_y,\n                                               dtype=theano.config.floatX),\n                                 borrow=borrow)\n        # When storing data on the GPU it has to be stored as floats\n        # therefore we will store the labels as ``floatX`` as well\n        # (``shared_y`` does exactly that). But during our computations\n        # we need them as ints (we use labels as index, and if they are\n        # floats it doesn't make sense) therefore instead of returning\n        # ``shared_y`` we will have to cast it to int. This little hack\n        # lets ous get around this issue\n        return shared_x, T.cast(shared_y, 'int32')\n\n    test_set_x, test_set_y = shared_dataset(test_set)\n    valid_set_x, valid_set_y = shared_dataset(valid_set)\n    train_set_x, train_set_y = shared_dataset(train_set)\n\n    rval = [(train_set_x, train_set_y), (valid_set_x, valid_set_y),\n            (test_set_x, test_set_y)]\n    return rval\n\n",
+			"file": "/home/takanori/.cache/.fr-KiYeHS/release/scripts/utils.py",
+			"file_size": 8256,
+			"file_write_time": 130500323830000000,
+			"settings":
+			{
+				"buffer_size": 8256,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\"\"\"\nThe code was adapted from the tutorial on multilayer perceptron included in Theano\n\nA multilayer perceptron is a logistic regressor where\ninstead of feeding the input to the logistic regression you insert a\nintermediate layer, called the hidden layer, that has a nonlinear\nactivation function (usually tanh or sigmoid) . One can use many such\nhidden layers making the architecture deep. The tutorial will also tackle\nthe problem of MNIST digit classification.\n\n.. math::\n\n    f(x) = G( b^{(2)} + W^{(2)}( s( b^{(1)} + W^{(1)} x))),\n\nReferences:\n\n    - textbooks: \"Pattern Recognition and Machine Learning\" -\n                 Christopher M. Bishop, section 5\n\n\"\"\"\n__docformat__ = 'restructedtext en'\n\n\n\nimport cPickle\nimport gzip\nimport os\nimport sys\nimport time\n\nimport numpy\nimport scipy.io\n\nimport theano\nimport theano.tensor as T\n\nfrom utils import load_data\n\nfrom logistic_sgd import LogisticRegression\n\ninput_ll = 0\nroot_folder = '../'\n\nclass HiddenLayer(object):\n    def __init__(self, rng, input, n_in, n_out, filename, W=None, b=None,\n                 activation=T.tanh):\n        \"\"\"\n        Typical hidden layer of a MLP: units are fully-connected and have\n        sigmoidal activation function. Weight matrix W is of shape (n_in,n_out)\n        and the bias vector b is of shape (n_out,).\n\n        NOTE : The nonlinearity used here is tanh\n\n        Hidden unit activation is given by: tanh(dot(input,W) + b)\n\n        :type rng: numpy.random.RandomState\n        :param rng: a random number generator used to initialize weights\n\n        :type input: theano.tensor.dmatrix\n        :param input: a symbolic tensor of shape (n_examples, n_in)\n\n        :type n_in: int\n        :param n_in: dimensionality of input\n\n        :type n_out: int\n        :param n_out: number of hidden units\n\n        :type activation: theano.Op or function\n        :param activation: Non linearity to be applied in the hidden\n                           layer\n        \"\"\"\n        self.input = input\n\n        # `W` is initialized with `W_values` which is uniformely sampled\n        # from sqrt(-6./(n_in+n_hidden)) and sqrt(6./(n_in+n_hidden))\n        # for tanh activation function\n        # the output of uniform if converted using asarray to dtype\n        # theano.config.floatX so that the code is runable on GPU\n        # Note : optimal initialization of weights is dependent on the\n        #        activation function used (among other things).\n        #        For example, results presented in [Xavier10] suggest that you\n        #        should use 4 times larger initial weigghts for sigmoid\n        #        compared to tanh\n        #        We have no info for other function, so we use the same as\n        #        tanh.\n	mat = scipy.io.loadmat(filename)\n        if W is None:\n            W_values = numpy.asarray(rng.uniform(\n                    low=-numpy.sqrt(6. / (n_in + n_out)),\n                    high=numpy.sqrt(6. / (n_in + n_out)),\n                    size=(n_in, n_out)), dtype=theano.config.floatX)\n            if activation == theano.tensor.nnet.sigmoid:\n                W_values *= 4\n	    print W_values\n	    W_values = numpy.copy(mat['W'])\n	    #W_values = numpy.asarray(mat['W'], dtype=theano.config.floatX)\n	    print W_values\n       	    W = theano.shared(W_values, name='W', borrow=True)\n\n        if b is None:\n            b_values = numpy.zeros((n_out,), dtype=theano.config.floatX)\n	    b_values = numpy.copy(numpy.reshape(mat['b'], (n_out,)))\n            b = theano.shared(b_values, name='b', borrow=True)\n\n	#W_values = mat['W']\n	#print W_values\n	#b_values = numpy.reshape(mat['b'], (n_out,))\n\n	print W.get_value()\n        self.W = W\n        self.b = b\n\n        lin_output = T.dot(input, self.W) + self.b\n        self.output = (lin_output if activation is None\n                       else activation(lin_output))\n        # parameters of the model\n        self.params = [self.W, self.b]\n\n\nclass MLP(object):\n    \"\"\"Multi-Layer Perceptron Class\n\n    A multilayer perceptron is a feedforward artificial neural network model\n    that has one layer or more of hidden units and nonlinear activations.\n    Intermediate layers usually have as activation function tanh or the\n    sigmoid function (defined here by a ``HiddenLayer`` class)  while the\n    top layer is a softamx layer (defined here by a ``LogisticRegression``\n    class).\n    \"\"\"\n\n    def __init__(self, rng, input, n_in, n_out, n_hidden, pretrained_paramfile): \n        \"\"\"Initialize the parameters for the multilayer perceptron\n\n        :type rng: numpy.random.RandomState\n        :param rng: a random number generator used to initialize weights\n\n        :type input: theano.tensor.TensorType\n        :param input: symbolic variable that describes the input of the\n        architecture (one minibatch)\n\n        :type n_in: int\n        :param n_in: number of input units, the dimension of the space in\n        which the datapoints lie\n\n        :type n_hidden: int\n        :param n_hidden: number of hidden units\n\n        :type n_out: int\n        :param n_out: number of output units, the dimension of the space in\n        which the labels lie\n\n        \"\"\"\n        # Since we are dealing with a one hidden layer MLP, this will translate\n        # into a HiddenLayer with a tanh activation function connected to the\n        # LogisticRegression layer; the activation function can be replaced by\n        # sigmoid or any other nonlinear function\n	#W_values = numpy.asarray(mat_init['W'], dtype=theano.config.floatX)\n	#print W_values.shape\n        #W = theano.shared(value=W_values, name='W', borrow=True)	\n\n	#b_values = numpy.asarray(numpy.squeeze(mat_init['b']), dtype=theano.config.floatX)\n	#print b_values.shape\n        #b = theano.shared(value=b_values, name='b', borrow=True)\n\n        self.hiddenLayer = HiddenLayer(rng=rng, input=input,\n                                       n_in=n_in, n_out=n_hidden, filename=pretrained_paramfile,\n                                       activation=T.nnet.sigmoid)\n\n        # The logistic regression layer gets as input the hidden units\n        # of the hidden layer\n        self.logRegressionLayer = LogisticRegression(\n            input=self.hiddenLayer.output,\n            n_in=n_hidden,\n            n_out=n_out)\n\n        # L1 norm ; one regularization option is to enforce L1 norm to\n        # be small\n        self.L1 = abs(self.hiddenLayer.W).sum() \\\n                + abs(self.logRegressionLayer.W).sum()\n\n        # square of L2 norm ; one regularization option is to enforce\n        # square of L2 norm to be small\n        self.L2_sqr = (self.hiddenLayer.W ** 2).sum() \\\n                    + (self.logRegressionLayer.W ** 2).sum()\n\n        # negative log likelihood of the MLP is given by the negative\n        # log likelihood of the output of the model, computed in the\n        # logistic regression layer\n        self.negative_log_likelihood = self.logRegressionLayer.negative_log_likelihood\n        # same holds for the function computing the number of errors\n        self.errors = self.logRegressionLayer.errors\n\n        # the parameters of the model are the parameters of the two layer it is\n        # made out of\n        self.params = self.hiddenLayer.params + self.logRegressionLayer.params\n\n\ndef test_mlp(data_name, pretrained_paramfile, learning_rate=0.01, L1_reg=0.00, L2_reg=0.0001, n_epochs=1000, batch_size=20):\n    \"\"\"\n    Demonstrate stochastic gradient descent optimization for a multilayer\n    perceptron\n\n    This is demonstrated on MNIST.\n\n    :type learning_rate: float\n    :param learning_rate: learning rate used (factor for the stochastic\n    gradient\n\n    :type L1_reg: float\n    :param L1_reg: L1-norm's weight when added to the cost (see\n    regularization)\n\n    :type L2_reg: float\n    :param L2_reg: L2-norm's weight when added to the cost (see\n    regularization)\n\n    :type n_epochs: int\n    :param n_epochs: maximal number of epochs to run the optimizer\n\n   \"\"\"\n    dataset = os.path.join(root_folder+'/data/layer'+str(input_ll), data_name + '.pkl.gz')\n    datasets = load_data(dataset)\n\n    train_set_x, train_set_y = datasets[0]\n    valid_set_x, valid_set_y = datasets[1]\n    test_set_x, test_set_y = datasets[2]\n\n\n    # compute number of minibatches for training, validation and testing\n    n_train_batches = train_set_x.get_value(borrow=True).shape[0] / batch_size\n    n_valid_batches = valid_set_x.get_value(borrow=True).shape[0] / batch_size\n    n_test_batches = test_set_x.get_value(borrow=True).shape[0] / batch_size\n\n    ######################\n    # BUILD ACTUAL MODEL #\n    ######################\n    print '... building the model'\n\n    # allocate symbolic variables for the data\n    index = T.lscalar()  # index to a [mini]batch\n    x = T.matrix('x')  # the data is presented as rasterized images\n    y = T.ivector('y')  # the labels are presented as 1D vector of\n                        # [int] labels\n\n    W = T.dmatrix('W')\n    b = T.dmatrix('b')\n\n    rng = numpy.random.RandomState(1234)\n\n    # construct the MLP class\n    classifier = MLP(rng=rng, input=x, n_in=28 * 28, n_out=10, n_hidden=1000,pretrained_paramfile=pretrained_paramfile)\n\n    # the cost we minimize during training is the negative log likelihood of\n    # the model plus the regularization terms (L1 and L2); cost is expressed\n    # here symbolically\n    cost = classifier.negative_log_likelihood(y) \\\n         + L1_reg * classifier.L1 \\\n         + L2_reg * classifier.L2_sqr\n\n    # compiling a Theano function that computes the mistakes that are made\n    # by the model on a minibatch\n    test_model = theano.function(inputs=[index],\n            outputs=classifier.errors(y),\n            givens={\n                x: test_set_x[index * batch_size:(index + 1) * batch_size],\n                y: test_set_y[index * batch_size:(index + 1) * batch_size]})\n\n    validate_model = theano.function(inputs=[index],\n            outputs=classifier.errors(y),\n            givens={\n                x: valid_set_x[index * batch_size:(index + 1) * batch_size],\n                y: valid_set_y[index * batch_size:(index + 1) * batch_size]})\n\n    # compute the gradient of cost with respect to theta (sotred in params)\n    # the resulting gradients will be stored in a list gparams\n    gparams = []\n    for param in classifier.params:\n        gparam = T.grad(cost, param)\n        gparams.append(gparam)\n\n    # specify how to update the parameters of the model as a list of\n    # (variable, update expression) pairs\n    updates = []\n    # given two list the zip A = [a1, a2, a3, a4] and B = [b1, b2, b3, b4] of\n    # same length, zip generates a list C of same size, where each element\n    # is a pair formed from the two lists :\n    #    C = [(a1, b1), (a2, b2), (a3, b3), (a4, b4)]\n    for param, gparam in zip(classifier.params, gparams):\n        updates.append((param, param - learning_rate * gparam))\n\n    # compiling a Theano function `train_model` that returns the cost, but\n    # in the same time updates the parameter of the model based on the rules\n    # defined in `updates`\n    train_model = theano.function(inputs=[index], outputs=cost,\n            updates=updates,\n            givens={\n                x: train_set_x[index * batch_size:(index + 1) * batch_size],\n                y: train_set_y[index * batch_size:(index + 1) * batch_size]\n		})\n\n    ###############\n    # TRAIN MODEL #\n    ###############\n    print '... training'\n\n    # early-stopping parameters\n    patience = 10000  # look as this many examples regardless\n    patience_increase = 2  # wait this much longer when a new best is\n                           # found\n    improvement_threshold = 0.995  # a relative improvement of this much is\n                                   # considered significant\n    validation_frequency = min(n_train_batches, patience / 2)\n                                  # go through this many\n                                  # minibatche before checking the network\n                                  # on the validation set; in this case we\n                                  # check every epoch\n\n    best_params = None\n    best_validation_loss = numpy.inf\n    best_iter = 0\n    test_score = 0.\n    start_time = time.clock()\n\n    epoch = 0\n    done_looping = False\n\n    while (epoch < n_epochs) and (not done_looping):\n        epoch = epoch + 1\n        for minibatch_index in xrange(n_train_batches):\n\n            minibatch_avg_cost = train_model(minibatch_index)\n            # iteration number\n            iter = (epoch - 1) * n_train_batches + minibatch_index\n\n            if (iter + 1) % validation_frequency == 0:\n                # compute zero-one loss on validation set\n                validation_losses = [validate_model(i) for i\n                                     in xrange(n_valid_batches)]\n                this_validation_loss = numpy.mean(validation_losses)\n\n                print('epoch %i, minibatch %i/%i, validation error %f %%' %\n                     (epoch, minibatch_index + 1, n_train_batches,\n                      this_validation_loss * 100.))\n\n                # if we got the best validation score until now\n                if this_validation_loss < best_validation_loss:\n                    #improve patience if loss improvement is good enough\n                    if this_validation_loss < best_validation_loss *  \\\n                           improvement_threshold:\n                        patience = max(patience, iter * patience_increase)\n\n                    best_validation_loss = this_validation_loss\n                    best_iter = iter\n\n                    # test it on the test set\n                    test_losses = [test_model(i) for i\n                                   in xrange(n_test_batches)]\n                    test_score = numpy.mean(test_losses)\n\n                    print(('     epoch %i, minibatch %i/%i, test error of '\n                           'best model %f %%') %\n                          (epoch, minibatch_index + 1, n_train_batches,\n                           test_score * 100.))\n\n            if patience <= iter:\n                    done_looping = True\n                    break\n\n    end_time = time.clock()\n    print(('Optimization complete. Best validation score of %f %% '\n           'obtained at iteration %i, with test performance %f %%') %\n          (best_validation_loss * 100., best_iter + 1, test_score * 100.))\n    print >> sys.stderr, ('The code for file ' +\n                          os.path.split(__file__)[1] +\n                          ' ran for %.2fm' % ((end_time - start_time) / 60.))\n\n\nif __name__ == '__main__':\n\n\n    if len(sys.argv) != 3:\n        print 'Usage: python finetune.py dataset path_to_pretrained_paramfile'\n        print 'Example: python finetune.py basic ../params/da_gauss/layer1/basic/lrate=0.1,noise=0.05,epoch=300.mat'\n        sys.exit()\n\n    dd = sys.argv[1]\n    pretrained_paramfile = sys.argv[2]\n\n    for lr in [0.1, 0.01, 0.001]: \n    	for reg in [0.00001, 0.0001, 0.001, 0.01, 0.1, 1]: \n    		test_mlp(data_name=dd, pretrained_paramfile=pretrained_paramfile, learning_rate=lr, L2_reg=reg)\n",
+			"file": "/home/takanori/.cache/.fr-3wMlBC/release/scripts/finetune.py",
+			"file_size": 15009,
+			"file_write_time": 130500923730000000,
+			"settings":
+			{
+				"buffer_size": 15010,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/.bashrc",
+			"settings":
+			{
+				"buffer_size": 6044,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.1421937.stdout",
+			"settings":
+			{
+				"buffer_size": 59377,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "[watanabt@samos gen]$ qstat -ext\njob-ID  prior   ntckts  name       user         project          department state cpu        mem     io      tckts ovrts otckt ftckt stckt share queue                          slots ja-task-ID \n------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n1423170 0.11056 0.00624 subscript. watanabt     NA               defaultdep r     0:00:00:40 2.25352 0.16565    24     0     0    24     0 0.00  all.q@c5-11.uphs.upenn.edu         1        \n1423173 0.11056 0.00624 subscript. watanabt     NA               defaultdep S     0:00:04:19 79.09715 0.04728    24     0     0    24     0 0.00  all.q@c1-15.uphs.upenn.edu         1        \n1423175 0.11056 0.00624 subscript. watanabt     NA               defaultdep r     0:00:00:24 1.52778 0.34898    24     0     0    24     0 0.00  all.q@c5-19.uphs.upenn.edu         1        \n1423178 0.11056 0.00624 subscript. watanabt     NA               defaultdep S     0:00:01:57 34.73300 0.04729    24     0     0    24     0 0.00  all.q@c1-15.uphs.upenn.edu         1      ",
+			"settings":
+			{
+				"buffer_size": 1179,
+				"line_ending": "Unix",
+				"name": "[watanabt@samos gen]$ qstat -ext"
+			}
+		},
+		{
+			"contents": "\"\"\"\nBasic approach stacks a 2-layer RBM neural network to learn spectral\nfeatures for Kaggle's AFSIS competition. Joined to original data it\nappears to improve performance slightly in CV. (~0.015 MSE)\n\n# Example usage in preprocessing\nfrom afsis_rbm import get_rbm_features\ntrain_rbm, test_rbm = get_rbm_features(train, test)\ntrain = train.join(train_rbm)\ntest = test.join(test_rbm)\n\n# Nuances:\nbatch_size=300 appears to work on train data, does poorly on joint train+test.\nbatch_size=500 appears to work on joint, does poorly on train data solo.\n\n\"\"\"\nimport pandas as pd\n\nfrom sklearn import preprocessing\nfrom sklearn.neural_network import BernoulliRBM\n\n# You'll need to make this constant on your own.\n# It's simply a list of strings with spectral column names.\nfrom constants import SPECTRAL_COLUMNS\n\ndef scale_and_binarize_around_mean(dataframe):\n    \"\"\" Local helper function for RBM preprocessing.\n    Scales values between 0-1 then binarizes around the mean.\n    \"\"\"\n    mms = preprocessing.MinMaxScaler(feature_range=(0, 1))\n    scaled_data = mms.fit_transform(dataframe)\n    # Convert back to DataFrame\n    dataframe = pd.DataFrame(scaled_data)\n\n    # Binarize around mean\n    for col in dataframe.columns:\n        dataframe[col] = preprocessing.binarize(\n            dataframe[col],\n            dataframe[col].mean())\n    return dataframe\n\n\ndef get_rbm_features(train, test):\n    \"\"\" Join train & test sets to pre-train on both combined.\n\n    Returns RBM features for each set respectively.\n\n    Expects (and probably works best with) derivative transformed data as input.\n    \"\"\"\n    train_spatial = train[SPECTRAL_COLUMNS]\n    test_spatial = test[SPECTRAL_COLUMNS]\n\n    # Join training & test sets to generalize unsupervised learning across\n    joint_spatial = pd.concat([train_spatial, test_spatial])\n\n    # Preprocessing\n    joint_binarized = scale_and_binarize_around_mean(joint_spatial)\n\n    # RBM Parameters\n    rbm_1 = BernoulliRBM(\n        verbose=1,\n        n_components=100,\n        batch_size=500,\n        n_iter=150,\n        learning_rate=0.08)\n    rbm_2 = BernoulliRBM(\n        verbose=1,\n        n_components=25,\n        batch_size=500,\n        n_iter=110,\n        learning_rate=0.08)\n\n    # Train and transform\n    print \"Training layer 1\"\n    rbm_layer1 = rbm_1.fit_transform(joint_binarized)\n    print \"Training layer 2\"\n    rbm_layer2 = rbm_2.fit_transform(rbm_layer1)\n\n    # Transform and output\n    rbm_train = rbm_layer2[:train.shape[0]]\n    rbm_test = rbm_layer2[train.shape[0]:]\n\n    # Return as DataFrames for joining to original set\n    rbm_train = pd.DataFrame(rbm_train)\n    rbm_test = pd.DataFrame(rbm_test)\n\n    return rbm_train, rbm_test\n",
+			"file": "/tmp/afsis_rbm.py",
+			"file_size": 2680,
+			"file_write_time": 131040017181822042,
+			"settings":
+			{
+				"buffer_size": 2680,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/work/sbia_work/.gitignore",
+			"settings":
+			{
+				"buffer_size": 1495,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Anaconda Python Builder",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"set syntax text",
+				"Set Syntax: Textile"
+			],
+			[
+				"anaconda",
+				"Anaconda: Show error list"
+			],
+			[
+				"add f",
+				"Project: Add Folder"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"rst",
+				"Set Syntax: reStructuredText"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"rest",
+				"Set Syntax: reStructuredText"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"add fo",
+				"Project: Add Folder"
+			],
+			[
+				"error",
+				"Anaconda: Show error list"
+			],
+			[
+				"fold doc",
+				"Fold Python : show documentation"
+			],
+			[
+				"show er",
+				"Anaconda: Show error list"
+			],
+			[
+				"pep8",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"docstr",
+				"Python Docstrings: Fold"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"fold co",
+				"Fold Comments"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"diff",
+				"FileDiffs: Menu"
+			],
+			[
+				"restr",
+				"Set Syntax: reStructuredText"
+			],
+			[
+				"fold ",
+				"Python Docstrings: Fold"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"set syntax rst",
+				"Set Syntax: reStructuredText"
+			],
+			[
+				"anaconda pep",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"ython",
+				"Set Syntax: Python"
+			],
+			[
+				"add ",
+				"Project: Add Folder"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"ipython",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"sublimerepl ipython",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"ipy",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"fold",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"remove p",
+				"Package Control: Remove Package"
+			],
+			[
+				"code folding",
+				"Code Folding: Unfold All"
+			],
+			[
+				"origami",
+				"Origami: Destroy Current Pane"
+			],
+			[
+				"ori",
+				"Origami: Create Pane Below"
+			],
+			[
+				"format",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"anaconda de",
+				"Anaconda: Goto object definition"
+			],
+			[
+				"show",
+				"Anaconda: Show error list"
+			],
+			[
+				"ana",
+				"Anaconda: Goto object definition"
+			],
+			[
+				"show err",
+				"Anaconda: Show error list"
+			],
+			[
+				"export",
+				"OmniMarkupPreviewer: Export Current Markup as HTML"
+			],
+			[
+				"omni",
+				"OmniMarkupPreviewer: Export Current Markup as HTML"
+			],
+			[
+				"reame",
+				"File: Rename"
+			],
+			[
+				"R",
+				"Set Syntax: R"
+			]
+		],
+		"width": 732.0
+	},
+	"console":
+	{
+		"height": 469.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/takanori/Dropbox/git/configs_master",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python"
+	],
+	"file_history":
+	[
+		"/home/takanori/anaconda/lib/python2.7/site-packages/easy-install.pth",
+		"/home/takanori/.cache/.fr-2HjBDn/code/prediction.py",
+		"/home/takanori/.cache/.fr-0TCJqR/code/prediction.py",
+		"/home/takanori/.cache/.fr-6Dikj1/code/demo.py",
+		"/home/takanori/.cache/.fr-fY5XTr/code/preprocessing.py",
+		"/home/takanori/.cache/.fr-ihG8rS/code/train.py",
+		"/home/takanori/data/kaggle/digit_recognizer/url.txt",
+		"/home/takanori/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/readme.rst",
+		"/home/takanori/Dropbox/git/configs_master/sublime-text/readme.md",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/add_date.py",
+		"/home/takanori/.ipython/profile_default/startup/pandas_setup.py",
+		"/home/takanori/.config/sublime-text-3/Packages/User/general_#-.sublime-snippet",
+		"/home/takanori/.ipython/profile_default/startup/README",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/nmf/t_0209c2_study_gose.py",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/nmf/t_0209_cv_gose_graph.py",
+		"/home/takanori/.bashrc",
+		"/home/takanori/.theanorc",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/nmf/t_0125_network_measure_ttest_fdr/clustering_coeff.txt",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/nmf/t_0125_network_measure_ttest_fdr/betweenness_centrality.txt",
+		"/home/takanori/Dropbox/work/sbia_work/readme.rst",
+		"/home/takanori/Dropbox/work/sbia_work/python/tw_node_info_86.py",
+		"/home/takanori/Dropbox/work/sbia_work/.gitignore",
+		"/home/takanori/Dropbox/2015-work/birkan-demo/group_comparison_pnc_ages.py",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/bash_1207_tbi_nestedLOO_with_score_argv.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/__batch_submit__/nested_10foldCV_batchsubmit_1205.py",
+		"/home/takanori/Dropbox/2015-work/birkan-demo/submitJob_pnc_ages.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/__batch_submit__/pnc/pnc_prepare_stdout_directory_1205.sh",
+		"/home/takanori/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/takanori/Dropbox/work/sbia_work/python/symlink/sklearn/linear_model/logistic.py",
+		"/home/takanori/Dropbox/work/sbia_work/python/symlink/theano-tutorial/code/logistic_sgd.py",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/nmf/pnmf_tbi_0120.py",
+		"/home/takanori/.config/sublime-text-3/Packages/User/bash-shebang.sublime-snippet",
+		"/home/takanori/Dropbox/work/sbia_work/.git_bkup/config",
+		"/home/takanori/Dropbox/work/sbia_work/.git/config",
+		"/home/takanori/data/misc/node_info/tw_node_info_86.py",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/.bashrc",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/.theanorc",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/python-config-sbia.rst",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/nested_10cv_randomized_1209_post_analysis/tbi_1209_study_clf_results2_argv.py",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/nested_10cv_randomized_1209_post_analysis/tbi_1209_study_clf_clin_corr.out",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/nested_10cv_randomized_1208/batch_submit_1208_tbi_nested10fold_with_score_argv.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/symlink/sklearn/svm/classes.py",
+		"/home/takanori/work-local/external-python-modules/pylearn2/pylearn2/scripts/tutorials/grbm_smd/make_dataset.py",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/custom.js",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/ipython_kernel_config.py",
+		"/home/takanori/Dropbox/work/sbia_work/python/symlink/theano-tutorial/sda_output.txt",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/matplotlibrc",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/nested_10cv_randomized_1208/fistaLogregElasticnet.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/__batch_submit__/pnc/pnc_enetLogRegGlmNet_ncv10.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/nested_10cv_randomized_1208/ttestLinSvm.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/__batch_submit__/pnc/pnc_batch.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/nested_10cv_randomized_1209_post_analysis/tbi_1210_study_median_coef.py",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/nested_10cv_randomized_1209_post_analysis/tbi_1210_study_median_coef.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/__batch_submit__/pnc/pnc_prepare_stdout_directory.sh",
+		"/home/takanori/work-local/external-python-modules/deepnet/deepnet/examples/rbm/eval.pbtxt",
+		"/home/takanori/work-local/external-python-modules/deepnet/deepnet/examples/rbm/model.pbtxt",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/__batch_submit__/tob/tob_HARDI_all/tob_HARDI_all_batch.sh",
+		"/home/takanori/work-local/external-python-modules/deepnet/deepnet/examples/rbm/train.pbtxt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/analysis/tbi/nested_10cv_randomized_1208/batch_submit_1208_tbi_nested10fold_with_score_argv.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/analysis/__batch_submit__/pnc/pnc_batch_1205.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet80/age_group=q3_fistaLogregGraphnet80_3471139.16071.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet80/age_group=q3_fistaLogregGraphnet80_3148591.16095.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet80/age_group=q3_fistaLogregGraphnet80_356389.16185.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet80/age_group=q1_fistaLogregGraphnet80_4830425.15967.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/modules/tak/clf_grid/pnc_gender_conn.py",
+		"/home/takanori/Desktop/tmp/protobuf-2.6.1/INSTALL.txt",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/bash_1208_tbi_LOO_tuned10fold_with_score_argv.sh",
+		"/home/takanori/work-local/external-python-modules/deepnet/cudamat/Makefile",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/nested_10cv_randomized_1209_post_analysis/tbi_1210_collect_coef.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1209_ncv10_tbi/stdout/fistaLogregGraphnet/fistaLogregGraphnet_1_1_3784707.90076.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1209_ncv10_tbi/stdout/fistaLogregGraphnet/fistaLogregGraphnet_1_2_2974476.90152.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1209_ncv10_tbi/stdout/fistaLogregGraphnet/fistaLogregGraphnet_0_1_4725977.89101.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1209_ncv10_tbi/stdout/fistaLogregGraphnet/fistaLogregGraphnet_0_2_3783247.89530.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1209_ncv10_tbi/stdout/fistaLogregGraphnet/fistaLogregGraphnet_0_1_4576962.89086.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/fistaLogregGraphnet/fistaLogregGraphnet_0_3_2661686.54658.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/fistaLogregGraphnet/fistaLogregGraphnet_1_3_2553096.54664.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/fistaLogregElasticnet/fistaLogregElasticnet_1_3_2093021.54652.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/fistaLogregElasticnet/fistaLogregElasticnet_1_2_4526512.54650.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/fistaLogregElasticnet/fistaLogregElasticnet_1_1_206991.54648.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/enetLogRegGlmNet/enetLogRegGlmNet_0_2_1970489.54585.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stderr/enetLogRegSpams/enetLogRegSpams_0_2_808230.54632.stderr",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/enetLogRegSpams/enetLogRegSpams_0_1_2504.54630.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/enetLogRegGlmNet/enetLogRegGlmNet_1_2_3946281.54591.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/enetLogRegGlmNet/enetLogRegGlmNet_1_3_4007731.54593.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/enetLogRegGlmNet/enetLogRegGlmNet_1_1_4007110.54589.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet80/age_group=q3_fistaLogregGraphnet80_148983.16029.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/enetLogRegGlmNet/enetLogRegGlmNet_0_1_4807985.54583.stdout",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/nested_10cv_randomized_1208/enetLogRegGlmNet.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/fistaLogregGraphnet/fistaLogregGraphnet_1_2_4077692.54662.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/PcaLinSvm/PcaLinSvm_0_1_2257242.54676.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/PcaLda/PcaLda_0_2_4483292.54668.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stderr/PcaLda/PcaLda_1_2_4486958.54674.stderr",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stderr/PcaLda/PcaLda_0_2_4483292.54668.stderr",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stdout/fistaLogregElasticnet/fistaLogregElasticnet_0_2_3228993.54644.stdout",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/nested_10cv_randomized_1208/fuck.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1208_ncv10_tbi/stderr/enetLogRegGlmNet/enetLogRegGlmNet_0_1_4807985.54583.stderr",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/tbi/batch_submit_1208_tbi_nested10fold_with_score_argv.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/__batch_submit__/run_all_batch_1116.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet80/age_group=q3_fistaLogregGraphnet80_3440314.15966.stdout",
+		"/home/takanori/Downloads/legend_demo (1).py",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/analysis/tbi/bash_1207_tbi_nestedLOO_with_score_argv.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/modules/tak/__init__.py",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet/age_group=q3_fistaLogregGraphnet_480983.15894.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet/age_group=q3_fistaLogregGraphnet_384214.15756.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet/age_group=q3_fistaLogregGraphnet_3666527.15663.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet/age_group=q3_fistaLogregGraphnet_2661543.15633.stdout",
+		"/home/takanori/Desktop/tmp/correlation_threshold_absval0.2.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet80/age_group=q2_fistaLogregGraphnet80_3994712.15956.stdout",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/__batch_submit__/pnc/pnc_ttestLinSvm_ncv10.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet/age_group=q3_fistaLogregGraphnet_2549002.15636.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet/age_group=q3_fistaLogregGraphnet_3752767.15654.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet/age_group=q2_fistaLogregGraphnet_403587.15683.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet/age_group=q3_fistaLogregGraphnet_3580683.15729.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet/age_group=q3_fistaLogregGraphnet_3371059.13867.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q3_fistaLogregElasticnet_1607743.15396.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q3_fistaLogregElasticnet_1562830.15549.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q3_fistaLogregElasticnet_1390394.15570.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q3_fistaLogregElasticnet_1277385.15483.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q3_fistaLogregElasticnet_1040242.15342.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q3_fistaLogregElasticnet_919833.15351.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q3_fistaLogregElasticnet_843730.15585.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q3_fistaLogregElasticnet_832049.15597.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q1_fistaLogregElasticnet_663630.13862.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregGraphnet/age_group=q1_fistaLogregGraphnet_329801.15700.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q1_fistaLogregElasticnet_4902486.15418.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q3_fistaLogregElasticnet_1789347.14996.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/1205_pnc/stdout/fistaLogregElasticnet/age_group=q2_fistaLogregElasticnet_4188371.15013.stdout"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"anaconda",
+			"pyplot",
+			"egg",
+			"BatchIterator",
+			"0",
+			"tau=0.0001",
+			"seconds",
+			"tmp",
+			"        \n",
+			"cuda",
+			"5",
+			"cuda",
+			"anac",
+			"ctrl",
+			"/usr/local/bin",
+			"mkdir",
+			"random_state",
+			"get_gridsearch_classifier",
+			"marker",
+			"",
+			"spyder",
+			"non-integer",
+			".__init",
+			".init",
+			"returns",
+			"check_random_state",
+			"ed",
+			"go",
+			"ctrl+d",
+			"ctrl+shift+k",
+			"gowork",
+			"/home/takanori",
+			"y_dx",
+			"``\n",
+			"spyder",
+			"tex",
+			"grid",
+			"epsilon",
+			"scores",
+			" \n",
+			"_r",
+			"\\t",
+			"grid",
+			"self.cv",
+			"sparse",
+			"kwarg",
+			"color",
+			"cv_inner_summary",
+			"dpi",
+			"rename co",
+			"verticalalignment",
+			"text.",
+			"text",
+			"axis",
+			"axes.col",
+			"color",
+			"layout",
+			"tight",
+			"])",
+			")",
+			") ",
+			") |",
+			"|",
+			"csv-table",
+			") ",
+			" ",
+			"_test",
+			"color",
+			"fontsize",
+			"backend",
+			".rc",
+			"backend",
+			"variant",
+			"size",
+			"labelsize",
+			"fontsize",
+			"weight",
+			"titles",
+			"title",
+			"weight",
+			"posit",
+			"location",
+			"geom",
+			"exception",
+			"img",
+			"brow",
+			"browser",
+			"matplot",
+			"meta",
+			"staticmethod",
+			"cd_fast",
+			"cd_fast.sparse_enet_coordinate_descent",
+			"groupby",
+			"gropuby",
+			"set_option",
+			"nan",
+			"fillna",
+			"mpl.rc",
+			"fold",
+			"])",
+			" ",
+			"   ",
+			"  ",
+			"groupby",
+			"reset_index",
+			"df.select",
+			"np.",
+			"random",
+			"lower",
+			"u'",
+			"tips_multi_index",
+			"tips",
+			"overflow",
+			"install",
+			"pip",
+			"pip install",
+			"pip insta",
+			">",
+			"location",
+			"index",
+			"GCC",
+			"display_signatures",
+			"watanabt",
+			"LDA",
+			"soda",
+			"_width",
+			"tab_width",
+			"alt+shift+r"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\n",
+			"",
+			"cv_summary",
+			"'",
+			"u",
+			"\"\"\"\n",
+			"\"",
+			"-",
+			"",
+			"Med.",
+			"CortSpinTract",
+			"Cereb.",
+			"Gyr",
+			"",
+			".",
+			"Rad",
+			"Ante.",
+			"Ped",
+			"Cereb.",
+			"Corp.Call.",
+			"Corp.Cal",
+			"Lat.",
+			"Fasc.",
+			"IC",
+			"CC",
+			"Front.",
+			"Frt.",
+			"Inf.",
+			"Occ.",
+			"Gyr",
+			"Post.",
+			"Mid.",
+			"Temp.",
+			"Cing.",
+			"Sup."
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/takanori/data/kaggle-facial-keypoint-detection/url.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 153,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								153,
+								153
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "textile",
+							"buffer_scroll_name": "8461029e",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/Textile/Textile.tmLanguage",
+							"tabs_extra_last_activated": 1459662377.85,
+							"tabs_extra_last_activated_sheet_index": 0,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/readme.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5355,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								593,
+								593
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "a3c5480d",
+							"incomplete_sync": null,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1459711842.66,
+							"tabs_extra_last_activated_sheet_index": 1,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/.bashrc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14724,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10995,
+								10995
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "shell-unix-generic",
+							"buffer_scroll_name": "1a1984bf",
+							"history_list_is_closing": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"sftp_duplicate_views": 0,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 2,
+							"tabs_extra_is_closed": true,
+							"tabs_extra_last_activated": 1459711764.02,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true,
+							"tabs_extra_view_info":
+							[
+								1,
+								-1
+							],
+							"tabs_extra_window_info": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3148.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/takanori/Dropbox/work/sbia_work/python/analysis/gen/dl_snippets.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13476,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1494,
+								1494
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "49f59935",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1459723137.04,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 581.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/module-installs/install_modules.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								489,
+								489
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "shell-unix-generic",
+							"buffer_scroll_name": "b50868af",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 3,
+							"tabs_extra_last_activated": 1459660806.91,
+							"tabs_extra_last_activated_sheet_index": 4,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 99.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/template.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 7065,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "python",
+							"buffer_scroll_name": "19d61a0e",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1459659855.76,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/takanori/.config/sublime-text-3/Packages/User/==================================",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "39b584e0",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1459659855.89,
+							"tabs_extra_last_activated_sheet_index": 6,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/takanori/.config/sublime-text-3/Packages/User/=================================",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "ee861a91",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1456423824.69,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/takanori/.config/sublime-text-3/Packages/User/---------------------------------------------",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "34ab7492",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1456423826.13,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								577,
+								577
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_indent": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bs_sintax": "plain text",
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_width": 2,
+							"tabs_extra_last_activated": 1458595484.37,
+							"tabs_extra_last_activated_sheet_index": 0,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/home/takanori/.cache/.fr-AwUYfT/release/scripts/logistic_sgd.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5399,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bs_sintax": "python",
+							"buffer_scroll_name": "2337d0ca",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1458595489.05,
+							"tabs_extra_last_activated_sheet_index": 1,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 66.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/home/takanori/.cache/.fr-qf7f9u/release/scripts/pretrain_da.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14993,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bs_sintax": "python",
+							"buffer_scroll_name": "05d57342",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1458595515.21,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2904.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/home/takanori/.cache/.fr-X6KzL6/release/scripts/pretrain_mda.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11325,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bs_sintax": "python",
+							"buffer_scroll_name": "2a974a9b",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1458595550.29,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 858.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/home/takanori/.cache/.fr-KiYeHS/release/scripts/utils.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8256,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bs_sintax": "python",
+							"buffer_scroll_name": "7ccdd6e9",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1458595571.03,
+							"tabs_extra_last_activated_sheet_index": 4,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1958.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/home/takanori/.cache/.fr-3wMlBC/release/scripts/finetune.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15010,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								910,
+								910
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bs_sintax": "python",
+							"buffer_scroll_name": "38ba6e7f",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1459265740.2,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 396.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/.bashrc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6044,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3347,
+								3347
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "shell-unix-generic",
+							"buffer_scroll_name": "0e0b4d4e",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tabs_extra_last_activated": 1459711754.57,
+							"tabs_extra_last_activated_sheet_index": 6,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 995.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.1421937.stdout",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 59377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8133,
+								8133
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "b7b1a558",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1459377411.52,
+							"tabs_extra_last_activated_sheet_index": 7,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2792.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1179,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1179,
+								1179
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_name": "[watanabt@samos gen]$ qstat -ext",
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "plain text",
+							"default_dir": "/home/takanori/Dropbox/work/sbia_work/python",
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1459470581.17,
+							"tabs_extra_last_activated_sheet_index": 8,
+							"word_wrap": false
+						},
+						"translation.x": 199.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "/tmp/afsis_rbm.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "python",
+							"buffer_scroll_name": "9555e03d",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1459710641.96,
+							"tabs_extra_last_activated_sheet_index": 9,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "/home/takanori/Dropbox/work/sbia_work/.gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1495,
+								1495
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "d1c26bed",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1459711750.48,
+							"tabs_extra_last_activated_sheet_index": 10,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 998.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 19.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.471888157505,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 312.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 78.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/python-anadonda.sublime-build",
+	"project": "0227_2016.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"snippet",
+				"User/py-#=.sublime-snippet"
+			],
+			[
+				"bashsnippet",
+				"User/bash-shebang.sublime-snippet"
+			],
+			[
+				"linear_model",
+				"python/symlink/sklearn/linear_model/logistic.py"
+			],
+			[
+				"base.py",
+				"python/symlink/sklearn/base.py"
+			],
+			[
+				"rfe",
+				"python/symlink/sklearn/feature_selection/rfe.py"
+			],
+			[
+				"1112",
+				"python/analysis/general_ncv_1112.py"
+			],
+			[
+				"cross_vali",
+				"python/symlink/sklearn/cross_validation.py"
+			],
+			[
+				"data_",
+				"tak/data_io.py"
+			],
+			[
+				"python",
+				"User/Python.sublime-settings"
+			],
+			[
+				"data_io",
+				"python/modules/tak/data_io.py"
+			],
+			[
+				"rstcsv",
+				"User/rst-csv-demo.sublime-snippet"
+			],
+			[
+				"csvsnipp",
+				"User/rst-csv.sublime-snippet"
+			],
+			[
+				"tak.py",
+				"python/modules/tak/tak.py"
+			],
+			[
+				"custom.js",
+				"sbia-pc125-cinn/python/custom.js"
+			],
+			[
+				"glmentage",
+				"python/pnc/+++pnc_stabsel_glmnet_liblin_agegroup.py"
+			],
+			[
+				"-----",
+				"User/-------------------------------------------"
+			],
+			[
+				"+++ttest",
+				"python/pnc/+++pnc_liblin_ttest_nested_cv.py"
+			],
+			[
+				"+++liblin",
+				"python/pnc/+++pnc_liblin_ttest_nested_cv.py"
+			],
+			[
+				"ml.py",
+				"python/modules/tak/ml.py"
+			],
+			[
+				"nilearn/mass",
+				"work-local/external-python-modules/nilearn/nilearn/mass_univariate/permuted_least_squares.py"
+			],
+			[
+				"rsth1",
+				"User/rst-h1.sublime-snippet"
+			],
+			[
+				"snippe",
+				"User/py-pyblk.sublime-snippet"
+			],
+			[
+				"1018_pnc",
+				"python/pnc/+1018_pnc_ttest_classification.py"
+			],
+			[
+				"1017_nested",
+				"python/pnc/+1017_nestedCV_svm.py"
+			],
+			[
+				"bashrc",
+				"sbia-pc125-cinn/.bashrc"
+			],
+			[
+				"1017_n",
+				"python/pnc/+1017_nestedCV_svm.py"
+			],
+			[
+				"===",
+				"User/=================================="
+			],
+			[
+				"grid_",
+				"sklearn/grid_search.py"
+			],
+			[
+				"pairwi",
+				"sklearn/metrics/pairwise.py"
+			],
+			[
+				"metrics",
+				"sklearn/metrics/metrics.py"
+			],
+			[
+				"matplot",
+				"sbia-pc125-cinn/python/matplotlibrc"
+			],
+			[
+				"grid_se",
+				"sklearn/grid_search.py"
+			],
+			[
+				"rstsublime",
+				"User/rst-h1.sublime-snippet"
+			],
+			[
+				"csv",
+				"User/rst-csv.sublime-snippet"
+			],
+			[
+				"grid",
+				"sklearn/grid_search.py"
+			],
+			[
+				"cross_v",
+				"sklearn/cross_validation.py"
+			],
+			[
+				"ipython_kern",
+				"sbia-pc125-cinn/python/ipython_kernel_config_original.py"
+			],
+			[
+				"matplo",
+				"sbia-pc125-cinn/python/matplotlibrc_original"
+			],
+			[
+				"rst=",
+				"User/rst-#=.sublime-snippet"
+			],
+			[
+				"snippet-py",
+				"snippet_book/python/snippet-python.rst"
+			],
+			[
+				"install.sh",
+				"snippet_book/python/tak_install.sh"
+			],
+			[
+				"sublime-setting",
+				"User/Python.sublime-settings"
+			],
+			[
+				"rstsh",
+				"User/rst-sh.sublime-snippet"
+			],
+			[
+				"rst==",
+				"User/rst-#==.sublime-snippet"
+			],
+			[
+				"--",
+				"User/---------------------------------------------"
+			],
+			[
+				"permutation_test_s",
+				"python/trials/sklearn-demo/personal-favorites/plot_permutation_test_for_classification.py"
+			],
+			[
+				"permutation_test",
+				"work-local/tak-ace-ibis/util-matlab/slab_functions/permutation_test.m"
+			],
+			[
+				"decomposition",
+				"sklearn/decomposition/dict_learning.py"
+			],
+			[
+				"lda.py",
+				"sklearn/lda.py"
+			],
+			[
+				"base",
+				"sklearn/base.py"
+			],
+			[
+				"lda.",
+				"sklearn/lda.py"
+			],
+			[
+				"coordinate",
+				"sklearn/linear_model/coordinate_descent.py"
+			],
+			[
+				"csvsnip",
+				"User/rst-csv.sublime-snippet"
+			],
+			[
+				"tak_in",
+				"work-local/external-python-modules/tak_install.sh"
+			],
+			[
+				"sublime",
+				"snippet_book/misc/helper-sublime.rst"
+			],
+			[
+				"=",
+				"User/================================="
+			],
+			[
+				"rstinit",
+				"User/rst-init.sublime-snippet"
+			],
+			[
+				"sublime-sni",
+				"User/rst-init.sublime-snippet"
+			],
+			[
+				"pysni",
+				"User/py-#=.sublime-snippet"
+			],
+			[
+				"readme",
+				"python/readme_matplotlibrc"
+			],
+			[
+				"pythonana",
+				"User/python-anadonda.sublime-build"
+			],
+			[
+				"python-a",
+				"User/python-anadonda.sublime-build"
+			],
+			[
+				"0922_dv",
+				"python/pnc/0922_sanityCheck_dvecinv.py"
+			],
+			[
+				"sklearn",
+				"sklearn/naive_bayes.py"
+			],
+			[
+				"snipp",
+				"User/rst-shn.sublime-snippet"
+			],
+			[
+				"plot_lda",
+				"work-local/tak-ace-ibis/non-matlab/scikit-demo/plot_lda_qda.py"
+			],
+			[
+				"09",
+				"work-local/tak-ace-ibis/0917_pnc_try2.py"
+			],
+			[
+				"py=",
+				"User/py-#=.sublime-snippet"
+			],
+			[
+				"pylk",
+				"User/py-pyblk.sublime-snippet"
+			],
+			[
+				"pyblk",
+				"sklearn/utils/_scipy_sparse_lsqr_backport.py"
+			],
+			[
+				"python.",
+				"User/Python.sublime-settings"
+			],
+			[
+				".th",
+				"~/.theanorc"
+			],
+			[
+				".bashrc",
+				"configs_master/sbia-pc125-cinn/.bashrc"
+			],
+			[
+				"gpu-stuff",
+				"snippet_book/bash/sep2015-gpu-stuffs.rst"
+			],
+			[
+				"experi",
+				"tak-ace-ibis/analysis-diffusion-volumes-dsamp-0809-2015/experimental-plan.rst"
+			],
+			[
+				"tak-17",
+				"tak-ace-ibis/tak-176-labels-full.txt"
+			],
+			[
+				"176shor",
+				"tak-ace-ibis/tak-176-labels-short1.txt"
+			],
+			[
+				"17",
+				"tak-ace-ibis/tak-176-labels-try.txt"
+			],
+			[
+				"tak-ace.git",
+				"tak-ace-ibis/.gitignore"
+			],
+			[
+				"readme.rst",
+				"tak-ace-ibis/analysis-FA-volume-dsamp-avg/balanced-LOO-exp-graphnet/readme.rst"
+			],
+			[
+				"ibisreadme.rst",
+				"tak-ace-ibis/algorithms-ml/readme.rst"
+			],
+			[
+				"runa",
+				"tak-ace-ibis/analysis-FA-volume-dsamp-avg/run_FA_all.m"
+			],
+			[
+				"runall",
+				"tak-ace-ibis/analysis-FA-volume-dsamp-avg/balanced-LOO-exp-graphnet/vol_diff/runall_0731_voldiff.m"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 375.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 475.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 124.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
