@@ -1,3 +1,6 @@
+- Todo: move alias commands in ``.bashrc`` to ``.bash_alises``
+- Default .bashrc file for ubuntu (`link <https://gist.github.com/marioBonales/1637696>`_)
+
 ####################
 Stuffs installed
 ####################

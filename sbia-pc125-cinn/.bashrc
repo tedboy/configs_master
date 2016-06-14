@@ -36,6 +36,18 @@
 # Don't wait for job termination notification
 # set -o notify
 #
+
+#=============================================================================#
+# https://gist.github.com/marioBonales/1637696
+#=============================================================================#
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 # Don't use ^D to exit
 # set -o ignoreeof
 #
@@ -349,13 +361,17 @@ alias twsource='source ~/.bashrc'
 alias gowork='cd ~/Dropbox/work/sbia_work/'
 # alias gowork='cd ~/work-local/tak-ace-ibis/python/'
 alias goipynb='cd ~/Dropbox/work/ipynb-notes'
-alias gosnippets='cd ~/Dropbox/git/snippets'
+alias gosnippets='cd ~/Dropbox/git/snippet'
 
 #=============================================================================#
 # modify snippets via sublime text 14 June 2016 (Tuesday)
 #=============================================================================#
-alias modsnippets='cd ~/Dropbox/git/snippets; subl -n -a .'
-#alias modbashrc='cd ~/Dropbox/git/snippets; subl -n -a .'
+alias subl_snip='subl -n -a ~/Dropbox/git/snippet'
+subl_bashrc(){
+  subl -n ~/Dropbox/git/configs_master/sbia-pc125-cinn/.bashrc
+  subl ~/Dropbox/git/configs_master/sbia-pc125-cinn/.bash_aliases
+  subl -a ~/Dropbox/git/configs_master/sbia-pc125-cinn/
+}
 
 #=============================================================================#
 # Convenience alias (Post 06-14-2016 (13:06))
