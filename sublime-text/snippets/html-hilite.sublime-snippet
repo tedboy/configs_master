@@ -1,9 +1,0 @@
-<snippet>
-    <content><![CDATA[
-<span style="background-color:#FFFF00;">$1</span>$2
-]]></content>
-    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-    <tabTrigger>hilite</tabTrigger>
-    <!-- Optional: Set a scope to limit where the snippet will trigger -->
-    <scope>text.html</scope>
-</snippet>

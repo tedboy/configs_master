@@ -1,3 +1,5 @@
+Here I keep info on how to sync setups on my windows machine (mainly cygwin, but also other stuffs as well, such as MS-office configuration)
+
 `[Parent Directory] <./>`_
 
 .. contents:: **Table of Contents**

@@ -345,11 +345,12 @@ export PATH=$PATH:/home/takanori/mybin/Slicer-4.4.0-linux-amd64
 export PATH=$PATH:/home/takanori/mybin/ImageJ
 
 alias twsource='source ~/.bashrc'
-alias gosnip='cd ~/Dropbox/git/snippet_book/python'
+# alias gosnip='cd ~/Dropbox/git/snippet_book/python'
 alias gowork='cd ~/Dropbox/work/sbia_work/'
 # alias gowork='cd ~/work-local/tak-ace-ibis/python/'
 alias goipynb='cd ~/Dropbox/work/ipynb-notes'
-
+alias gosnippets='cd ~/Dropbox/git/snippets'
+alias edsnippets='cd ~/Dropbox/git/snippets; subl -n -a .'
 
 #=============================================================================#
 # trying to get deepnet working

@@ -8,6 +8,7 @@ Result
 Next up?
 ===============================================================================
 Created on %(date)s
+Created on June *th, 2016
 
 @author: %(username)s
 """

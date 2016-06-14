@@ -1716,8 +1716,8 @@ XButton2 & d:: ; delete
 ; XButton1 & e::RunOrActivate("C:\Anaconda\pythonw.exe")
 ; XButton1 & e::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\EXCEL.EXE")
 ; XButton1 & e::SendInput {Backspace}
-; XButton1 & e::RunOrActivate("C:\Program Files (x86)\Evernote\Evernote\Evernote.exe")
-XButton1 & e::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\POWERPNT.EXE")
+XButton1 & e::RunOrActivate("C:\Program Files (x86)\Evernote\Evernote\Evernote.exe")
+; XButton1 & e::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\POWERPNT.EXE")
 XButton1 & d:: 
     if GetKeyState("shift","P")
     { 

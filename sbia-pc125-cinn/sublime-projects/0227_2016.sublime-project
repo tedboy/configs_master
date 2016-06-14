@@ -11,33 +11,28 @@
 	"folders":
 	[
 		{
-			"path": "/home/takanori/Dropbox/work/sbia_work/python"
-		},
-		{
-			"path": "/home/takanori/Dropbox/work/sbia_work/python/modules/tak"
-		},
-		{
 			"path": "/home/takanori/Dropbox/git/snippet_book"
-		},
-		{
-			"folder_exclude_patterns":
-			[
-				"screenshots",
-				"offce-setup"
-			],
-			"path": "/home/takanori/Dropbox/git/configs_master"
-		},
-		{
-			"path": "/home/takanori/anaconda/lib/python2.7/site-packages/theano"
-		},
-		{
-			"path": "/home/takanori/.config/sublime-text-3/Packages/User"
 		},
 		{
 			"path": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn"
 		},
 		{
-			"path": "/home/takanori/work-local/external-python-modules/deepnet/deepnet"
+			"path": "/home/takanori/Dropbox/git/snippets"
+		},
+		{
+			"path": "/home/takanori/Dropbox/work/sbia_work/python/modules/tak"
+		},
+		{
+			"path": "/home/takanori/.config/sublime-text-3/Packages/User"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"screenshots",
+				"offce-setup",
+				"sublime-text/snippets_old"
+			],
+			"path": "/home/takanori/Dropbox/git/configs_master"
 		}
 	]
 }
