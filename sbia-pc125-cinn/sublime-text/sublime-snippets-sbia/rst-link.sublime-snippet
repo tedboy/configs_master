@@ -11,10 +11,6 @@
 Note: the space before the < bracket above is important
 `${1:InlineText} <${2:LINK}>`_$3
 
-
-<script type="text/x-mathjax-config">  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']], displayMath:[["$$","$$"]]  }});</script>
-<script type="text/x-mathjax-config">  MathJax.Hub.Config({  TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
-<script type="text/javascript"  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 ${1:HEADER-NAME}
  -->
+ <!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

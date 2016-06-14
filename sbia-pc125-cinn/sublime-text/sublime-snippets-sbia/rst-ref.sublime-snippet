@@ -1,16 +1,16 @@
 <snippet>
     <content><![CDATA[
-.. code:: bash
-
-  $1
+(`ref <${1:LINK}>`_$2)
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-    <tabTrigger>sh</tabTrigger>
+    <tabTrigger>ref</tabTrigger>
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
     <scope>text.restructuredtext</scope>
 </snippet>
 <!-- 
+Note: the space before the < bracket above is important
+`${1:InlineText} <${2:LINK}>`_$3
 
-http://docutils.sourceforge.net/docs/ref/rst/directives.html#automatic-section-numbering
-
+${1:HEADER-NAME}
  -->
+  <!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

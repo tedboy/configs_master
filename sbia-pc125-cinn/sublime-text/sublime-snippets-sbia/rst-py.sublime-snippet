@@ -1,17 +1,12 @@
 <snippet>
     <content><![CDATA[
-.. code:: bash
-  :number-lines:
+.. code:: python
 
-  $1
+    $1
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-    <tabTrigger>shn</tabTrigger>
+    <tabTrigger>py</tabTrigger>
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
     <scope>text.restructuredtext</scope>
 </snippet>
-<!-- 
-
-http://docutils.sourceforge.net/docs/ref/rst/directives.html#automatic-section-numbering
-
- -->
+ <!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

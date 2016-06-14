@@ -15,8 +15,5 @@ $1
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
     <scope>text.restructuredtext</scope>
 </snippet>
-<!-- 
-https://gist.github.com/iambibhas/4705378
-http://docutils.sourceforge.net/docs/ref/rst/directives.html#automatic-section-numbering
-
- -->
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->
+<!-- http://docutils.sourceforge.net/docs/ref/rst/directives.html#automatic-section-numbering -->

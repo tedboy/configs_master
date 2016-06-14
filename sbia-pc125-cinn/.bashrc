@@ -350,7 +350,28 @@ alias gowork='cd ~/Dropbox/work/sbia_work/'
 # alias gowork='cd ~/work-local/tak-ace-ibis/python/'
 alias goipynb='cd ~/Dropbox/work/ipynb-notes'
 alias gosnippets='cd ~/Dropbox/git/snippets'
-alias edsnippets='cd ~/Dropbox/git/snippets; subl -n -a .'
+
+#=============================================================================#
+# modify snippets via sublime text 14 June 2016 (Tuesday)
+#=============================================================================#
+alias modsnippets='cd ~/Dropbox/git/snippets; subl -n -a .'
+#alias modbashrc='cd ~/Dropbox/git/snippets; subl -n -a .'
+
+#=============================================================================#
+# Convenience alias (Post 06-14-2016 (13:06))
+# (most scripts are created in accordance with ``cs-bash-commands.rst`` in my
+#  ``snippets`` repository
+#=============================================================================#
+#http://stackoverflow.com/questions/1767384
+alias lssym='ls -l $(find ./ -maxdepth 1 -type l -print)'
+
+#http://stackoverflow.com/questions/17066250
+alias print_time='echo $(date +"%Y-%m-%d_%H:%M:%S")'
+
+#http://stackoverflow.com/questions/7110119 (history with no line-numbers)
+alias hist_nonum='history | cut -c 8-'
+
+alias sync_sublime='cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
 
 #=============================================================================#
 # trying to get deepnet working
