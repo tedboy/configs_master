@@ -27,33 +27,17 @@ import scipy as sp
 import os
 import sys
 import time
+import seaborn.apionly as sns
 
 from pprint import pprint
 
 import tak as tw
-import tak.data_io as twio
 reload(tw)
-reload(twio)
-
-import nmf_module as tw_nmf
-import util
-reload(tw_nmf)
-reload(util)
-
-import tak.ml as twml
-import tak.dirty as twd
-
-reload(twml)
-reload(twd)
-
+#%%
 #http://stackoverflow.com/questions/15777951/how-to-suppress-pandas-future-warning
 import warnings
 warnings.simplefilter(action = "ignore", category = FutureWarning)
 
-from pandas import DataFrame as DF
-from pandas import Series as SR
-#import seaborn as sns
-import seaborn.apionly as sns
 
 if __name__ == "__main__":
     main()
@@ -87,21 +71,7 @@ edit /home/takanori/Dropbox/work/sbia_work/python/tak-snippets/example-documenta
 edit /home/takanori/.spyder2/template.py
 
 """
-#==============================================================================
-# within module stuffs
-#------------------------------------------------------------------------------
-#==============================================================================
-#=============================================================================#
-# within module stuffs
-#-----------------------------------------------------------------------------#
-#=============================================================================#
-#=== sklearn ===#
-import sklearn.metrics as skmetrics
-import sklearn.cross_validation as skcv
-import sklearn.metrics.pairwise as skpair
-import sklearn.feature_selection as skfs
-# http://scikit-learn.org/stable/developers/utilities.html
-#%%===== dumping shit =======
+#%%===== dumping =======
 import cPickle as pickle
 
 timestamp = tw.get_timestamp()
@@ -133,29 +103,19 @@ with open(pkl_path) as f:
 # assign variables to workspace (from a dict)
 for key,value in results.iteritems():
     globals()[key] = value
-#%%====== data io =======
-#=== pnc: y = gender ===#
-X, y, _ = twio.get_pnc_connectomes()
-
-from sklearn.cross_validation import StratifiedKFold
-#from sklearn.grid_search import GridSearchCV
-
-cv = StratifiedKFold(y, n_folds = 10, shuffle=True, random_state=0)
-
-Xtr, Xts, ytr, yts = skcv.train_test_split(X,y, test_size=0.3)
-Xtrz, Xtsz = tw.zscore_training_testing(Xtr,Xts)
-#%%===== plotting snippets =====
-# http://stackoverflow.com/questions/18195758/set-matplotlib-colorbar-size-to-match-graph
-plt.colorbar(im,fraction=0.046, pad=0.04)
-plt.colorbar(plt.gci(),fraction=0.046, pad=0.04)
 #%%=== matplotlib stuff
 # http://matplotlib.org/users/customizing.html
 # location of rc file
 import matplotlib as mpl
-print mpl.matplotlib_fname()
+print mpl.matplotlib_fname() # location of the rc file
 print mpl.get_backend()
 print mpl.get_configdir()
 print mpl.rc_params()
+
+cmap_original = mpl.rcParams['image.cmap']
+
+# change cmap temporarily for this function
+mpl.rcParams['image.cmap'] = cmap
 #%% ipython config stuff
 # http://ipython.readthedocs.org/en/stable/config/intro.html
 # http://ipython.readthedocs.org/en/stable/config/index.html#configuring-ipython
@@ -171,13 +131,3 @@ locate_profile()
 
 !ipython locate
 !ipython locate profile
-#%%
-import matplotlib as mpl
-
-# location of the rc file
-mpl.matplotlib_fname()
-
-cmap_original = mpl.rcParams['image.cmap']
-
-# change cmap temporarily for this function
-mpl.rcParams['image.cmap'] = cmap

@@ -44,9 +44,9 @@
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+# if [ -f ~/.bash_aliases ]; then
+#     . ~/.bash_aliases
+# fi
 
 # Don't use ^D to exit
 # set -o ignoreeof
@@ -372,7 +372,14 @@ subl_bashrc(){
   subl ~/Dropbox/git/configs_master/sbia-pc125-cinn/.bash_aliases
   subl -a ~/Dropbox/git/configs_master/sbia-pc125-cinn/
 }
-
+subl_(){ # open both snippets and configs
+  subl -n 
+  subl ~/Dropbox/git/configs_master/sbia-pc125-cinn/.bashrc
+  subl ~/Dropbox/git/configs_master/sbia-pc125-cinn/.bash_aliases
+  subl -a ~/Dropbox/git/snippet
+  subl -a ~/Dropbox/git/configs_master/sbia-pc125-cinn/
+  subl -a ~/Dropbox/git/configs_master/trouble-shooting/
+}
 #=============================================================================#
 # Convenience alias (Post 06-14-2016 (13:06))
 # (most scripts are created in accordance with ``cs-bash-commands.rst`` in my
@@ -436,3 +443,18 @@ export PATH="/home/takanori/anaconda2/bin:$PATH"
 
 # added by Anaconda 2.3.0 installer
 # export PATH="/home/takanori/anaconda/bin:$PATH"
+
+
+
+#=============================================================================#
+# git related
+#=============================================================================#
+#http://stackoverflow.com/questions/7066325/list-git-aliases
+alias git_alias='git config --get-regexp alias'
+
+#=============================================================================#
+# to get colored output from ``less`` on scripts
+# http://superuser.com/questions/117841/get-colors-in-less-command
+#=============================================================================#
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
