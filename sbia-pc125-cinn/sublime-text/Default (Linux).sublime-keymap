@@ -3,7 +3,11 @@
     // http://www.sublimetext.com/docs/commands
 
     //{ "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
-
+    { "keys": ["ctrl+shift++"], "command": "header_change_level", "context":
+        [
+            { "key": "selector", "operator": "equal", "operand": "text.restructuredtext" }
+        ]
+    },
     //========================================================================//
     // http://stackoverflow.com/questions/11879481/can-i-add-date-time-for-sublime-snippet
     //========================================================================//

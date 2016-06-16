@@ -243,6 +243,7 @@ alias goconf='cd /home/takanori/Dropbox/git/configs_master'
 #alias godrive='cd /cygdrive/c/Users/takanori/Google\ Drive'
 #| always colorized with line numbers on the LHS
 alias less='less -rN'
+# alias less='less -r'
 
 # http://superuser.com/questions/109537/unix-ls-how-to-sort-first-directories-then-files-etc
 alias ls='ls --color -h --group-directories-first'
@@ -379,6 +380,7 @@ subl_(){ # open both snippets and configs
   subl -a ~/Dropbox/git/snippet
   subl -a ~/Dropbox/git/configs_master/sbia-pc125-cinn/
   subl -a ~/Dropbox/git/configs_master/trouble-shooting/
+  subl -a ~/.config/sublime-text-3/Packages/User/
 }
 #=============================================================================#
 # Convenience alias (Post 06-14-2016 (13:06))
@@ -394,7 +396,9 @@ alias print_time='echo $(date +"%Y-%m-%d_%H:%M:%S")'
 #http://stackoverflow.com/questions/7110119 (history with no line-numbers)
 alias hist_nonum='history | cut -c 8-'
 
-alias sync_sublime='cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
+# alias sync_snippets='cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
+#| -z = compress, -v = verbose, u=update only
+alias sync_snippets='rsync -uz /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
 
 #=============================================================================#
 # trying to get deepnet working
@@ -456,5 +460,13 @@ alias git_alias='git config --get-regexp alias'
 # to get colored output from ``less`` on scripts
 # http://superuser.com/questions/117841/get-colors-in-less-command
 #=============================================================================#
-export LESS='-R'
-export LESSOPEN='|~/.lessfilter %s'
+myless(){
+  pygmentize $1 | less
+}
+
+alias tree='tree -C'
+# export LESS='-R'
+# export LESSOPEN='|~/.lessfilter %s'
+
+# used for sphinx (from directory of Makeile
+alias open_sphinx_html='firefox _build/html/index.html'

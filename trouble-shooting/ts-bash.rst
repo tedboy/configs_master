@@ -6,6 +6,8 @@
 .. sectnum::    
     :start: 1    
 
+
+
 ###############################################################################
 Color in less
 ###############################################################################
@@ -56,3 +58,18 @@ Content of ``.lessfilter``
     
   - http://unix.stackexchange.com/questions/19317/can-less-retain-colored-output
 - for grep: http://superuser.com/questions/36022/less-and-grep-getting-colored-results-when-using-a-pipe-from-grep-to-less?rq=1
+
+###############
+Latex installer 06-15-2016 (21:48)
+###############
+I had to do this to get ``make latex`` to work on Sphinx
+
+http://tex.stackexchange.com/questions/39771/finding-a-ubuntu-package-for-a-sty-file
+
+.. code:: bash
+
+    sudo apt-get install texlive-latex-extra
+
+    # to solve error kpathsea: Running mktexmf ecrm1000 ! I can't find file `ecrm1000'.
+    #http://tex.stackexchange.com/questions/116332/latex-compilation-of-simple-document-fails
+    sudo apt-get install texlive-fonts-recommended
