@@ -1136,9 +1136,12 @@ Capslock & Rbutton::Send ^{PgDn} ; <- control+Pg Dn (move one tab to right)
   ; word
   ; MButton & z:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\\WINWORD.EXE")
   ; !#1:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
-  !#z:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
+
+  ; !#z:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
+  !#z:: RunOrActivate("C:\Program Files (x86)\Microsoft Office\root\Office16\WINWORD.EXE")
   ; !^1:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
-  !^z:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
+  ; !^z:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
+  !^z:: RunOrActivate("C:\Program Files (x86)\Microsoft Office\root\Office16\WINWORD.EXE")
 ;--------------------------------------------------------------------------
 
 
@@ -1352,7 +1355,8 @@ if GetKeyState("Shift","P")
 }
 else
     ;RunOrActivate("C:\Program Files\MATLAB\R2013a\bin\matlab.exe")
-    RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\\WINWORD.EXE")
+    ; RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\\WINWORD.EXE")
+    RunOrActivate("C:\Program Files (x86)\Microsoft Office\root\Office16\WINWORD.EXE")
 return
 
 ; dict

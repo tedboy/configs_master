@@ -398,7 +398,7 @@ alias hist_nonum='history | cut -c 8-'
 
 # alias sync_snippets='cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
 #| -z = compress, -v = verbose, u=update only
-alias sync_snippets='rsync -uz /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
+alias sync_snippets='rsync -z /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
 
 #=============================================================================#
 # trying to get deepnet working

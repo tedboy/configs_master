@@ -1,0 +1,236 @@
+Sub ThesaurusToggle()
+On Error GoTo OpenT
+CommandBars("Thesaurus").Visible = Not (CommandBars("Thesaurus").Visible)
+GoTo EndIt
+OpenT:
+Application.Run MacroName:="Thesaurus"
+EndIt:
+End Sub
+Sub my_leveltwo_bullet()
+'
+' my_leveltwo_bullet Macro
+'
+'
+    Selection.Range.ListFormat.ListIndent
+    Selection.Paragraphs.Outdent
+    Selection.Paragraphs.Outdent
+End Sub
+Sub my_leveltwo_bullet2()
+'
+' my_leveltwo_bullet Macro
+'
+'
+    Selection.Range.ListFormat.ListIndent
+    Selection.Paragraphs.Outdent
+'    Selection.Paragraphs.Outdent
+End Sub
+Sub my_insert_bullet()
+'
+' my_insert_bullet Macro
+'
+'
+    With ListGalleries(wdBulletGallery).ListTemplates(1).ListLevels(1)
+        .NumberFormat = ChrW(61623)
+        .TrailingCharacter = wdTrailingTab
+        .NumberStyle = wdListNumberStyleBullet
+        .NumberPosition = InchesToPoints(0.25)
+        .Alignment = wdListLevelAlignLeft
+        .TextPosition = InchesToPoints(0.5)
+        .TabPosition = wdUndefined
+        .ResetOnHigher = 0
+        .StartAt = 1
+        With .Font
+            .Bold = wdUndefined
+            .Italic = wdUndefined
+            .StrikeThrough = wdUndefined
+            .Subscript = wdUndefined
+            .Superscript = wdUndefined
+            .Shadow = wdUndefined
+            .Outline = wdUndefined
+            .Emboss = wdUndefined
+            .Engrave = wdUndefined
+            .AllCaps = wdUndefined
+            .Hidden = wdUndefined
+            .Underline = wdUndefined
+            .Color = wdUndefined
+            .Size = wdUndefined
+            .Animation = wdUndefined
+            .DoubleStrikeThrough = wdUndefined
+            .Name = "Symbol"
+        End With
+        .LinkedStyle = ""
+    End With
+    ListGalleries(wdBulletGallery).ListTemplates(1).Name = ""
+    Selection.Range.ListFormat.ApplyListTemplateWithLevel ListTemplate:= _
+        ListGalleries(wdBulletGallery).ListTemplates(1), ContinuePreviousList:= _
+        False, ApplyTo:=wdListApplyToWholeList, DefaultListBehavior:= _
+        wdWord10ListBehavior
+    Selection.Paragraphs.Outdent
+End Sub
+Sub my_unindent_bullet()
+'
+' my_unindent_bullet Macro
+'
+'
+    Selection.Range.ListFormat.ListOutdent
+    Selection.Paragraphs.Outdent
+End Sub
+Sub bold_hilite_yellow()
+'
+' bold_highlight Macro
+'
+'
+    Selection.Font.Bold = wdToggle
+    Selection.Range.HighlightColorIndex = wdYellow
+End Sub
+Sub bold_hilite_green()
+'
+' bold_highlight Macro
+'
+'
+    Selection.Font.Bold = wdToggle
+    Selection.Range.HighlightColorIndex = wdBrightGreen
+End Sub
+Sub bold_hilite_cyan()
+'
+' bold_highlight Macro
+'
+'
+    Selection.Font.Bold = wdToggle
+    Selection.Range.HighlightColorIndex = wdTurquoise
+    
+End Sub
+Sub bold_ul_current_line()
+'
+' bold_ul_current_line Macro
+'
+'
+    Selection.HomeKey Unit:=wdLine
+    Selection.EndKey Unit:=wdLine, Extend:=wdExtend
+    Selection.Font.Bold = wdToggle
+'    Selection.Font.Underline = wdUnderlineSingle
+    If Selection.Font.Underline = wdUnderlineNone Then
+        Selection.Font.Underline = wdUnderlineSingle
+    Else
+        Selection.Font.Underline = wdUnderlineNone
+    End If
+    Selection.MoveRight Unit:=wdCharacter, Count:=1
+End Sub
+Sub goto_prev_heading()
+'
+' goto_prev_heading Macro
+'
+'
+    Selection.GoTo What:=wdGoToHeading, Which:=wdGoToPrevious, Count:=1, Name _
+        :=""
+    Selection.Find.ClearFormatting
+    With Selection.Find
+        .Text = "*polymer"
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = False
+        .MatchAllWordForms = False
+        .MatchSoundsLike = False
+        .MatchWildcards = False
+        .MatchFuzzy = False
+    End With
+End Sub
+Sub goto_next_heading()
+'
+' goto_next_heading Macro
+'
+'
+    Selection.GoTo What:=wdGoToHeading, Which:=wdGoToNext, Count:=1, Name:=""
+    Selection.Find.ClearFormatting
+    With Selection.Find
+        .Text = "*polymer"
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = False
+        .MatchAllWordForms = False
+        .MatchSoundsLike = False
+        .MatchWildcards = False
+        .MatchFuzzy = False
+    End With
+End Sub
+Sub duplicate_line()
+'
+' duplicate_line Macro
+'
+'
+    Selection.HomeKey Unit:=wdLine
+    Selection.EndKey Unit:=wdLine, Extend:=wdExtend
+    Selection.Copy
+    Selection.MoveRight Unit:=wdCharacter, Count:=1
+'    Selection.PasteAndFormat (wdFormatSurroundingFormattingWithEmphasis)
+    Selection.PasteAndFormat (wdFormatOriginalFormatting)
+'    Selection.TypeBackspace
+    Selection.MoveLeft Unit:=wdCharacter, Count:=1
+End Sub
+Sub paste_as_plainText()
+'
+' paste_as_plainText Macro
+'
+'
+    Selection.PasteAndFormat (wdFormatPlainText)
+End Sub
+Sub paste_keep_source_formatting()
+'
+' paste_keep_source_formatting Macro
+'
+'
+    Selection.PasteAndFormat (wdUseDestinationStylesRecovery)
+End Sub
+Sub bold_shade_red()
+'
+' shade_lite_red_bold Macro
+'
+'
+    Selection.Shading.Texture = wdTextureNone
+    Selection.Shading.ForegroundPatternColor = wdColorAutomatic
+    Selection.Shading.BackgroundPatternColor = 12698111
+    Selection.Font.Bold = wdToggle
+End Sub
+
+Sub remove_hilite_bold_italic()
+'
+' remove_hilite_bold_italic Macro
+'
+'
+'    Options.DefaultHighlightColorIndex = wdNoHighlight
+    Selection.Range.HighlightColorIndex = wdNoHighlight
+    Selection.Font.Bold = False
+    Selection.Font.Italic = False
+    Selection.Shading.Texture = wdTextureNone
+    Selection.Shading.ForegroundPatternColor = wdColorAutomatic
+    Selection.Shading.BackgroundPatternColor = wdColorAutomatic
+End Sub
+Sub bold_underline()
+'
+' bold_underline Macro
+'
+'
+    Selection.Font.Bold = wdToggle
+    If Selection.Font.Underline = wdUnderlineNone Then
+        Selection.Font.Underline = wdUnderlineSingle
+    Else
+        Selection.Font.Underline = wdUnderlineNone
+    End If
+End Sub
+Sub bold_hilite_magenta()
+'
+' hilite_magenta_bold Macro
+'
+'
+    Options.DefaultHighlightColorIndex = wdPink
+    Selection.Range.HighlightColorIndex = wdPink
+    Selection.Font.Bold = wdToggle
+End Sub
