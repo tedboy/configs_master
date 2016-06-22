@@ -21,55 +21,27 @@ except:
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+
+import tak as tw
+reload(tw)
+#%%
 import sklearn
 import scipy as sp
-
 import os
 import sys
 import time
 import seaborn.apionly as sns
-
 from pprint import pprint
-
-import tak as tw
-reload(tw)
 #%%
 #http://stackoverflow.com/questions/15777951/how-to-suppress-pandas-future-warning
 import warnings
 warnings.simplefilter(action = "ignore", category = FutureWarning)
 
-
 if __name__ == "__main__":
     main()
-
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
-from sklearn.neighbors import KNeighborsClassifier as KNN
-from sklearn.svm import SVC,LinearSVC
-from sklearn.grid_search import GridSearchCV
-#%% === cv related (01/26/2016) ===#
-#--- quick way to assess accuracy of classifier via repeated CV and kde-plot--
-from sklearn.cross_validation import cross_val_score, StratifiedKFold
-n_rep = 100
-acc_list=[]
-for i in range(n_rep):
-    cv = StratifiedKFold(y, n_folds=10, shuffle=True)
-    acc_list.append(cross_val_score(clf, X, y, cv=cv).mean())
-
-acc = np.array(acc_list)
-mykde, xgrid = tw.kde_1d(acc,np.linspace(0.5,0.9,401))
-tw.figure()
-plt.plot(xgrid,mykde)
-plt.grid('on')
-plt.title("Mean acc = {:4.2f}".format( acc.mean()*100))
-print "Mean acc = {:4.2f} (clf={})".format( acc.mean()*100,clf.__class__)
 #%% functions i like opened in spyder
 """
-edit /home/takanori/Dropbox/work/sbia_work/python/modules/tak/tak.py
-edit /home/takanori/Dropbox/work/sbia_work/python/modules/tak/data_io.py
-edit /home/takanori/Dropbox/work/sbia_work/python/modules/tak/ml.py
-edit /home/takanori/Dropbox/work/sbia_work/python/tak-snippets/example-documentations-style.py
 edit /home/takanori/.spyder2/template.py
-
 """
 #%%===== dumping =======
 import cPickle as pickle
@@ -89,8 +61,8 @@ PIK = os.path.join(filedir,'output_dir', PIK)
 print "Output result at:\n{}".format(PIK)
 
 data_to_save = {}
-for i in data_to_save_list:
-    data_to_save[i] = locals()[i]
+for key in data_to_save_list:
+    data_to_save[key] = locals()[key]
 
 with open(PIK, "wb") as f:
     pickle.dump(data_to_save, f)

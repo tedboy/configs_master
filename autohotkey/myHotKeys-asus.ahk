@@ -411,6 +411,27 @@ return
 ;***************************************************************************;
 ; Jump cursors left/right with the media buttons
 ;***************************************************************************;
+; jump left/right
+xbutton2 & q::
+MouseGetPos, xpos, ypos 
+MouseMove, xpos-1500, ypos
+return
+
+xbutton2 & r::
+MouseGetPos, xpos, ypos 
+MouseMove, xpos+1500, ypos
+return
+
+; up
+xbutton2 & e::
+MouseGetPos, xpos, ypos 
+MouseMove, xpos, ypos-500
+return
+
+xbutton2 & w::
+MouseGetPos, xpos, ypos 
+MouseMove, xpos, ypos+500
+return
 ;-----------------------------------------------------------------;
 ; Use with left/right mouse button click to move window
 ;-----------------------------------------------------------------;
@@ -1188,7 +1209,7 @@ return
 XButton2 & f::SendInput {Media_Next}
 XButton2 & a::SendInput {Media_Prev}
 XButton2 & space:: SendInput {Media_Play_Pause}
-XButton2 & e:: SendInput {Volume_up}
+XButton2 & d:: SendInput {Volume_up}
 XButton2 & s:: SendInput {Volume_down}
 XButton2 & x:: SendInput {Volume_mute}
 
@@ -1268,22 +1289,22 @@ return
 MButton & t::RunOrActivate("C:\Windows\System32\taskmgr.exe") ; task manager
 
 ; wiki-search
-XButton2 & w::
-{ 
-   BlockInput, on 
-   prevClipboard = %clipboard% 
-   clipboard = 
-   Send, ^c 
-   BlockInput, off 
-   ClipWait, 2 
-   if ErrorLevel = 0 
-   { 
-      searchQuery=%clipboard% 
-      GoSub, WikiSearch 
-   } 
-   clipboard = %prevClipboard% 
-   return 
-}
+; XButton2 & w::
+; { 
+;    BlockInput, on 
+;    prevClipboard = %clipboard% 
+;    clipboard = 
+;    Send, ^c 
+;    BlockInput, off 
+;    ClipWait, 2 
+;    if ErrorLevel = 0 
+;    { 
+;       searchQuery=%clipboard% 
+;       GoSub, WikiSearch 
+;    } 
+;    clipboard = %prevClipboard% 
+;    return 
+; }
 
 ; wiki-dict
 XButton1 & j::
@@ -1660,28 +1681,28 @@ XButton1 & XButton2::
 }
    
 XButton2 & b:: SendInput {Backspace}
-XButton2 & r:: SendInput {return}
+; XButton2 & r:: SendInput {return}
 XButton1 & r:: SendInput {return}
-XButton2 & d:: ; delete
-    if GetKeyState("Shift","P")
-    { 
-       BlockInput, on 
-       prevClipboard = %clipboard% 
-       clipboard = 
-       Send, ^c 
-       BlockInput, off 
-       ClipWait, 2 
-       if ErrorLevel = 0 
-       { 
-          searchQuery=%clipboard% 
-          GoSub, MedSearch 
-       } 
-       clipboard = %prevClipboard% 
-       return 
-    }
-    else
-        SendInput {Del}
-    return
+; XButton2 & d:: ; delete
+;     if GetKeyState("Shift","P")
+;     { 
+;        BlockInput, on 
+;        prevClipboard = %clipboard% 
+;        clipboard = 
+;        Send, ^c 
+;        BlockInput, off 
+;        ClipWait, 2 
+;        if ErrorLevel = 0 
+;        { 
+;           searchQuery=%clipboard% 
+;           GoSub, MedSearch 
+;        } 
+;        clipboard = %prevClipboard% 
+;        return 
+;     }
+;     else
+;         SendInput {Del}
+;     return
 
 ; XButton1 & e::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\EXCEL.EXE")
 ; XButton1 & e::SendInput {Backspace}

@@ -200,7 +200,7 @@ Return
     MButton & f::
     if GetKeyState("Shift","P")
     {
-        RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE")
+        RunOrActivate("C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.EXE")
     }
     else if GetKeyState("Alt","P")
         SendInput {Media_Next}
@@ -268,7 +268,7 @@ SendInput {F9} ; % turn off hostkey as default when jumping to VB
 return
 
 MButton & b::
-    RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE")
+    RunOrActivate("C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.EXE")
 ;     if GetKeyState("Shift","P")
 ;         ; RunOrActivate("C:\Program Files (x86)\K-Lite Codec Pack\Media Player Classic\mpc-hc.exe")
 ;     else
@@ -416,6 +416,27 @@ return
 ;***************************************************************************;
 ; Jump cursors left/right with the media buttons
 ;***************************************************************************;
+; jump left/right
+xbutton2 & q::
+MouseGetPos, xpos, ypos 
+MouseMove, xpos-1500, ypos
+return
+
+xbutton2 & r::
+MouseGetPos, xpos, ypos 
+MouseMove, xpos+1500, ypos
+return
+
+; up
+xbutton2 & e::
+MouseGetPos, xpos, ypos 
+MouseMove, xpos, ypos-500
+return
+
+xbutton2 & w::
+MouseGetPos, xpos, ypos 
+MouseMove, xpos, ypos+500
+return
 ;-----------------------------------------------------------------;
 ; Use with left/right mouse button click to move window
 ;-----------------------------------------------------------------;
@@ -673,7 +694,7 @@ CapsLock & b::
     if GetKeyState("Shift","P")
         Send +{Left} 
     else if GetKeyState("Alt","P")
-        RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE")
+        RunOrActivate("C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.EXE")
     else
         Send {Left} 
     return
@@ -1104,7 +1125,7 @@ Capslock & Rbutton::Send ^{PgDn} ; <- control+Pg Dn (move one tab to right)
   ; !#o::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE")
   ; !^2::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE")
   ; !^o::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE")
-  MButton & o::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE")
+  MButton & o::RunOrActivate("C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.EXE")
 
   ; excel
   !#e::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\EXCEL.EXE")
@@ -1201,7 +1222,7 @@ return
 XButton2 & f::SendInput {Media_Next}
 XButton2 & a::SendInput {Media_Prev}
 XButton2 & space:: SendInput {Media_Play_Pause}
-XButton2 & e:: SendInput {Volume_up}
+XButton2 & d:: SendInput {Volume_up}
 XButton2 & s:: SendInput {Volume_down}
 XButton2 & x:: SendInput {Volume_mute}
 
@@ -1299,23 +1320,23 @@ else
     RunOrActivate("C:\Windows\System32\taskmgr.exe") ; task manager
 return
 
-; wiki-search
-XButton2 & w::
-{ 
-   BlockInput, on 
-   prevClipboard = %clipboard% 
-   clipboard = 
-   Send, ^c 
-   BlockInput, off 
-   ClipWait, 2 
-   if ErrorLevel = 0 
-   { 
-      searchQuery=%clipboard% 
-      GoSub, WikiSearch 
-   } 
-   clipboard = %prevClipboard% 
-   return 
-}
+; ; wiki-search
+; XButton2 & w::
+; { 
+;    BlockInput, on 
+;    prevClipboard = %clipboard% 
+;    clipboard = 
+;    Send, ^c 
+;    BlockInput, off 
+;    ClipWait, 2 
+;    if ErrorLevel = 0 
+;    { 
+;       searchQuery=%clipboard% 
+;       GoSub, WikiSearch 
+;    } 
+;    clipboard = %prevClipboard% 
+;    return 
+; }
 
 ; wiki-dict
 XButton1 & j::
@@ -1695,28 +1716,28 @@ XButton1 & XButton2::
    
 XButton2 & b:: SendInput {Backspace}
 ; XButton1 & space:: SendInput {Backspace}
-XButton2 & r:: SendInput {return}
+; XButton2 & r:: SendInput {return}
 XButton1 & r:: SendInput {return}
-XButton2 & d:: ; delete
-    if GetKeyState("Shift","P")
-    { 
-       BlockInput, on 
-       prevClipboard = %clipboard% 
-       clipboard = 
-       Send, ^c 
-       BlockInput, off 
-       ClipWait, 2 
-       if ErrorLevel = 0 
-       { 
-          searchQuery=%clipboard% 
-          GoSub, MedSearch 
-       } 
-       clipboard = %prevClipboard% 
-       return 
-    }
-    else
-        SendInput {Del}
-    return
+; XButton2 & d:: ; delete
+;     if GetKeyState("Shift","P")
+;     { 
+;        BlockInput, on 
+;        prevClipboard = %clipboard% 
+;        clipboard = 
+;        Send, ^c 
+;        BlockInput, off 
+;        ClipWait, 2 
+;        if ErrorLevel = 0 
+;        { 
+;           searchQuery=%clipboard% 
+;           GoSub, MedSearch 
+;        } 
+;        clipboard = %prevClipboard% 
+;        return 
+;     }
+;     else
+;         SendInput {Del}
+;     return
 ; XButton1 & e::RunOrActivate("C:\Anaconda\pythonw.exe")
 ; XButton1 & e::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\EXCEL.EXE")
 ; XButton1 & e::SendInput {Backspace}
@@ -1748,7 +1769,7 @@ XButton1 & c::RunOrActivate("C:\Users\takanori\Dropbox\programs\Console2\Console
 XButton1 & m::RunOrActivate("C:\Program Files\MATLAB\R2013a\bin\matlab.exe")
 XButton1 & s::RunOrActivate("C:\Program Files\Sublime Text 3\sublime_text.exe")
 XButton1 & b::SendInput {Backspace}
-XButton1 & x::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE")
+XButton1 & x::RunOrActivate("C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.EXE")
 XButton1 & n::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\POWERPNT.EXE")
 XButton1 & v::RunOrActivate("C:\Program Files (x86)\PicPick\picpick.exe")
 XButton1 & f::RunOrActivate("C:\Program Files (x86)\Foxit Software\Foxit Reader\FoxitReader.exe")
@@ -1844,6 +1865,9 @@ XButton1 & `:: ; toggle fullscreen (http://www.autohotkey.com/board/topic/16755-
     return
 
 ;XButton1 & x::RunOrActivate("C:\Anaconda\pythonw.exe")
-MButton & x::RunOrActivate("C:\Anaconda\pythonw.exe")
+; MButton & x::RunOrActivate("C:\Anaconda\pythonw.exe")
+; Xbutton1 & u::RunOrActivate("C:\Program Files (x86)\iTunes\iTunes.exe")
+Xbutton1 & u::RunOrActivate("C:\Users\takanori\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Anaconda2 (64-bit)\Spyder")
+; Xbutton1 & u::RunOrActivate("C:\Users\takanori\Anaconda2\pythonw.exe")
 MButton & z::RunOrActivate("C:\Program Files\MATLAB\R2013a\bin\matlab.exe")
-; XButton1 & a::RunOrActivate("C:\Program Files (x86)\PDF Annotator\PDFAnnotator.exe")
+; XButton1 & a::RunOrActivate("C:\Program Files (x86)\PDF Annotator\PDFAnnotator.exe")gog

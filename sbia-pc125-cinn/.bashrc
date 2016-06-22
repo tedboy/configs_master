@@ -310,7 +310,7 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 
 #| add itksnap path
 export PATH=$PATH:~/mybin/itksnap-3.2.0-20141023-Linux-x86_64/bin/
-alias itksnap='itksnap &'
+# alias itksnap='itksnap &'
 # added by Anaconda 2.2.0 installer
 # export PATH="/home/takanori/anaconda/bin:$PATH"
 
@@ -374,7 +374,6 @@ subl_bashrc(){
   subl -a ~/Dropbox/git/configs_master/sbia-pc125-cinn/
 }
 subl_(){ # open both snippets and configs
-  subl -n 
   subl ~/Dropbox/git/configs_master/sbia-pc125-cinn/.bashrc
   subl ~/Dropbox/git/configs_master/sbia-pc125-cinn/.bash_aliases
   subl -a ~/Dropbox/git/snippet
