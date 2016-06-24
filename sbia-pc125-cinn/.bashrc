@@ -110,7 +110,8 @@
 # Misc :)
 # alias less='less -r'                          # raw control characters
 alias whence='type -a'                        # where, of a sort
-alias grep='grep --color'                     # show differences in colour
+# alias grep='grep --color'                     # show differences in colour
+alias grep='grep --color=always'              # show differences in colour
 alias egrep='egrep --color=auto'              # show differences in colour
 alias fgrep='fgrep --color=auto'              # show differences in colour
 #
@@ -233,7 +234,7 @@ alias dspace2='du --max-depth=1 | sort -n | cut -f2- | xargs du -hs'
 alias dspace3='du --max-depth=1 | sort -n | cut -f2- | xargs du -ahs'
 #-------------------------------------------------------------------------%
 #|----- Moving around directories -----|#
-alias gopython='cd ~/Dropbox/python'
+# alias gopython='cd ~/Dropbox/python'
 alias gogit='cd ~/Dropbox/git'
 alias gotex='cd ~/Dropbox/research_dropbox/latex'
 alias goconf='cd /home/takanori/Dropbox/git/configs_master'
@@ -323,7 +324,7 @@ alias matlab1='matlab &'
 alias godrop='cd ~/Dropbox'
 alias gomat='cd ~/Dropbox/2015-work/matlab'
 alias godeep='cd ~/Dropbox/2015-work/deep-learning'
-alias gopy='cd ~/Dropbox/2015-work/python'
+# alias gopy='cd ~/Dropbox/2015-work/python'
 # alias gowork='cd ~/Dropbox/2015-work/tak-ace-ibis'
 
 export PATH=$PATH:~/abin
@@ -420,12 +421,12 @@ export PYTHONPATH=$PYTHONPATH:/home/takanori/work-local/external-python-modules/
 # mozi stuff
 # https://github.com/hycis/Mozi
 #=============================================================================#
-export PYTHONPATH=~/work-local/external-python-modules/Mozi:$PYTHONPATH
-export MOZI_DATA_PATH=~/data/mozi/data
-export MOZI_SAVE_PATH=~/data/mozi/database
-export MOZI_DATABASE_PATH=~/data/mozi/save
+# export PYTHONPATH=~/work-local/external-python-modules/Mozi:$PYTHONPATH
+# export MOZI_DATA_PATH=~/data/mozi/data
+# export MOZI_SAVE_PATH=~/data/mozi/database
+# export MOZI_DATABASE_PATH=~/data/mozi/save
 
-export PYLEARN2_DATA_PATH=/home/takanori/data/deep_learning/pylearn2
+# export PYLEARN2_DATA_PATH=/home/takanori/data/deep_learning/pylearn2
 
 alias gcc='/sbia/sbiasfw/external/gcc/4.7.1/bin/gcc'
 
@@ -469,3 +470,7 @@ alias tree='tree -C'
 
 # used for sphinx (from directory of Makeile
 alias open_sphinx_html='firefox _build/html/index.html'
+
+# location of the python modules from anacaonda 23 June 2016 (Thursday)
+alias gopymodules='cd ~/anaconda2/lib/python2.7/site-packages'
+alias golocalpymod='cd ~/.local/lib/python2.7/site-packages'
