@@ -474,3 +474,12 @@ alias open_sphinx_html='firefox _build/html/index.html'
 # location of the python modules from anacaonda 23 June 2016 (Thursday)
 alias gopymodules='cd ~/anaconda2/lib/python2.7/site-packages'
 alias golocalpymod='cd ~/.local/lib/python2.7/site-packages'
+export PATH=$PATH:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/bin
+
+# include pyspark to my python module 07-31-2016 (16:17)
+export PYTHONPATH=$PYTHONPATH:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/
+export PYTHONPATH=$PYTHONPATH:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
+
+# http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-command-directly-into-my-clipboard
+alias c="xclip -selection clipboard" 
+alias v="xclip -o -selection clipboard"

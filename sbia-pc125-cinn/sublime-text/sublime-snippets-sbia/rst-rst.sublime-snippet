@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-.. code:: rst
+.. code-block:: rst
 
     $1
 ]]></content>

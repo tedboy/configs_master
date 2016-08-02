@@ -3,6 +3,12 @@
 .. toctree::
     :maxdepth: 2
     :numbered:
+    :caption: Table of Contents
+    :name: mastertoc
+    :titlesonly:
+    :glob:
+    :hidden:
+    :includehidden:
 
     ${1:rst_file1.rst}
     ${2:rst_file2.rst}
@@ -12,7 +18,7 @@
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
     <scope>text.restructuredtext</scope>
 </snippet>
-<!--
+<!-- http://www.sphinx-doc.org/en/stable/markup/toctree.html
 Note: the space before the < bracket above is important
 `${1:InlineText} <${2:LINK}>`_$3
 

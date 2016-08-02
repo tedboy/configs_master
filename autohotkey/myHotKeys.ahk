@@ -247,9 +247,9 @@ Return
 ; + : shift key
 ;--------------------------------------------------------------------------
 ; alt+win+v -> vncviewer
-    #!v::RunOrActivate("C:\Users\takanori\Dropbox\programs\VNC-Viewer-5.2.3-Windows-64bit.exe")
-    #v::RunOrActivate("C:\Users\takanori\Dropbox\programs\VNC-Viewer-5.2.3-Windows-64bit.exe")
-    #!+v::RunOrActivate("C:\Users\takanori\Dropbox\programs\VNC-Viewer-5.2.3-Windows-64bit.exe")
+    ;#!v::RunOrActivate("C:\Users\takanori\Dropbox\programs\VNC-Viewer-5.2.3-Windows-64bit.exe")
+    ;#v::RunOrActivate("C:\Users\takanori\Dropbox\programs\VNC-Viewer-5.2.3-Windows-64bit.exe")
+    ;#!+v::RunOrActivate("C:\Users\takanori\Dropbox\programs\VNC-Viewer-5.2.3-Windows-64bit.exe")
 
     MButton & v::
         RunOrActivate("C:\Program Files (x86)\PicPick\picpick.exe")
@@ -308,7 +308,7 @@ else
 return
 
 #!r::RunOrActivate("C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe") ; alt+win+r
-!^r::RunOrActivate("C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe") ; alt+ctrl+r
+; !^r::RunOrActivate("C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe") ; alt+ctrl+r
 
 
 
@@ -1771,9 +1771,17 @@ XButton1 & s::RunOrActivate("C:\Program Files\Sublime Text 3\sublime_text.exe")
 XButton1 & b::SendInput {Backspace}
 XButton1 & x::RunOrActivate("C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.EXE")
 XButton1 & n::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\POWERPNT.EXE")
-XButton1 & v::RunOrActivate("C:\Program Files (x86)\PicPick\picpick.exe")
+
+XButton1 & v::
+    if GetKeyState("Shift","P")
+        RunOrActivate("C:\Program Files\MPC-HC\mpc-hc64.exe")
+    else
+        RunOrActivate("C:\Program Files (x86)\PicPick\picpick.exe")
+    return
+
+XButton2 & v::RunOrActivate("C:\Program Files\MPC-HC\mpc-hc64.exe")
 XButton1 & f::RunOrActivate("C:\Program Files (x86)\Foxit Software\Foxit Reader\FoxitReader.exe")
-XButton1 & a::RunOrActivate("C:\Users\takanori\Anaconda2\pythonw.exe")
+; XButton1 & a::RunOrActivate("C:\Users\takanori\Anaconda2\pythonw.exe")
 ; XButton1 & t::RunOrActivate("C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe")
 XButton1 & q::WinClose, A ; close current window ("Q"uit for menumonic)
 XButton1 & w::
@@ -1856,7 +1864,7 @@ XButton1 & 2::SendInput #{right}
 XButton1 & 3::SendInput !^n ; -> top half
 XButton1 & 4::SendInput !^x ; -> bottom half (Ctrl+Alt+x in winsplit)
 XButton1 & f1::SendInput !^9 ; -> maximize horizontally
-XButton1 & f2::SendInput !^0; -> maximize vertically
+XButton1 & f2::SendInput !^0 ; -> maximize vertically
 XButton1 & `:: ; toggle fullscreen (http://www.autohotkey.com/board/topic/16755-help-toggle-maximizerestore-with-same-hotkey/)
     WinGet MX, MinMax, A
     If MX
@@ -1870,4 +1878,4 @@ XButton1 & `:: ; toggle fullscreen (http://www.autohotkey.com/board/topic/16755-
 Xbutton1 & u::RunOrActivate("C:\Users\takanori\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Anaconda2 (64-bit)\Spyder")
 ; Xbutton1 & u::RunOrActivate("C:\Users\takanori\Anaconda2\pythonw.exe")
 MButton & z::RunOrActivate("C:\Program Files\MATLAB\R2013a\bin\matlab.exe")
-; XButton1 & a::RunOrActivate("C:\Program Files (x86)\PDF Annotator\PDFAnnotator.exe")gog
+XButton1 & a::RunOrActivate("C:\Program Files (x86)\PDF Annotator\PDFAnnotator.exe")gog

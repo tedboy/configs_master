@@ -50,20 +50,17 @@
 		"env",
 		"env3"
 	],
-	"font_size": 10,
+	"font_size": 9,
 	"gutter": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"Anaconda",
-		"Browser Refresh",
 		"Clipboard Manager",
-		"Emmet Css Snippets",
 		"Gist",
 		"GitGutter",
 		"HTML5",
-		"Jedi - Python autocompletion",
 		"Local History",
 		"Markdown Preview",
 		"MarkdownEditing",

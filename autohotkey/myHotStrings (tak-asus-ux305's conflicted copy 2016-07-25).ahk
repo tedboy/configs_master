@@ -2947,15 +2947,13 @@ if __name__ == "__main__":
     PasteString(String)
     return
 
-    ; FormatTime, TimeString,, MM/dd/yyyy h:mm:tt
-    ; %TimeString%
+
 
 ::#w::
-    FormatTime, TimeString,, MM/dd/yyyy dddd h:mm:tt
-    String=Added to word-note (%TimeString%) 
-    PasteString(String)
-    Return
-
-; ::#w::Added to word-note.
+  Added to word-note.
+  FormatTime, TimeString,, MM/dd/yyyy h:mm:tt
+  String=(%TimeString%)
+  PasteString(String)
+  Return
 
 ::#cs::I certify this submission as my own original work completed in accordance with the Coursera Honor Code.

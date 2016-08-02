@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-.. code:: bash
+.. code-block:: bash
     :number-lines:
 
     $1

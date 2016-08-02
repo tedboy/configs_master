@@ -303,7 +303,7 @@ else
 return
 
 #!r::RunOrActivate("C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe") ; alt+win+r
-!^r::RunOrActivate("C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe") ; alt+ctrl+r
+; !^r::RunOrActivate("C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe") ; alt+ctrl+r
 
 
 
@@ -540,8 +540,8 @@ return
     Mbutton & 1::Send #{left} ; -> left 
     ; Mbutton & 2::Send !^d ; -> right
     Mbutton & 2::Send #{right} ; -> right
-    Mbutton & 3::Send !^n ; -> up
-    Mbutton & 4::Send !^x ; -> Down (Ctrl+Alt+x in winsplit)
+    Mbutton & 3::Send #^z ; -> up
+    Mbutton & 4::Send #^x ; -> Down
 
     ; Mbutton & 1::Send !^1 ; ->  full screen 
     Mbutton & F1::Send !^9 ; -> maximize horizontally
@@ -599,7 +599,8 @@ return
 CapsLock & F7::
 ; CapsLock & k::
 CapsLock & 3:: 
-Send !^n
+; Send !^n
+Send #^z
 return
 
 ; maximize to bottom
@@ -607,7 +608,8 @@ return
 CapsLock & F8:: 
 CapsLock & 4:: 
 ; CapsLock & l::
-Send !^x 
+; Send !^x 
+Send #^x
 return
 
 ; toggle maximization state
@@ -1132,7 +1134,7 @@ Capslock & Rbutton::Send ^{PgDn} ; <- control+Pg Dn (move one tab to right)
 
   ; powerpoint
   !#p:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\POWERPNT.EXE")
-  !^p:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\POWERPNT.EXE")
+  ; !^p:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\POWERPNT.EXE")
   ; !^3:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\POWERPNT.EXE")
   MButton & p::
   if GetKeyState("Shift","P")
@@ -1144,12 +1146,16 @@ Capslock & Rbutton::Send ^{PgDn} ; <- control+Pg Dn (move one tab to right)
   Return
   #!+p:: RunOrActivate("C:\Program Files (x86)\PicPick\picpick.exe")
 
+; # : windows key
+; ^ : control key
+; ! : alt key
+; + : shift key
   ; word
   MButton & z:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\\WINWORD.EXE")
   ; !#1:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
   !#z:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
   ; !^1:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
-  !^z:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
+  ; !^z:: RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\WINWORD.EXE")
 ;--------------------------------------------------------------------------
 
 
@@ -1821,11 +1827,19 @@ XButton1 & t:: ; japanese translation or itunes
 
 ;==============================================================================;
 ; full screen stuffs with xbutton1
+; # : windows key
+; ^ : control key
+; ! : alt key
+; + : shift key
+; 
+; note: To avoid conflict with Databricks notebook, on (2016-07-31), in winsplit, I changed:
+;    *Down* from Ctrl+Alt+X to Win+Ctrl+X
+;    *Up*   from Ctrl+Alt+N to Win+Ctrl+Z
 ;==============================================================================;
 XButton1 & 1::SendInput #{left}
 XButton1 & 2::SendInput #{right} 
-XButton1 & 3::SendInput !^n ; -> top half
-XButton1 & 4::SendInput !^x ; -> bottom half (Ctrl+Alt+x in winsplit)
+XButton1 & 3::SendInput #^z ; -> top half
+XButton1 & 4::SendInput #^x ; -> bottom half (Ctrl+Alt+x in winsplit)
 XButton1 & f1::SendInput !^9 ; -> maximize horizontally
 XButton1 & f2::SendInput !^0; -> maximize vertically
 XButton1 & `:: ; toggle fullscreen (http://www.autohotkey.com/board/topic/16755-help-toggle-maximizerestore-with-same-hotkey/)
@@ -1835,20 +1849,22 @@ XButton1 & `:: ; toggle fullscreen (http://www.autohotkey.com/board/topic/16755-
     Else WinMaximize A
     return
 
-; ! = alt
-; + = shift
-; ^ = windows
+; Some notable hotkeys (for a full list: http://ahkscript.org/docs/Hotkeys.htm#Symbols)
+; # : windows key
+; ^ : control key
+; ! : alt key
+; + : shift key
 !+f::RunOrActivate("C:\Program Files (x86)\Foxit Software\Foxit Reader\FoxitReader.exe")
 !+b::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE")
 !+space::RunOrActivate("C:\Program Files (x86)\Mozilla Firefox\firefox.exe")
-!^e::RunOrActivate("C:\Program Files (x86)\Foxit Software\Foxit Reader\FoxitReader.exe")
-!^q::RunOrActivate("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
+; !^e::RunOrActivate("C:\Program Files (x86)\Foxit Software\Foxit Reader\FoxitReader.exe")
+; !^q::RunOrActivate("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
 ;!+q::RunOrActivate("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
 !+a::RunOrActivate("C:\Program Files (x86)\PDF Annotator\PDFAnnotator.exe")
 !+x::RunOrActivate("C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE")
-!^a::RunOrActivate("C:\Program Files (x86)\PDF Annotator\PDFAnnotator.exe")
-!^w::WinMinimize, A
-!+w::WinMinimize, A
-!^d::Send #d    
+; !^a::RunOrActivate("C:\Program Files (x86)\PDF Annotator\PDFAnnotator.exe")
+; !^w::WinMinimize, A
+; !+w::WinMinimize, Az
+; !^d::Send #d    
 ; !+d::Send #d    
 !+s::RunOrActivate("C:\Program Files\Sublime Text 3\sublime_text.exe")

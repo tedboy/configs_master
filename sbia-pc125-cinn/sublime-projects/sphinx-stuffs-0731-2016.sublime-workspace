@@ -1,0 +1,3018 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sphi",
+				"sphinx_rtd_theme"
+			],
+			[
+				"timestamp",
+				"timestamp_path=${1:PATH_TO_OUTPUT_TXT	(bash-timestamp.sublime-snippet)"
+			],
+			[
+				"for",
+				"for"
+			],
+			[
+				"watanabt",
+				"watanabt@cbica	(bash-commands.rst)"
+			],
+			[
+				"e",
+				"exec_	function"
+			],
+			[
+				"QApp",
+				"QApplication	class"
+			],
+			[
+				"Py",
+				"PyQt4	module"
+			],
+			[
+				"sge",
+				"sge	sh-sge"
+			],
+			[
+				"d",
+				"def	Function"
+			],
+			[
+				"abs",
+				"absolute_import	instance"
+			],
+			[
+				"path",
+				"pathsep	instance"
+			],
+			[
+				"pat",
+				"path	module"
+			],
+			[
+				"dash",
+				"dashed_message	function"
+			],
+			[
+				"in",
+				"insert	function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/index.rst",
+			"settings":
+			{
+				"buffer_size": 1204,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.rst",
+			"settings":
+			{
+				"buffer_size": 271,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": ".. pyspark documentation master file, created by\n   sphinx-quickstart on Thu Aug 28 15:17:47 2014.\n   You can adapt this file completely to your liking, but it should at least\n   contain the root `toctree` directive.\n\nWelcome to Spark Python API Docs!\n===================================\n\nContents:\n\n.. toctree::\n   :maxdepth: 1\n   :numbered:\n\n   pyspark\n   pyspark.sql\n   pyspark.sql.types\n   pyspark.sql.functions\n   pyspark.sql.streaming\n   pyspark.streaming\n   pyspark.streaming.kafka\n   pyspark.streaming.kinesis\n   pyspark.streaming.flume\n   pyspark.ml\n   pyspark.ml.param\n   pyspark.ml.feature\n   pyspark.ml.classification\n   pyspark.ml.clustering\n   pyspark.ml.linalg\n   pyspark.ml.recommendation\n   pyspark.ml.regression\n   pyspark.ml.tuning\n   pyspark.ml.evaluation\n   pyspark.mllib\n   pyspark.mllib.classification\n   pyspark.mllib.clustering\n   pyspark.mllib.evaluation\n   pyspark.mllib.feature\n   pyspark.mllib.fpm\n   pyspark.mllib.linalg\n   pyspark.mllib.linalg.distributed\n   pyspark.mllib.random\n   pyspark.mllib.recommendation\n   pyspark.mllib.regression\n   pyspark.mllib.stat\n   pyspark.mllib.tree\n   pyspark.mllib.util\n\n\nCore classes:\n---------------\n\n    :class:`pyspark.SparkContext`\n\n    Main entry point for Spark functionality.\n\n    :class:`pyspark.RDD`\n\n    A Resilient Distributed Dataset (RDD), the basic abstraction in Spark.\n\n    :class:`pyspark.streaming.StreamingContext`\n\n    Main entry point for Spark Streaming functionality.\n\n    :class:`pyspark.streaming.DStream`\n\n    A Discretized Stream (DStream), the basic abstraction in Spark Streaming.\n\n    :class:`pyspark.sql.SQLContext`\n\n    Main entry point for DataFrame and SQL functionality.\n\n    :class:`pyspark.sql.DataFrame`\n\n    A distributed collection of data grouped into named columns.\n\n\nIndices and tables\n==================\n\n* :ref:`search`\n\n",
+			"settings":
+			{
+				"buffer_size": 1834,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/conf.py",
+			"settings":
+			{
+				"buffer_size": 10664,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/mymake.sh",
+			"settings":
+			{
+				"buffer_size": 274,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/.git/config",
+			"settings":
+			{
+				"buffer_size": 330,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.ml.rst",
+			"settings":
+			{
+				"buffer_size": 649,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.rst",
+			"settings":
+			{
+				"buffer_size": 662,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/work/sbia_work/lobbying.json",
+			"settings":
+			{
+				"buffer_size": 3010,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.streaming.rst",
+			"settings":
+			{
+				"buffer_size": 523,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.streaming.kinesis.rst",
+			"settings":
+			{
+				"buffer_size": 343,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.stat.rst",
+			"settings":
+			{
+				"buffer_size": 417,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/bs4doc_source/.git/config",
+			"settings":
+			{
+				"buffer_size": 343,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.sql.rst",
+			"settings":
+			{
+				"buffer_size": 460,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Anaconda Python Builder",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "copy ",
+		"selected_items":
+		[
+			[
+				"copy ",
+				"File: Copy Path"
+			],
+			[
+				"open bro",
+				"File: Open In Browser - Production Server"
+			],
+			[
+				"add fo",
+				"Project: Add Folder"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"add f",
+				"Project: Add Folder"
+			],
+			[
+				"copy p",
+				"File: Copy Path"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"rst",
+				"Set Syntax: reStructuredText"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"package disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"remove p",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"fold doc",
+				"Fold Python : fold content"
+			],
+			[
+				"fold c",
+				"Fold Comments"
+			],
+			[
+				"fold",
+				"Code Folding: Unfold All"
+			],
+			[
+				"unfol",
+				"Unfold Comments"
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"res",
+				"Set Syntax: reStructuredText"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"omni",
+				"OmniMarkupPreviewer: Export Current Markup as HTML"
+			],
+			[
+				"del",
+				"File: Delete"
+			],
+			[
+				"anaconda",
+				"Anaconda: Goto object definition"
+			],
+			[
+				"docst",
+				"Python Docstrings: Fold"
+			],
+			[
+				"set syntax text",
+				"Set Syntax: Textile"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"rest",
+				"Set Syntax: reStructuredText"
+			],
+			[
+				"error",
+				"Anaconda: Show error list"
+			],
+			[
+				"show er",
+				"Anaconda: Show error list"
+			],
+			[
+				"pep8",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"docstr",
+				"Python Docstrings: Fold"
+			],
+			[
+				"fold co",
+				"Fold Comments"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"diff",
+				"FileDiffs: Menu"
+			],
+			[
+				"restr",
+				"Set Syntax: reStructuredText"
+			],
+			[
+				"fold ",
+				"Python Docstrings: Fold"
+			],
+			[
+				"set syntax rst",
+				"Set Syntax: reStructuredText"
+			],
+			[
+				"anaconda pep",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"ython",
+				"Set Syntax: Python"
+			],
+			[
+				"add ",
+				"Project: Add Folder"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"ipython",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"sublimerepl ipython",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"ipy",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"code folding",
+				"Code Folding: Unfold All"
+			],
+			[
+				"origami",
+				"Origami: Destroy Current Pane"
+			],
+			[
+				"ori",
+				"Origami: Create Pane Below"
+			],
+			[
+				"format",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"anaconda de",
+				"Anaconda: Goto object definition"
+			],
+			[
+				"show",
+				"Anaconda: Show error list"
+			],
+			[
+				"ana",
+				"Anaconda: Goto object definition"
+			],
+			[
+				"show err",
+				"Anaconda: Show error list"
+			],
+			[
+				"export",
+				"OmniMarkupPreviewer: Export Current Markup as HTML"
+			],
+			[
+				"reame",
+				"File: Rename"
+			],
+			[
+				"R",
+				"Set Syntax: R"
+			]
+		],
+		"width": 514.0
+	},
+	"console":
+	{
+		"height": 469.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/rename.sh",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.sql.types.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.sql.functions.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.sql.streaming.rst",
+		"/home/takanori/Dropbox/git/tedboy/bs4doc_source/source/10_encodings.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.streaming.kinesis.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.streaming.kafka.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.streaming.flume.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.stat.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.ml.feature.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.ml.clustering.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.ml.evaluation.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.ml.param.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.ml.recommendation.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.ml.linalg.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.ml.classification.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.ml.regression.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.util.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.regression.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.classification.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.random.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.evaluation.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.clustering.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.feature.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.linalg.distributed.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.fpm.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.linalg.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.tree.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.recommendation.rst",
+		"/home/takanori/Dropbox/git/tedboy/bs4doc_source/source/index.rst",
+		"/home/takanori/Dropbox/git/tedboy/bs4doc_source/source/1_quick_start.rst",
+		"/home/takanori/Dropbox/git/tedboy/bs4doc_source/source/4_kind_of_objects.rst",
+		"/home/takanori/Dropbox/git/tedboy/bs4doc_source/mymake.sh",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.sql.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.rst",
+		"/home/takanori/Dropbox/git/tedboy/bs4doc_source/source/2_installation.rst",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/fix_name.sh",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/mytest.rst",
+		"/home/takanori/Dropbox/git/tedboy/bs4doc_source/fix_name.sh",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/_build_published/html/fix_name.sh",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/Makefile",
+		"/home/takanori/Dropbox/git/tedboy/pyspark_docs/_build_published/html/pyspark.html",
+		"/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark/streaming/__init__.py",
+		"/home/takanori/Dropbox/git/snippet/cs-python.rst",
+		"/home/takanori/anaconda2/lib/python2.7/site-packages/sphinx_rtd_theme/theme.conf",
+		"/home/takanori/.local/lib/python2.7/site-packages/sphinx_rtd_theme-0.1.10a0-py2.7.egg/sphinx_rtd_theme/theme.conf",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/modules/data_prep/qsub_0726.sh",
+		"/home/takanori/Dropbox/work/sbia_work/sh/0701_2016_rename_tobvols.sh",
+		"/home/takanori/Dropbox/work/sbia_work/sh/0613_2016_get_diffusion_volumes.sh",
+		"/home/takanori/Dropbox/git/snippet/cs-bash-commands.rst",
+		"/home/takanori/Dropbox/git/snippet/cs-qsubber.rst",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/.bashrc",
+		"/home/takanori/Dropbox/work/sbia_work/sh/tob_pnc/0705_2016_scp.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/dl/dl_template.py",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/modules/tak/core.py",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/modules/data_prep/test.sh",
+		"/home/takanori/Dropbox/git/tedboy/bs4doc_source/source/conf.py",
+		"/home/takanori/Dropbox/work/sbia_work/sh/readme_data_prep.rst",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/modules/data_prep/save_0726_bct_weighted_normalized.py",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2859735.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2858991.stderr",
+		"/home/takanori/Dropbox/git/tedboy/pandas/doc/make.py",
+		"/home/takanori/Dropbox/git/tedboy/pandas/doc/README.rst",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/.bashrc",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/modules/data_prep/qsub-run.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/modules/tak/old_stuffs/tak_core_june6_2016/core_bkup.py",
+		"/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/python/matplotlibrc",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/pnc/ncv_conn_random/sge_batch_try_oneinstance.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/pnc/ncv_conn_random/sge_batch.sh",
+		"/home/takanori/Dropbox/work/sbia_work/python/analysis/pnc/ncv_conn_random/qsub_batch.sh",
+		"/home/takanori/Dropbox/git/snippet/cs-py-jupyter-notebook.rst",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2858991.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/bin/myqsub-run.sh",
+		"/home/takanori/data/PNC_Tobacco_Merged/Analysis/Connectivity/Edgewise/PNC_Tobacco_Merged_Edgewise.py",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/modules/data_prep/batch_qsubrun_0721.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/modules/data_prep/batch_qsubrun_0726.sh",
+		"/home/takanori/data/PNC_Tobacco_Merged/Analysis/Full_Model/PNC_Tobacco_Merged_Voxelwise.py",
+		"/home/takanori/Dropbox/work/sbia_work/python/now/results/t_0725c_tobpnc_get100_matched_pnc/print.txt",
+		"/home/takanori/data/PNC_Tobacco_Merged/Analysis/Birkans_Average_Brains2/calc_averages.py",
+		"/home/takanori/data/PNC_Tobacco_Merged/Analysis/Connectivity/Density_Prune/density_prune.py",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/bin/qsub-run.sh",
+		"/home/takanori/anaconda2/lib/python2.7/site-packages/matplotlib/mpl-data/matplotlibrc",
+		"/home/takanori/Dropbox/work/sbia_work/python/tak-snippets/snippets.py",
+		"/home/takanori/.config/sublime-text-3/Packages/Fold Python/FoldPython.sublime-settings",
+		"/home/takanori/.config/sublime-text-3/Packages/User/FoldPython.sublime-settings",
+		"/home/takanori/data/tob/dti_volumes/qa_tak/readme.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2836833.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sbia_work/python/modules/data_prep/tmp.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2836716.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2836715.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2836715.stderr",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2836647.stderr",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2836647.stdout",
+		"/home/takanori/Dropbox/work/sbia_work/python/now/results/0719-0722/readme.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2836833.stderr",
+		"/home/takanori/data/PNC_Tobacco_Merged/Analysis/Connectivity/Edgewise/Output_RawEdgeWeights/Fstat.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2836514.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/watanabt/sge_job_output/python.2836504.stdout",
+		"/home/takanori/bar_stacked.py",
+		"/home/takanori/Dropbox/git/snippet_book/python/snippet-python.rst",
+		"/home/takanori/data/tob_pnc_matched/readme.txt",
+		"/home/takanori/data/tmp/Templates_for_overlay/JhuMniSSLabelLookupTable_1.txt",
+		"/home/takanori/Dropbox/work/sbia_work/sh/0622_2016_move_tobpnc_merged.sh",
+		"/home/takanori/Dropbox/work/sbia_work/sh/0622_2016_scp_tob.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/PNC_Tobacco_Merged/Scripts/Dramms_FA_to_Eve.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/PNC_Tobacco_Merged/Scripts/Template_Space_Smoothing_Eigenvalues.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/PNC_Tobacco_Merged/Scripts/Template_Space_Smoothing.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/PNC_Tobacco_Merged/Scripts/Template_Space_ROI_Stats.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/PNC_Tobacco_Merged/sge_job_output/2311708.Dramms_FA_to_Eve2.stdout",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/PNC_Tobacco_Merged/Scripts/bash_pipeline_utils.sh",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/PNC_Tobacco_Merged/Resources/subjects",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/PNC_Tobacco_Merged/Results/matrices_density_pruned_0.15/085960_003323_connmat_86roi_100seeds.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/sbiasfw/lab/share/models/JHU_WhiteMatterAtlas/JHU_2mm_template/paolo.csv",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/sbiasfw/lab/share/models/JHU_WhiteMatterAtlas/JHU_2mm_template/JhuMniSSLabelLookupTable_2.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/sbiasfw/lab/share/models/JHU_WhiteMatterAtlas/JHU_2mm_template/JhuMniSSLabelLookupTable_1.txt",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/.bash_ipython",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/.bash_convenient_functions",
+		"/home/takanori/Dropbox/git/tedboy/pandas/doc/source/conf.py",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/home/parkerwi/.bashrc",
+		"/home/takanori/Dropbox/work/sbia_work/sh/0628_2016_scp_tob.sh",
+		"/home/takanori/Dropbox/git/tedboy/bs4doc_source/source/[01;31m[Kconf.py[m[K",
+		"/run/user/1000/gvfs/sftp:host=cbica-cluster.uphs.upenn.edu,user=watanabt/cbica/projects/autism/TobaccoCAR/Data/Scripts/bash_pipeline_utils.sh",
+		"/home/takanori/Dropbox/work/sbia_work/sh/test.sh",
+		"/home/takanori/Dropbox/work/sbia_work/sh/0613_2016_get_176_roi.sh",
+		"/home/takanori/Dropbox/work/sbia_work/sh/0627_2016_merge_tob_tdc_vols.sh",
+		"/home/takanori/data/tob/ROI_Stats/tw_copy_timestamp.txt",
+		"/home/takanori/data/tob/dti_volumes/tw_copy_timestamp.txt",
+		"/home/takanori/Dropbox/work/sample_scripts_from_sbia/from.txt"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"sour",
+			"stream",
+			"sed",
+			"python",
+			"\\(.*\\)\\s*(?=\\|)",
+			"\\( .+\\)",
+			"^DataFrame\\.",
+			"  (?=\\w)(?!df)\\b",
+			"(DataFrame\\.)(?!$)",
+			"my name is (\\w+)",
+			"DataFrame\\.(?!$)",
+			"DataFrame\\.(?>!$)",
+			"DataFrame\\.(?>$)",
+			"DataFrame\\.(?>!$)",
+			"(?<=Series\\.dt\\.(.*?)) ",
+			"Series\\.dt\\..*\\b",
+			"Series\\.dt\\. .*\\b",
+			"(?<=dt\\.(.*|time))\\s ",
+			"(?<=dt\\.(date|time))\\s ",
+			"(?<=dt\\.[date])\\s ",
+			"(?<=dt\\.date])\\s ",
+			"(?<=dt\\.[.*])\\s ",
+			"(?<dt\\.) date",
+			"dt\\..*\\w(?=   )",
+			"\\w(?=   )",
+			"    \n",
+			"\\)(?=   )",
+			"\\(.+\\)(?=   )",
+			"\\(.+\\)(?!\\.)",
+			"For more information on .at, .iat, .ix, .loc, and .iloc, see the indexing documentation.",
+			"\\(.+?\\)",
+			"\\(.+\\)",
+			"\\(.*\\)",
+			"\\(.*\\\n	)",
+			"path",
+			"filepath",
+			"filepath_or_buffer",
+			"GroupBy.",
+			"mybin",
+			"MAILBLOCK",
+			"email",
+			"title",
+			"patsy",
+			"Output",
+			"fstat",
+			"nib",
+			"sys",
+			"color",
+			"less",
+			"seaborn",
+			"********************\n",
+			"color_cycle",
+			"load_and_symmetrize_mat",
+			"bin",
+			"/bin",
+			"bin",
+			"history",
+			"14191",
+			"exec",
+			"alt+shift+down",
+			"gopython",
+			"pylearn2",
+			"--exclude",
+			"grep",
+			"sed",
+			"xargs",
+			"exec",
+			"dir",
+			"alabaster",
+			"nimfa",
+			"dammit",
+			".. _",
+			"searching h",
+			"navigating the",
+			"searching the tree",
+			"Beautiful Soup 3",
+			"differences betwee",
+			"http://www.crummy.com/software/BeautifulSoup/bs3/documentation.html",
+			"www.crummy",
+			"beautiful soup 3",
+			"soup 3",
+			"Installing",
+			"Beautiful Soup 3",
+			"_Be",
+			"_Beau",
+			"`Beautiful Soup 3",
+			"Beautiful Soup 3",
+			"https://www.crummy.com/software/BeautifulSoup/bs3/documentation.html",
+			"Beautiful Soup 3",
+			"Alice in Wonderland",
+			"_installation",
+			"_quick_start",
+			"toc",
+			"_static/",
+			"toc",
+			"_static/",
+			"_image",
+			"_static/",
+			"_statics/",
+			"_static",
+			"_static/",
+			"images/",
+			"sidebar",
+			"alt+shift+d",
+			"    \n",
+			"smart_folding",
+			"h1",
+			"256",
+			"bash_alias",
+			"header",
+			".php",
+			"gosnip",
+			"lineEdit",
+			"line",
+			"pdf",
+			"verti",
+			"anaconda",
+			"version",
+			"anaconda",
+			"pyplot",
+			"egg",
+			"BatchIterator",
+			"0",
+			"tau=0.0001",
+			"seconds",
+			"tmp",
+			"        \n",
+			"cuda"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"(...)",
+			"df\\.",
+			" | ",
+			"df.",
+			"\\1",
+			"$1",
+			"\\1",
+			"\\1DD",
+			"df",
+			") |",
+			"(...)",
+			"()",
+			"filepath",
+			"gb.",
+			"static/",
+			"128",
+			"200",
+			"\n",
+			"",
+			"cv_summary",
+			"'",
+			"u",
+			"\"\"\"\n",
+			"\"",
+			"-",
+			"",
+			"Med.",
+			"CortSpinTract",
+			"Cereb.",
+			"Gyr",
+			"",
+			".",
+			"Rad",
+			"Ante.",
+			"Ped",
+			"Cereb.",
+			"Corp.Call.",
+			"Corp.Cal",
+			"Lat.",
+			"Fasc.",
+			"IC",
+			"CC",
+			"Front.",
+			"Frt.",
+			"Inf.",
+			"Occ.",
+			"Gyr",
+			"Post.",
+			"Mid.",
+			"Temp.",
+			"Cing.",
+			"Sup."
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/index.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								438,
+								438
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "d60ca5c4",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1470015003.21,
+							"tabs_extra_last_activated_sheet_index": 0,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 271,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								123,
+								123
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "61d1fc04",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1470013900.57,
+							"tabs_extra_last_activated_sheet_index": 1,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1834,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1277,
+								1277
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "plain text",
+							"default_dir": "/home/takanori/Dropbox/git/tedboy/pyspark_docs",
+							"incomplete_sync": null,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1470013695.62,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 775.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/conf.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10664,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3490,
+								3490
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3489,
+										3490
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										3481,
+										3482
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "python",
+							"buffer_scroll_name": "dd87ee9e",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1470010835.69,
+							"tabs_extra_last_activated_sheet_index": 1,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 993.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/mymake.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 274,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								274,
+								274
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "shell-unix-generic",
+							"buffer_scroll_name": "9c471aea",
+							"incomplete_sync": null,
+							"open_with_edit": true,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tabs_extra_last_activated": 1470014267.73,
+							"tabs_extra_last_activated_sheet_index": 0,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/.git/config",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								330,
+								330
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "404d4a2d",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1470014998.84,
+							"tabs_extra_last_activated_sheet_index": 1,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.ml.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 649,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								265,
+								232
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "2bdd4586",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1470015039.62,
+							"tabs_extra_last_activated_sheet_index": 0
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 662,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								274,
+								274
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "241f34e8",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1470074321.05,
+							"tabs_extra_last_activated_sheet_index": 1,
+							"tabs_extra_spawned": true,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/takanori/Dropbox/work/sbia_work/lobbying.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3010,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3009,
+										3010
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										0,
+										1
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "json",
+							"buffer_scroll_name": "9f1efe2c",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tabs_extra_last_activated": 1470074379.38,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.streaming.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 523,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "12ea374e",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1470013712.71,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.streaming.kinesis.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								244,
+								228
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "29f8b1ec",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1470014099.04,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.mllib.stat.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 417,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								417,
+								417
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "3ed647a9",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1470014266.68,
+							"tabs_extra_last_activated_sheet_index": 4,
+							"tabs_extra_spawned": true,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/home/takanori/Dropbox/git/tedboy/bs4doc_source/.git/config",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								66,
+								66
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "24e4b461",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1470014540.66,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/home/takanori/Dropbox/git/tedboy/pyspark_docs/pyspark.sql.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 460,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								188,
+								191
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bs_sintax": "restructuredtext",
+							"buffer_scroll_name": "13678b9b",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": false,
+							"synced": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tabs_extra_last_activated": 1470013679.5,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 19.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.217976101568,
+			0.66,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 312.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 78.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/python-anadonda.sublime-build",
+	"project": "sphinx-stuffs-0731-2016.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pyspark",
+				"pyspark_docs/pyspark.mllib.rst"
+			],
+			[
+				"pyspark.st",
+				"pyspark_docs/pyspark.streaming.rst"
+			],
+			[
+				"pyspark.rst",
+				"pyspark_docs/pyspark.sql.rst"
+			],
+			[
+				"fix",
+				"pyspark_docs/fix_name.sh"
+			],
+			[
+				"4_",
+				"source/4_kind_of_objects.rst"
+			],
+			[
+				"2",
+				"source/2_installation.rst"
+			],
+			[
+				"cs-py",
+				"snippet/cs-python.rst"
+			],
+			[
+				"cs-bash",
+				"snippet/cs-bash-scripts.rst"
+			],
+			[
+				"bashrc",
+				"sbia-pc125-cinn/.bashrc"
+			],
+			[
+				".bashrc",
+				"sbia-pc125-cinn/.bashrc"
+			],
+			[
+				"csbash",
+				"snippet/cs-bash-commands.rst"
+			],
+			[
+				"shsni",
+				"User/bash-shebang.sublime-snippet"
+			],
+			[
+				"bashscript",
+				"snippet/cs-bash-scripts.rst"
+			],
+			[
+				"gensni",
+				"User/gen-#**.sublime-snippet"
+			],
+			[
+				"h1.",
+				"User/rst-h1.sublime-snippet"
+			],
+			[
+				"bashsni",
+				"User/bash-shebang.sublime-snippet"
+			],
+			[
+				"sed",
+				"snippet/cs-sed.rst"
+			],
+			[
+				".bash",
+				"sbia-pc125-cinn/.bashrc"
+			],
+			[
+				"cs-",
+				"snippet/cs-bash-commands.rst"
+			],
+			[
+				"script",
+				"snippet/cs-bash-scripts.rst"
+			],
+			[
+				"rstsni",
+				"User/rst-csv.sublime-snippet"
+			],
+			[
+				"cs-rst",
+				"snippet/cs-rst.rst"
+			],
+			[
+				"ref",
+				"User/rst-ref.sublime-snippet"
+			],
+			[
+				"rst",
+				"User/rst-link.sublime-snippet"
+			],
+			[
+				"rst-ref",
+				"User/rst-ref.sublime-snippet"
+			],
+			[
+				"rsth",
+				"User/rst-h1.sublime-snippet"
+			],
+			[
+				"rst-",
+				"User/rst-link.sublime-snippet"
+			],
+			[
+				"csv",
+				"User/rst-csv.sublime-snippet"
+			],
+			[
+				"cs-scripts",
+				"snippet/cs-bash-scripts.rst"
+			],
+			[
+				"cs-ba",
+				"snippet/cs-bash-commands.rst"
+			],
+			[
+				"ts-",
+				"trouble-shooting/ts-sublime.rst"
+			],
+			[
+				".",
+				"sbia-pc125-cinn/.bashrc"
+			],
+			[
+				"rst-csv",
+				"User/rst-csv.sublime-snippet"
+			],
+			[
+				"rst-cv.sni",
+				"User/rst-csv.sublime-snippet"
+			],
+			[
+				"alias",
+				"sbia-pc125-cinn/.bash_aliases"
+			],
+			[
+				"rst--",
+				"User/rst-#=.sublime-snippet"
+			],
+			[
+				"py-snippet",
+				"User/py-#=.sublime-snippet"
+			],
+			[
+				"snippet",
+				"User/py-#=.sublime-snippet"
+			],
+			[
+				"bashsnippet",
+				"User/bash-shebang.sublime-snippet"
+			],
+			[
+				"linear_model",
+				"python/symlink/sklearn/linear_model/logistic.py"
+			],
+			[
+				"base.py",
+				"python/symlink/sklearn/base.py"
+			],
+			[
+				"rfe",
+				"python/symlink/sklearn/feature_selection/rfe.py"
+			],
+			[
+				"1112",
+				"python/analysis/general_ncv_1112.py"
+			],
+			[
+				"cross_vali",
+				"python/symlink/sklearn/cross_validation.py"
+			],
+			[
+				"data_",
+				"tak/data_io.py"
+			],
+			[
+				"python",
+				"User/Python.sublime-settings"
+			],
+			[
+				"data_io",
+				"python/modules/tak/data_io.py"
+			],
+			[
+				"rstcsv",
+				"User/rst-csv-demo.sublime-snippet"
+			],
+			[
+				"csvsnipp",
+				"User/rst-csv.sublime-snippet"
+			],
+			[
+				"tak.py",
+				"python/modules/tak/tak.py"
+			],
+			[
+				"custom.js",
+				"sbia-pc125-cinn/python/custom.js"
+			],
+			[
+				"glmentage",
+				"python/pnc/+++pnc_stabsel_glmnet_liblin_agegroup.py"
+			],
+			[
+				"-----",
+				"User/-------------------------------------------"
+			],
+			[
+				"+++ttest",
+				"python/pnc/+++pnc_liblin_ttest_nested_cv.py"
+			],
+			[
+				"+++liblin",
+				"python/pnc/+++pnc_liblin_ttest_nested_cv.py"
+			],
+			[
+				"ml.py",
+				"python/modules/tak/ml.py"
+			],
+			[
+				"nilearn/mass",
+				"work-local/external-python-modules/nilearn/nilearn/mass_univariate/permuted_least_squares.py"
+			],
+			[
+				"rsth1",
+				"User/rst-h1.sublime-snippet"
+			],
+			[
+				"snippe",
+				"User/py-pyblk.sublime-snippet"
+			],
+			[
+				"1018_pnc",
+				"python/pnc/+1018_pnc_ttest_classification.py"
+			],
+			[
+				"1017_nested",
+				"python/pnc/+1017_nestedCV_svm.py"
+			],
+			[
+				"1017_n",
+				"python/pnc/+1017_nestedCV_svm.py"
+			],
+			[
+				"===",
+				"User/=================================="
+			],
+			[
+				"grid_",
+				"sklearn/grid_search.py"
+			],
+			[
+				"pairwi",
+				"sklearn/metrics/pairwise.py"
+			],
+			[
+				"metrics",
+				"sklearn/metrics/metrics.py"
+			],
+			[
+				"matplot",
+				"sbia-pc125-cinn/python/matplotlibrc"
+			],
+			[
+				"grid_se",
+				"sklearn/grid_search.py"
+			],
+			[
+				"rstsublime",
+				"User/rst-h1.sublime-snippet"
+			],
+			[
+				"grid",
+				"sklearn/grid_search.py"
+			],
+			[
+				"cross_v",
+				"sklearn/cross_validation.py"
+			],
+			[
+				"ipython_kern",
+				"sbia-pc125-cinn/python/ipython_kernel_config_original.py"
+			],
+			[
+				"matplo",
+				"sbia-pc125-cinn/python/matplotlibrc_original"
+			],
+			[
+				"rst=",
+				"User/rst-#=.sublime-snippet"
+			],
+			[
+				"snippet-py",
+				"snippet_book/python/snippet-python.rst"
+			],
+			[
+				"install.sh",
+				"snippet_book/python/tak_install.sh"
+			],
+			[
+				"sublime-setting",
+				"User/Python.sublime-settings"
+			],
+			[
+				"rstsh",
+				"User/rst-sh.sublime-snippet"
+			],
+			[
+				"rst==",
+				"User/rst-#==.sublime-snippet"
+			],
+			[
+				"--",
+				"User/---------------------------------------------"
+			],
+			[
+				"permutation_test_s",
+				"python/trials/sklearn-demo/personal-favorites/plot_permutation_test_for_classification.py"
+			],
+			[
+				"permutation_test",
+				"work-local/tak-ace-ibis/util-matlab/slab_functions/permutation_test.m"
+			],
+			[
+				"decomposition",
+				"sklearn/decomposition/dict_learning.py"
+			],
+			[
+				"lda.py",
+				"sklearn/lda.py"
+			],
+			[
+				"base",
+				"sklearn/base.py"
+			],
+			[
+				"lda.",
+				"sklearn/lda.py"
+			],
+			[
+				"coordinate",
+				"sklearn/linear_model/coordinate_descent.py"
+			],
+			[
+				"csvsnip",
+				"User/rst-csv.sublime-snippet"
+			],
+			[
+				"tak_in",
+				"work-local/external-python-modules/tak_install.sh"
+			],
+			[
+				"sublime",
+				"snippet_book/misc/helper-sublime.rst"
+			],
+			[
+				"=",
+				"User/================================="
+			],
+			[
+				"rstinit",
+				"User/rst-init.sublime-snippet"
+			],
+			[
+				"sublime-sni",
+				"User/rst-init.sublime-snippet"
+			],
+			[
+				"pysni",
+				"User/py-#=.sublime-snippet"
+			],
+			[
+				"readme",
+				"python/readme_matplotlibrc"
+			],
+			[
+				"pythonana",
+				"User/python-anadonda.sublime-build"
+			],
+			[
+				"python-a",
+				"User/python-anadonda.sublime-build"
+			],
+			[
+				"0922_dv",
+				"python/pnc/0922_sanityCheck_dvecinv.py"
+			],
+			[
+				"sklearn",
+				"sklearn/naive_bayes.py"
+			],
+			[
+				"snipp",
+				"User/rst-shn.sublime-snippet"
+			],
+			[
+				"plot_lda",
+				"work-local/tak-ace-ibis/non-matlab/scikit-demo/plot_lda_qda.py"
+			],
+			[
+				"09",
+				"work-local/tak-ace-ibis/0917_pnc_try2.py"
+			],
+			[
+				"py=",
+				"User/py-#=.sublime-snippet"
+			],
+			[
+				"pylk",
+				"User/py-pyblk.sublime-snippet"
+			],
+			[
+				"pyblk",
+				"sklearn/utils/_scipy_sparse_lsqr_backport.py"
+			],
+			[
+				"python.",
+				"User/Python.sublime-settings"
+			],
+			[
+				".th",
+				"~/.theanorc"
+			],
+			[
+				"gpu-stuff",
+				"snippet_book/bash/sep2015-gpu-stuffs.rst"
+			],
+			[
+				"experi",
+				"tak-ace-ibis/analysis-diffusion-volumes-dsamp-0809-2015/experimental-plan.rst"
+			],
+			[
+				"tak-17",
+				"tak-ace-ibis/tak-176-labels-full.txt"
+			],
+			[
+				"176shor",
+				"tak-ace-ibis/tak-176-labels-short1.txt"
+			],
+			[
+				"17",
+				"tak-ace-ibis/tak-176-labels-try.txt"
+			],
+			[
+				"tak-ace.git",
+				"tak-ace-ibis/.gitignore"
+			],
+			[
+				"readme.rst",
+				"tak-ace-ibis/analysis-FA-volume-dsamp-avg/balanced-LOO-exp-graphnet/readme.rst"
+			],
+			[
+				"ibisreadme.rst",
+				"tak-ace-ibis/algorithms-ml/readme.rst"
+			],
+			[
+				"runa",
+				"tak-ace-ibis/analysis-FA-volume-dsamp-avg/run_FA_all.m"
+			],
+			[
+				"runall",
+				"tak-ace-ibis/analysis-FA-volume-dsamp-avg/balanced-LOO-exp-graphnet/vol_diff/runall_0731_voldiff.m"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 375.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 475.0
+	},
+	"selected_group": 2,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 261.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

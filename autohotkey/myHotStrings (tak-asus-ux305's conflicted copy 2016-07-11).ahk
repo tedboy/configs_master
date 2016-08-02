@@ -244,14 +244,14 @@ http://www.takwatanabe.me
         PasteString(String)
         Return
 
-    ; Example output: (July-2016)
+    ; Example output: (June-2015)
     ::#tt::
         FormatTime, TimeString,, MMMM-yyyy
         String=(%TimeString%)
         PasteString(String)
         return        
 
-    ; Example output: (July-24-2016)
+    ; Example output: (June-2015)
     ::#ttt::
         FormatTime, TimeString,, MMMM-dd-yyyy
         String=(%TimeString%)
@@ -259,7 +259,7 @@ http://www.takwatanabe.me
         return          
 
     ; "m" for "month"
-    ; Example Output: (2016-07)
+    ; Example Output: (2015-06)
     ::#tm::
         FormatTime, TimeString,, yyyy-MM
         String=(%TimeString%)
@@ -267,7 +267,7 @@ http://www.takwatanabe.me
         Return
 
     ; "min" for "minutes"
-    ; Example Output: (07/24/2016 5:37:PM)
+    ; Example Output: (06/10/2015 11:20:AM)
     ::#tmin::
         FormatTime, TimeString,, MM/dd/yyyy h:mm:tt
         String=(%TimeString%)
@@ -2947,15 +2947,8 @@ if __name__ == "__main__":
     PasteString(String)
     return
 
-    ; FormatTime, TimeString,, MM/dd/yyyy h:mm:tt
-    ; %TimeString%
 
-::#w::
-    FormatTime, TimeString,, MM/dd/yyyy dddd h:mm:tt
-    String=Added to word-note (%TimeString%) 
-    PasteString(String)
-    Return
 
-; ::#w::Added to word-note.
 
-::#cs::I certify this submission as my own original work completed in accordance with the Coursera Honor Code.
+
+
