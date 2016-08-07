@@ -1,0 +1,10 @@
+<snippet>
+    <!-- ref: http://osdir.com/ml/tex.texhax/2005-10/msg00048.html -->
+    <content><![CDATA[
+\stackrel{iid}{\sim}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>iid</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.tex</scope>
+</snippet>

@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[
+\sum_{i=1}^n$1
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>sumin</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.tex</scope>
+</snippet>

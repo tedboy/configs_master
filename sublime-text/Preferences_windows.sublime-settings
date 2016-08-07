@@ -96,7 +96,7 @@
 	"overlay_scroll_bars": "system",
 	"rulers":
 	[
-		80,
+		79,
 		120
 	],
 	"save_on_focus_lost": false,
@@ -118,5 +118,5 @@
 	"use_tab_stops": true,
 	"wide_caret": true,
 	"word_wrap": "true",
-	"wrap_width": 81
+	"wrap_width": 80
 }

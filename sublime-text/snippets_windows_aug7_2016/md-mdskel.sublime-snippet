@@ -1,0 +1,25 @@
+<snippet>
+    <content><![CDATA[
+[[parent directory]](./)
+<font size="5"><b>Table of contents</b></font>
+
+[TOC]
+
+<hr />
+
+
+<link href="https://rawgit.com/takwatanabe2004/configs_master/master/misc/diary_css.css" rel="stylesheet" type="text/css" />
+
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>mdskel</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.html.markdown</scope>
+</snippet>
+<!-- 
+
+<script type="text/x-mathjax-config">  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']], displayMath:[["$$","$$"]]  }});</script>
+<script type="text/x-mathjax-config">  MathJax.Hub.Config({  TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script type="text/javascript"  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ -->

@@ -1,0 +1,20 @@
+<snippet>
+    <content><![CDATA[
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{$1\textwidth}
+      \includegraphics[width=\textwidth]{$2}
+%      \caption{}\label{subfig:}
+  \end{subfigure}          
+  \begin{subfigure}[b]{$1\textwidth}
+      \includegraphics[width=\textwidth]{$3}
+%      \caption{}\label{subfig:}
+  \end{subfigure}          
+%  \caption{}\label{fig:}
+\end{figure}  
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>subfig</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.tex</scope>
+</snippet>
