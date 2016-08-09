@@ -6,7 +6,25 @@
 .. sectnum::    
     :start: 1    
 
-Created 02-25-2016 (13:26)
+###############################################################################
+Update 08-09-2016 (14:54)
+###############################################################################
+Sync snippet by directory-level symlink (didn't know Sublime Text will 
+recursively serach into directories...noice.
+
+Some files don't get recursed apparently (eg, ``add_date.py`` appears to need
+to be in ``~/.config/sublimne-text-3/Packages/User``, but not in the subdir...
+
+.. code-block:: bash
+
+    ln -s ~/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/ ~/.config/sublime-text-3/Packages/User/snippets
+    ln -s ~/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/synced_settings/ ~/.config/sublime-text-3/Packages/User/
+
+
+###################################################################
+Everything below is old. Read with caution 09 August 2016 (Tuesday)
+###################################################################
+Cuz i adoped above scheme.
 
 ###############################################################################
 Created 02-25-2016 (13:26)

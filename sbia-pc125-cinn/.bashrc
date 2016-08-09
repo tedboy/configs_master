@@ -483,3 +483,6 @@ export PYTHONPATH=$PYTHONPATH:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/pyt
 # http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-command-directly-into-my-clipboard
 alias c="xclip -selection clipboard" 
 alias v="xclip -o -selection clipboard"
+
+# just a reminder snippet...
+alias grep_recursive='echo "grep -r --include *.{py,m} textHere"'
