@@ -11,7 +11,7 @@ Created on %(date)s
 
 @author: %(username)s
 """
-#%% module
+#%% === load modules ===
 from tak import reset; reset()
 import numpy as np
 import pandas as pd
@@ -64,7 +64,7 @@ def mysavefig(outfilename,suptitle='__file__',fsave=False):
         print 'save result at ' + savepath
         plt.savefig(savepath,bbox_inches='tight')
 
-
+#%% === main function ===
 if __name__ == "__main__":
     #%%
     fsave = False

@@ -484,5 +484,249 @@ export PYTHONPATH=$PYTHONPATH:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/pyt
 alias c="xclip -selection clipboard" 
 alias v="xclip -o -selection clipboard"
 
-# just a reminder snippet...
-alias grep_recursive='echo "grep -r --include *.{py,m} textHere"'
+
+#=============================================================================#
+# SNIPPETS to print out (as a self reminder)
+#=============================================================================#
+# just a bunch of reminder snippets i can print out in the shell
+___bookmark_snip___(){
+  echo 'no functionality. just a bookmark for sublime (use ctrl+r to navigate)'
+}
+
+
+_snip_find(){
+  echo '
+  find $DIR # recursively print out file directories
+  find $PWD | grep helper.md
+  find $PWD | grep helper.html | xclip
+  find $PWD -maxdpeth 1
+  find . -iname "*chrome*" # case insensitive
+  find . -name "*chrome*" # case sensitive
+  find . -iname "*chrome*" # print filenames, followed by a NULL character instead of the "newline" chracter that -print uses
+
+  # ignore any file containing "est" (even in the directory name) and print out rest
+  # (note: -o is the OR operator...see "operator" list below)
+  find . -wholename '*est*' -prune -o -print
+
+  # stuffs with -type option
+  find . d # list directories
+  find . f # list regular files
+  find . l # list symlinks
+
+  #=====================================================================#
+  # name vs. whilename
+  # - suppose i have file /Data_Science/test.txt
+  #=====================================================================#
+  find . -iwholename "*Sci*.txt"
+      # this will find the above file
+  find . -iname "*Sci*.txt"
+      # this will NOT find the above file
+  List filenames ending in .mp3, searching in the music folder and subfolders:
+  $ find ./music -name "*.mp3"
+
+  Find .doc files that also start with 'questionnaire' (AND)
+  $ find . -name '*.doc' -name questionnaire*
+
+  Find .doc files that do NOT start with 'Accounts' (NOT)
+  $ find . -name '*.doc' ! -name Accounts*
+  ' | pygmentize -l sh
+}
+
+_snip_for(){
+  echo '
+  for run in {1..10}
+  do
+    command
+  done
+
+  # single line
+  for run in {1..30}; do ipython t_0809c_enet_tobpnc_age.py; done
+  ' | pygmentize -l sh
+}
+
+_snip_rename(){
+    echo '
+    #http://unix.stackexchange.com/questions/146743/processing-multiple-extensions
+    #https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html
+
+    # rename the filename part "Array" with "_PCA" for all files ending with extension .mat
+    rename Array _PCA *.mat
+
+    # rename png "prefix" with "normalized" in files with .png extensions
+    rename '"'"'s/prefix/normalized/'"'"' *.png
+
+    # rename files with either .png or .pkl extension (see link on brack expansion above)
+    # (-n will do a dry run, letting me check the rename will do what i want it to do )
+    rename -n '"'"'s/normalized/test/'"'"' *.{png,pkl}
+
+    # use -n to check rename will do what i want it to do
+    rename -n '"'"'s/graphnet/elasticnet/;'"'"' *.m # check
+    rename -v '"'"'s/graphnet/elasticnet/;'"'"' *.m # run verbosely after checking
+
+    #=========================================================================#
+    # add suffix/prefix to files
+    # see 2nd answer in http://stackoverflow.com/questions/208181/how-to-rename-with-prefix-suffix
+    #=========================================================================#
+    # rename files with extensions (to avoid directory...not robust, but does what i want most of the time)
+    for filename in *\.*; do echo $filename; done;
+    for filename in *; do echo $filename; done; # <- this includes directory, which me not like
+
+    for filename in *\.*; do mv "${filename}" "prefix_${filename}"; done;
+    ' | pygmentize -l sh
+}
+
+_snip_scp(){
+    echo '
+    #========================================================================#
+    # relevant options
+    #========================================================================#
+    #| -r : recursive
+    #| -v : verbose (i probably won'"''"'t need)
+    #| -q : quiet
+
+    #========================================================================#
+    # demos
+    #========================================================================#
+    # Copy dummy.txt to home directory in remote host:
+    touch ~/dummy.txt
+    scp ~/dummy.txt watanabt@cbica-cluster.uphs.upenn.edu:~/
+
+    # copy dummy.txt on server as dummy_cp.txt to local home folder
+    scp watanabt@cbica-cluster.uphs.upenn.edu:~/dummy.txt ~/dummy_cp.txt
+    ' | pygmentize -l sh
+}
+
+_snip_mogrify(){
+    echo '
+    mogrify -resize 50% *.png
+    mogrify -resize 500! *.png     => changes only x-axis
+    mogrify -resize 500 *.png      => changes (x,y) axis in proportion
+    mogrify -trim *.png
+
+    #| http://arcoleo.org/dsawiki/Wiki.jsp?page=Recursively%20run%20Mogrify%20on%20a%20Directory
+    #| Mogrify is an image tool that comes with ImageMagick. It is useful for resizing, compressing, etc. If you have a set of subdirectories to run it on, run
+    $ find ./ -name "*.png" -exec mogrify -some_option {} \;
+    $ find ./ -name "*.png" -exec mogrify -resize 40% {} \;
+    ' | pygmentize -l sh
+}
+
+_snip_pipedream(){
+    echo '
+    #http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-to-choose
+
+        the -exec "{}" \; approach seems to be specific to find (i prefer unity with xargs)
+
+    #http://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list
+    # http://ss64.com/bash/find.html
+    find . -maxdepth 1 -type d -exec ls -ld "{}" ";"
+    find . -maxdepth 1 -type d -exec ls -ld \{\} \;  # same as above
+    find . -maxdepth 1 -type d | xargs ls -ld # same as above (i find this the most intuitive)
+    ls -ld $(find . -maxdepth 1 -type d) # same as above
+
+    # this doesnt give the same result as "xargs" approach...figure out why later
+    find . -maxdepth 1 -type d | ls -ld
+    ' | pygmentize -l sh
+}
+
+_snip_grep_recursively(){
+    echo '
+    grep -r "texthere" .
+
+    # You can also mention files to exclude with --exclude.
+    grep -r --include "*.txt" texthere .
+
+    # use brace expansion to allow multiple extension
+    grep -r --include=*.{py,m} test .
+    ' | pygmentize -l sh
+}
+
+_snip_demo_sed(){
+    echo '
+    # replace white-string with newline
+    bash 0622_2016_rename_tobvols.sh | sed '"'"'s/ /\n/g'"'"'
+
+    echo $PYTHONPATH
+    /home/takanori/Dropbox/work/external-pymodules:/home/takanori/Dropbox/work/sbia_work/python/modules:/home/takanori/work-local/external-python-modules/deepnet:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
+
+    # recall, g for global replacement
+    echo $PYTHONPATH | sed '"'"'s/:/\n/g'"'"'
+    /home/takanori/Dropbox/work/external-pymodules
+    /home/takanori/Dropbox/work/sbia_work/python/modules
+    /home/takanori/work-local/external-python-modules/deepnet
+    /home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
+    ' | pygmentize -l sh
+} 
+
+_snip_demo_awk(){
+    echo '
+    ls -l | awk '"'"'{printf $5 "\t" $9"\n"}'"'"'
+    
+        http://stackoverflow.com/questions/2021982/awk-without-printing-newline
+        http://askubuntu.com/questions/231995/how-to-separate-fields-with-space-or-tab-in-awk
+        http://www.catonmat.net/blog/awk-one-liners-explained-part-one/
+        http://www.staff.science.uu.nl/~oostr102/docs/nawk/nawk_41.html
+    ' | pygmentize -l sh
+}
+
+_snip_computer_info(){
+    echo '
+    # get cpu information
+    cat /proc/cpuinfo
+
+    #-- see gnome version ---
+    gnome-shell --version
+    lsb_release -a
+
+    # to figure out which linux distribution you are using
+    # (ref: http://www.cyberciti.biz/faq/find-linux-distribution-name-version-number/)
+    cat /etc/*-release
+
+    locate libfortran.so
+    ' | pygmentize -l sh
+}
+
+_snip_demo_timestamp(){
+    echo '
+    echo $(date +"%Y-%m-%d_%H:%M:%S")
+    ' | pygmentize -l sh
+}
+
+_snip_ls_symlink_only(){
+    echo '
+    # aliased as lssym
+    ls -l $(find ./ -maxdepth 1 -type l -print)
+    ' | pygmentize -l sh
+}
+
+_snip_moving_and_copying(){
+  echo '
+  # rename a directory (note '/' after directory name has NO impact here,  there are cases I should be careful of the backslash)
+  mv /home/user/oldname /home/user/newname
+
+  #=== cp helper ===#
+  # copy files *inside* the folder "test/" inside folder "target"
+  gosnippets; cd tests; mkdir source target; cd source; touch a b c; cd ..
+
+  # copy files *inside* the folder "test/" inside folder "target" (note: -R and -r are the same here)
+  cp -r source/* target
+
+  # copy entire folder *source* into *target* (without ``-r``, the subdirectories wont get copied)
+  cp -r source* target
+
+  #--- cleanup test files from above---#
+  cd ..; rm -r tests/*
+
+
+  #--- remove entire directory including files inside recursively ---#
+  rm -rf test/
+  ' | pygmentize -l sh
+} 
+
+_snip_ps(){
+    echo '
+    # a <- includes ``root`` in userprocess
+    # u <- include ``username`` column
+    # x <- list all processes owned by me
+    ps aux
+    ' | pygmentize -l sh
+}
