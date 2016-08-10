@@ -12,7 +12,7 @@ Update 08-09-2016 (14:54)
 Sync snippet by directory-level symlink (didn't know Sublime Text will 
 recursively serach into directories...noice.
 
-Some files don't get recursed apparently (eg, ``add_date.py`` appears to need
+Some files don't get recursed apparently (eg, ``add_date.py``, ``my_shift_newLine.sublime-macro``,  appear to need
 to be in ``~/.config/sublimne-text-3/Packages/User``, but not in the subdir...
 
 .. code-block:: bash

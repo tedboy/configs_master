@@ -730,3 +730,17 @@ _snip_ps(){
     ps aux
     ' | pygmentize -l sh
 }
+
+_snip_git_localname(){
+    echo '
+    # change user name in local repository
+    # https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
+    git config user.name "noname"
+    git config user.email noname@example.com
+    ' | pygmentize -l sh
+}
+
+git_anonymize(){
+  git config user.name "noname"
+  git config user.email noname@example.com
+}
