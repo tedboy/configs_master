@@ -24,6 +24,9 @@ reload(tw)
 import sklearn
 import scipy as sp
 import seaborn.apionly as sns
+
+#https://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.color_palette.html
+#http://chrisalbon.com/python/seaborn_color_palettes.html
 #%% === define functions ===
 def get_output_dir(file_dir):
     """ Create figure output directory """

@@ -454,7 +454,7 @@ export PATH="/home/takanori/anaconda2/bin:$PATH"
 # git related
 #=============================================================================#
 #http://stackoverflow.com/questions/7066325/list-git-aliases
-alias git_alias='git config --get-regexp alias'
+alias git_alias='git config --get-regexp alias | pygmentize -l sh'
 
 #=============================================================================#
 # to get colored output from ``less`` on scripts
