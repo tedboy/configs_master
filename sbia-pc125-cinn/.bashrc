@@ -111,9 +111,11 @@
 # alias less='less -r'                          # raw control characters
 alias whence='type -a'                        # where, of a sort
 # alias grep='grep --color'                     # show differences in colour
-alias grep='grep --color=always'              # show differences in colour
-alias egrep='egrep --color=auto'              # show differences in colour
-alias fgrep='fgrep --color=auto'              # show differences in colour
+alias grep='grep -P --color=always'              # show differences in colour (also use perl engine as default)
+alias egrep='egrep --color=always'              # show differences in colour
+alias fgrep='fgrep --color=always'              # show differences in colour
+# alias egrep='egrep --color=auto'              # show differences in colour
+# alias fgrep='fgrep --color=auto'              # show differences in colour
 #
 # Some shortcuts for different directory listings
 alias ls='ls -hF --color=tty'                 # classify files in colour
@@ -387,8 +389,8 @@ subl_(){ # open both snippets and configs
 # (most scripts are created in accordance with ``cs-bash-commands.rst`` in my
 #  ``snippets`` repository
 #=============================================================================#
-#http://stackoverflow.com/questions/1767384
-alias lssym='ls -l $(find ./ -maxdepth 1 -type l -print)'
+#http://stackoverflow.com/questions/1412423/display-only-files-and-folders-that-are-symbolic-links-in-tcsh-or-bash
+alias ls_sym='ls -l $(find ./ -maxdepth 1 -type l -print)'
 
 #http://stackoverflow.com/questions/17066250
 alias print_time='echo $(date +"%Y-%m-%d_%H:%M:%S")'
@@ -484,6 +486,7 @@ export PYTHONPATH=$PYTHONPATH:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/pyt
 alias c="xclip -selection clipboard" 
 alias v="xclip -o -selection clipboard"
 
+alias nojekyll='touch .nojekyll'
 
 #=============================================================================#
 # SNIPPETS to print out (as a self reminder)
