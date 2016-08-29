@@ -264,7 +264,8 @@ axes.labelcolor     : black #black # <- controls xlabel and ylabel font color
 #axes.unicode_minus  : True    # use unicode for the minus symbol
                                # rather than hyphen.  See
                                # http://en.wikipedia.org/wiki/Plus_and_minus_signs#Character_codes
-axes.color_cycle    : b, r, g, m, c, y, k  # color cycle for plot lines
+#| this gives warning that color cyle is deprecated...                               
+# axes.color_cycle    : b, r, g, m, c, y, k  # color cycle for plot lines
                                             # as list of string colorspecs:
                                             # single letter, long name, or
                                             # web-style hex

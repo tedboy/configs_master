@@ -1,9 +1,9 @@
 <snippet>
     <content><![CDATA[
 .. code-block:: bash
-    :number-lines:
+    :linenos:
 
-    $1
+    ${1:CODE}
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>shn</tabTrigger>

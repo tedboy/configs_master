@@ -17,6 +17,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import sys
 
 import tak as tw
 reload(tw)
@@ -70,7 +71,7 @@ def mysavefig(outfilename,suptitle=None,fsave=False):
         savepath = os.path.join(file_info['output_dir'],outfilename)
         print 'save result at ' + savepath
         plt.savefig(savepath,bbox_inches='tight')
-
+#%% === script specific functions ===
 #%% === main function ===
 if __name__ == "__main__":
     #%% collect script info

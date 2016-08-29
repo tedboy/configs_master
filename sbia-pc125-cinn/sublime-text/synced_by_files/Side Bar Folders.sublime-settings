@@ -1,0 +1,226 @@
+{
+	"folders":
+	[
+		{
+			"path": "/media/takanori/MatlabR2013_lnx"
+		},
+		{
+			"path": "/home/takanori/work-local/tak-pymodules/tak"
+		},
+		{
+			"path": "/home/takanori/work-local/tak-ace-ibis/python/trials"
+		},
+		{
+			"path": "/home/takanori/work-local/tak-ace-ibis/python"
+		},
+		{
+			"path": "/home/takanori/work-local/snippet_book/python"
+		},
+		{
+			"path": "/home/takanori/work-local/snippet_book"
+		},
+		{
+			"path": "/home/takanori/work-local/external-python-modules/deepnet/deepnet"
+		},
+		{
+			"path": "/home/takanori/work-local/data/ibis/original_data/dti_volumes"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"python"
+			],
+			"path": "/home/takanori/work-local"
+		},
+		{
+			"path": "/home/takanori/tmp/pandas/doc/tak"
+		},
+		{
+			"path": "/home/takanori/python-learn"
+		},
+		{
+			"path": "/home/takanori/Dropbox/work/sbia_work/sh"
+		},
+		{
+			"path": "/home/takanori/Dropbox/work/sbia_work/python/now"
+		},
+		{
+			"path": "/home/takanori/Dropbox/work/sbia_work/python/modules/tak"
+		},
+		{
+			"path": "/home/takanori/Dropbox/work/sbia_work/python/analysis/gen"
+		},
+		{
+			"path": "/home/takanori/Dropbox/work/sbia_work/python/analysis/dl"
+		},
+		{
+			"path": "/home/takanori/Dropbox/work/sbia_work/python/analysis"
+		},
+		{
+			"path": "/home/takanori/Dropbox/work/sbia_work/python"
+		},
+		{
+			"path": "/home/takanori/Dropbox/work/sample_scripts_from_sbia/Scripts_tob"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/tmp/sampledoc/tutorial"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/tmp/sampledoc"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/tmp/beautifulsoup/doc/source"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/tedboy/pyspark_docs"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/tedboy/bs4doc_source/source"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/tedboy/bs4doc_source"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/snippets"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/snippet_book/python"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/snippet_book"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/snippet"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/sbia_work/python/modules/tak"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/sbia_work/python/analysis"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"modules"
+			],
+			"path": "/home/takanori/Dropbox/git/sbia_work/python"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/mywebpage/php-parts"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/configs_master/vbox_mint17"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/configs_master/trouble-shooting"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"ditched"
+			],
+			"path": "/home/takanori/Dropbox/git/configs_master/sublime-text/projects/C:\\Users\\takanori\\Dropbox\\git\\snippet_book"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"(seperators)"
+			],
+			"path": "/home/takanori/Dropbox/git/configs_master/sublime-text/projects/C:\\Users\\takanori\\Dropbox\\git\\configs_master"
+		},
+		{
+			"path": "/home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"screenshots",
+				"offce-setup",
+				"sublime-text/snippets_old",
+				"sublime-text/sublime-snippets-sbia"
+			],
+			"path": "/home/takanori/Dropbox/git/configs_master"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/util-matlab-new"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/tmp_data/theano_tutorial"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/tmp_data/DeepLearningTutorials"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/sge-scripts"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/rst-notes"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/tak-ace-ibis/data_local"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/tak-ace-ibis"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/sge-prep"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/sbia-parcellation"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/rst-diary"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/python/nnet_theano"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/python"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/matlab/others/brain-analysis-for-gender-classification"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/matlab"
+		},
+		{
+			"path": "/home/takanori/Dropbox/2015-work/birkan-demo"
+		},
+		{
+			"path": "/home/takanori/Dropbox"
+		},
+		{
+			"path": "/home/takanori/Desktop/tmp/Bass line"
+		},
+		{
+			"path": "/home/takanori/anaconda_fuckup_0426/lib/python2.7/site-packages/sklearn"
+		},
+		{
+			"path": "/home/takanori/anaconda/lib/python2.7/site-packages/theano"
+		},
+		{
+			"path": "/home/takanori/anaconda/lib/python2.7/site-packages/sklearn"
+		},
+		{
+			"path": "/home/takanori/anaconda/lib/python2.7/site-packages/prox_tv"
+		},
+		{
+			"path": "/home/takanori/anaconda/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn"
+		},
+		{
+			"path": "/home/takanori/anaconda/lib/python2.7/site-packages/nibabel"
+		},
+		{
+			"path": "/home/takanori/anaconda/lib/python2.7/site-packages"
+		},
+		{
+			"path": "/home/takanori/.ipython/profile_default"
+		},
+		{
+			"path": "/home/takanori/.config/sublime-text-3/Packages/User"
+		},
+		{
+			"path": "/home/takanori"
+		}
+	]
+}

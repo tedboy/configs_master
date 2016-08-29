@@ -86,7 +86,7 @@ alias goconfig='cd /cygdrive/c/Users/takanori/Dropbox/git/configs'
     export PATH=$PATH:"/cygdrive/C/Program Files/Java/jdk1.8.0_20/bin/"
 
     #| to run ipython.bat that shipped with enthrought canopy
-    export PATH=$PATH:"/cygdrive/c/users/takanori/appdata/local/enthought/canopy/user/scripts/"
+    #export PATH=$PATH:"/cygdrive/c/users/takanori/appdata/local/enthought/canopy/user/scripts/"
 
 #==============================================================================#
 # disk space (11/11/2014)
@@ -276,3 +276,7 @@ alias goconfig='cd /cygdrive/c/Users/takanori/Dropbox/git/configs'
 #=============================================================================#
     # http://stackoverflow.com/questions/1305237/how-to-list-variables-declared-in-script-in-bash
     alias takPrintVars='( set -o posix ; set )'
+
+# added to get conda from cygwin (2016-08-22)
+PATH=/cygdrive/c/Users/takanori/Anaconda2:$PATH
+PATH=/cygdrive/c/Users/takanori/Anaconda2/Scripts:$PATH

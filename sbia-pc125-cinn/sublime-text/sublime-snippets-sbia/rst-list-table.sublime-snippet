@@ -1,0 +1,19 @@
+<snippet>
+    <content><![CDATA[
+.. http://docutils.sourceforge.net/docs/ref/rst/directives.html#list-table        
+.. list-table:: 
+    :header-rows: ${1:NUM_HEADER}
+    :widths: 20,70
+
+    * - ${2:HEADER1}
+      - ${3:HEADER2}
+
+    * - $4
+      - $5
+
+    $3
+]]></content>
+    <tabTrigger>list-table</tabTrigger>
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

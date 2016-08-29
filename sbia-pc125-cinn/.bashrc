@@ -360,7 +360,7 @@ alias spyder='spyder --new-instance &'
 export PATH=$PATH:/home/takanori/mybin/Slicer-4.4.0-linux-amd64
 export PATH=$PATH:/home/takanori/mybin/ImageJ
 
-alias twsource='source ~/.bashrc'
+# alias twsource='source ~/.bashrc'
 # alias gosnip='cd ~/Dropbox/git/snippet_book/python'
 alias gowork='cd ~/Dropbox/work/sbia_work/'
 # alias gowork='cd ~/work-local/tak-ace-ibis/python/'
@@ -457,6 +457,13 @@ export PATH="/home/takanori/anaconda2/bin:$PATH"
 #=============================================================================#
 #http://stackoverflow.com/questions/7066325/list-git-aliases
 alias git_alias='git config --get-regexp alias | pygmentize -l sh'
+
+
+#| added 08-24-2016 (16:11)
+# remove color from stdou (wow, harder than i expected) 
+#http://stackoverflow.com/questions/17998978/removing-colors-from-output
+#http://unix.stackexchange.com/questions/111899/how-to-strip-color-codes-out-of-stdout-and-pipe-to-file-and-stdout
+alias stripcolors='sed "s/\x1B\[\([0-9]\{1,2\}\(;[0-9]\{1,2\}\)\?\)\?[mGK]//g"'
 
 #=============================================================================#
 # to get colored output from ``less`` on scripts
@@ -696,8 +703,19 @@ _snip_demo_timestamp(){
 
 _snip_ls_symlink_only(){
     echo '
-    # aliased as lssym
+    # aliased as ls_sym
     ls -l $(find ./ -maxdepth 1 -type l -print)
+    ' | pygmentize -l sh
+}
+
+_snip_github_clone_branch(){
+    echo '
+    #http://stackoverflow.com/questions/1911109/clone-a-specific-git-branch
+    # skeleton
+    git clone -b my-branch git@github.com:user/myproject.git local_folder_name
+
+    # actual run
+    git clone -b minimalist https://github.com/wtak23/sphinx_skeleton.git jinja2
     ' | pygmentize -l sh
 }
 
@@ -743,7 +761,92 @@ _snip_git_localname(){
     ' | pygmentize -l sh
 }
 
+_snip_stdout_stderr(){
+    echo '
+    #************************************************
+    # Output stdout and stderr to terminal and logfile
+    #
+    # http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout
+    # http://stackoverflow.com/questions/18460186/writing-outputs-to-log-file-and-console
+    #************************************************
+    # save stdout and stderr to a file
+    bash mymake.sh >> log.txt 2>&1
+
+    # save logfile like above, but also print on terminal screen
+    bash mymake.sh 2>&1 | tee log.txt
+    ' | pygmentize -l sh
+}  
+
+_snip_logout(){ # just a wrapper to _snip_stdout_stderr (this one may have better mneumonic)
+    _snip_stdout_stderr
+}  
+
+_snip_python_simple_http_server(){
+    echo '
+    # for status messages, see: http://www.w3schools.com/tags/ref_httpmessages.asp
+    python -m SimpleHTTPServer 8000 &
+    firefox "http://localhost:8000/"
+    ' | pygmentize -l sh  
+}
+
+
+
 git_anonymize(){
   git config user.name "noname"
   git config user.email noname@example.com
 }
+alias twsphinx_check='firefox build/html/index.html' # 08-17-2016 (13:33)
+alias twalias='alias | pygmentize -l sh' # 08-17-2016 (13:37)
+
+git_clear_author_history(){
+  git filter-branch -f --env-filter '
+
+  CORRECT_NAME="your name"
+  CORRECT_EMAIL="your_email@example.com"
+
+  export GIT_COMMITTER_NAME="$CORRECT_NAME"
+  export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+
+  export GIT_AUTHOR_NAME="$CORRECT_NAME"
+  export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+  ' --tag-name-filter cat -- --branches --tags
+}
+
+git_author_history_tak(){
+  git filter-branch -f --env-filter '
+
+  CORRECT_NAME="Takanori Watanabe (sbia-pc125)"
+  CORRECT_EMAIL="Takanori.Watanabe@uphs.upenn.edu"
+
+  export GIT_COMMITTER_NAME="$CORRECT_NAME"
+  export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+
+  export GIT_AUTHOR_NAME="$CORRECT_NAME"
+  export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+  ' --tag-name-filter cat -- --branches --tags
+}
+
+pyg_sh(){
+  # pygmentize shell code
+  pygmentize -l sh $1
+}
+
+pyg_py(){
+  # pygmentize python code
+  pygmentize -l python $1
+}
+
+tw_print_function_name(){
+  #=========================================================================#
+  # print function names defined here
+  # (since these don't show up in $ alias 
+  #=========================================================================#
+  # http://stackoverflow.com/questions/1184268/unix-sort-treatment-of-underscore-character
+  # LC_COLLATE=C will make underscore sorted as well
+  # (grep looks from () followed by {
+  # sed shaves off all the last character following "()" bracket
+  # http://stackoverflow.com/questions/3675169/how-to-shave-off-last-character-using-sed
+  cat ~/.bashrc | grep "\(\)(?=\{)" | env LC_COLLATE=C sort -f | \
+      sed "s/().*$/()/" | stripcolors
+}
+
